@@ -8,6 +8,7 @@ Skills:
 - bloc state management
 - Design patters factory, singlaton etc
 - OOP
+- Caching system
 - Handling apis
 - Localization
 
