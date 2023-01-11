@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:store/core/theme/app_color.dart';
 import 'package:store/core/theme/app_style.dart';
 import 'package:store/core/util/size_manager.dart';
+import 'package:store/core/util/ui_helper.dart';
 import 'package:store/presentation/common/ratingbar_widget.dart';
 
 import '../../../core/util/app_navigator.dart';
@@ -36,11 +37,11 @@ class HomeScreenDealsWidget extends StatelessWidget {
 
   Widget _dealsCard(BuildContext context, int i) {
     return InkWell(
-      onTap: () => _dealCardClick(context, deals[i].productId),
+      onTap: () => _dealCardClick(context, deals[i].id),
       child: SizedBox(
         width: AppSize.width4,
         child: Card(
-          margin: AppSize.marginSTEB(end: AppSize.marginWidthExtraSmall),
+          margin: UIHelper.marginSTEB(end: AppSize.marginWidthExtraSmall),
           child: Padding(
             padding: EdgeInsets.symmetric(
               horizontal: AppSize.paddingWidthDoubleExtraSmall,
@@ -64,7 +65,7 @@ class HomeScreenDealsWidget extends StatelessWidget {
                 CachedNetworkImage(
                   width: AppSize.width2,
                   height: AppSize.width2,
-                  imageUrl: deals[i].image,
+                  imageUrl: deals[i].images.first,
                   fit: BoxFit.contain,
                 ),
                 SpacerWidget(
@@ -72,8 +73,9 @@ class HomeScreenDealsWidget extends StatelessWidget {
                 ),
                 Text(
                   deals[i].price.toString(),
-                  style: const TextStyle(
+                  style: AppStyle.textRegular(
                     color: AppColor.greyLight,
+                  ).copyWith(
                     decoration: TextDecoration.lineThrough,
                   ),
                 ),
@@ -103,6 +105,6 @@ class HomeScreenDealsWidget extends StatelessWidget {
   }
 
   void _dealCardClick(BuildContext context, int dealId) {
-    AppNavigator.push(context, Routes.routeDeal, data: dealId);
+    AppNavigator.push(context, Routes.routeDeal, data: {'id': dealId});
   }
 }

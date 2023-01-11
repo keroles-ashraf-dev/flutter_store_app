@@ -1,27 +1,33 @@
 part of 'main_screen_bloc.dart';
 
-abstract class MainScreenState extends Equatable {
-  const MainScreenState();
-
-  @override
-  List<Object> get props => [];
-}
-
-class MainScreenInitialState extends MainScreenState {
+class MainScreenState extends Equatable {
   final int screenIndex;
+  final RequestStateEnum addressRequestState;
+  final Address address;
+  final String addressError;
 
-  const MainScreenInitialState(
-      {this.screenIndex = UIConstant.mainScreenBottomNavBarDefaultIndex});
+  const MainScreenState({
+    this.screenIndex = UIConstant.mainScreenBottomNavBarDefaultIndex,
+    this.addressRequestState = RequestStateEnum.loading,
+    this.address = const Address.empty(),
+    this.addressError = AppConstant.emptyStr,
+  });
+
+  MainScreenState copyWith({
+    int? screenIndex,
+    RequestStateEnum? addressRequestState,
+    Address? address,
+    String? addressError,
+  }) {
+    return MainScreenState(
+      screenIndex: screenIndex ?? this.screenIndex,
+      addressRequestState: addressRequestState ?? this.addressRequestState,
+      address: address ?? this.address,
+      addressError: addressError ?? this.addressError,
+    );
+  }
 
   @override
-  List<Object> get props => [screenIndex];
-}
-
-class MainScreenBottomNavBarState extends MainScreenState {
-  final int screenIndex;
-
-  const MainScreenBottomNavBarState(this.screenIndex);
-
-  @override
-  List<Object> get props => [screenIndex];
+  List<Object> get props =>
+      [screenIndex, addressRequestState, address, addressError];
 }

@@ -8,7 +8,7 @@ import 'package:store/core/util/enum.dart';
 import 'package:store/core/util/function.dart';
 import 'package:store/domain/entity/user.dart';
 
-import '../../../core/util/di.dart';
+import '../../../core/util/app_module.dart';
 import '../../../domain/entity/no_param.dart';
 import '../../../domain/usecase/user/get_user_data_usecase.dart';
 
@@ -30,7 +30,9 @@ class InitialScreenBloc extends Bloc<InitialScreenEvent, InitialScreenState> {
     /// first check user token in preferences
     /// if exist then get user data from server else return loaded state
     /// to go to main screen
-    if (_appPrefs.authToken.isEmpty) {
+    if (!_appPrefs.isLoggedIn) {
+      _shareUserToDI(const User.empty());
+
       await delayScreenChanging().then((value) {
         emit(state.copyWith(getUserDataRequestState: RequestStateEnum.success));
       });
@@ -60,6 +62,8 @@ class InitialScreenBloc extends Bloc<InitialScreenEvent, InitialScreenState> {
   }
 
   void _shareUserToDI(User user) {
+    if (AppModule.isRegistered<User>()) return;
+
     /// share user object
     di.registerSingleton<User>(user);
   }

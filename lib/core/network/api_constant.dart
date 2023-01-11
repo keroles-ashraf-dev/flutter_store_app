@@ -20,6 +20,9 @@ class ApiConstant {
   static const String resDataDealsKey = 'deals';
   static const String resDataDealKey = 'deal';
   static const String resDataUserKey = 'user';
+  static const String resDataAddressKey = 'address';
+  static const String resDataAddressesKey = 'addresses';
+  static const String resDataCountryKey = 'country';
 
   /// base url
   //static const String baseUrl = 'https://top-store.lxvll.com';
@@ -35,6 +38,10 @@ class ApiConstant {
   /// deal uri
   static const String dealsUri = '/api/v1/deals';
   static const String dealUri = '/api/v1/deal';
+
+  /// address uri
+  static const String addressesUri = '/api/v1/addresses';
+  static const String addressUri = '/api/v1/address';
 
   /// category uri
   static const String mainCategoriesUri = '/api/v1/parents-categories';

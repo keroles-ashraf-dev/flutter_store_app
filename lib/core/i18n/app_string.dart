@@ -10,6 +10,7 @@ class AppString {
   static const String searchHint = 'search_hint';
   static const String gettingThingsReady = 'getting_things_ready';
   static const String login = 'login';
+  static const String logout = 'logout';
   static const String register = 'register';
   static const String firstName = 'first_name';
   static const String lastName = 'last_name';
@@ -19,6 +20,12 @@ class AppString {
   static const String confirmPassword = 'confirm_password';
   static const String notMemberYet = 'not_member_yet';
   static const String alreadyMember = 'already_member';
+  static const String addToCart = 'add_to_cart';
+  static const String inStock = 'in_stock';
+  static const String unlocated = 'unlocated';
+  static const String deliverTo = 'deliver_to';
+  static const String support = 'support';
+  static const String about = 'about';
 
   /// error handler
   static const String serverError = 'server_error';

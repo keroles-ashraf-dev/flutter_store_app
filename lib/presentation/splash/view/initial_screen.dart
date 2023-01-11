@@ -8,8 +8,8 @@ import 'package:store/presentation/common/spacer_widget.dart';
 import 'package:store/presentation/splash/component/initial_screen_request_state_widget.dart';
 import 'package:store/presentation/splash/controller/initial_screen_bloc.dart';
 
+import '../../../core/util/app_module.dart';
 import '../../../core/util/app_routes.dart';
-import '../../../core/util/di.dart';
 
 class InitialScreen extends StatelessWidget {
   const InitialScreen({Key? key}) : super(key: key);
@@ -34,7 +34,7 @@ class InitialScreen extends StatelessWidget {
               alignment: Alignment.topCenter,
               margin: EdgeInsets.symmetric(
                 vertical: AppSize.marginHeightExtraLarge,
-                horizontal: AppSize.marginWidthSmall,
+                horizontal: AppSize.marginWidthExtraSmall,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

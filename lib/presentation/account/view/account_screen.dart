@@ -3,9 +3,9 @@ import 'package:localization/localization.dart';
 import 'package:store/core/i18n/app_string.dart';
 import 'package:store/core/util/app_navigator.dart';
 import 'package:store/core/util/app_routes.dart';
-import 'package:store/core/util/di.dart';
 import 'package:store/core/util/size_manager.dart';
 
+import '../../../core/util/app_module.dart';
 import '../../../domain/entity/user.dart';
 
 class AccountScreen extends StatelessWidget {

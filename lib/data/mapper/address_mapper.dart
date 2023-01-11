@@ -1,3 +1,6 @@
+import 'package:store/data/model/get_address_request_model.dart';
+import 'package:store/domain/entity/get_address_request.dart';
+
 import '../../domain/entity/address.dart';
 import '../model/address_model.dart';
 
@@ -31,6 +34,14 @@ extension AddressModelMapper on AddressModel {
       floor: floor,
       landMark: landMark,
       postCode: postCode,
+    );
+  }
+}
+
+extension GetAddressRequestMapper on GetAddressRequest {
+  GetAddressRequestModel get toModel {
+    return GetAddressRequestModel(
+      id: id,
     );
   }
 }

@@ -6,8 +6,8 @@ import 'package:store/core/util/enum.dart';
 import 'package:store/core/util/size_manager.dart';
 import 'package:store/presentation/register/controller/register_screen_bloc.dart';
 
+import '../../../core/util/app_module.dart';
 import '../../../core/util/app_restart.dart';
-import '../../../core/util/di.dart';
 import '../../common/sub_appbar_widget.dart';
 import '../component/register_screen_bloc_builder_widget.dart';
 

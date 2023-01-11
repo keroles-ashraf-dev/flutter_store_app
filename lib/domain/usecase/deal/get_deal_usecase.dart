@@ -6,10 +6,10 @@ import 'package:store/domain/repository/base_deal_repository.dart';
 
 import '../base/base_usecase.dart';
 
-class GetDealsUsecase extends BaseUsecase<Deal, GetDealRequest> {
+class GetDealUsecase extends BaseUsecase<Deal, GetDealRequest> {
   final BaseDealRepository _dealRepository;
 
-  GetDealsUsecase(this._dealRepository);
+  GetDealUsecase(this._dealRepository);
 
   @override
   Future<Either<Failure, Deal>> call(GetDealRequest params) async {

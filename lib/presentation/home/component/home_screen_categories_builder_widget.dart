@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/debug/function.dart';
 import 'package:store/presentation/home/component/home_screen_categories_loading_widget.dart';
 import 'package:store/presentation/home/component/home_screen_categories_widget.dart';
 
 import '../../../core/util/enum.dart';
+import '../../common/center_error_widget.dart';
 import '../controller/home_screen_bloc.dart';
-import 'home_screen_error_widget.dart';
 
 class HomeScreenCategoriesBuilderWidget extends StatelessWidget {
   const HomeScreenCategoriesBuilderWidget({Key? key}) : super(key: key);
@@ -26,7 +25,7 @@ class HomeScreenCategoriesBuilderWidget extends StatelessWidget {
           case RequestStateEnum.success:
             return HomeScreenCategoriesWidget(categories: state.categories);
           case RequestStateEnum.failure:
-            return HomeScreenErrorWidget(error: state.categoriesError);
+            return CenterErrorWidget(error: state.categoriesError);
         }
       },
     );

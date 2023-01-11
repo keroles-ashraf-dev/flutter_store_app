@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:store/core/util/size_manager.dart';
-import 'package:store/presentation/common/error_message_widget.dart';
+import 'package:store/presentation/common/form_error_widget.dart';
 import 'package:store/presentation/common/spacer_widget.dart';
 import 'package:store/presentation/login/controller/login_screen_bloc.dart';
 
@@ -40,7 +40,7 @@ class LoginScreenFormWidget extends StatelessWidget {
       children: [
         Visibility(
           visible: serverError.isNotEmpty,
-          child: ErrorMessageWidget(message: serverError),
+          child: FormErrorWidget(message: serverError),
         ),
         SpacerWidget(
           height: AppSize.height0_03,

@@ -9,7 +9,7 @@ import 'package:store/presentation/common/sub_appbar_widget.dart';
 import 'package:store/presentation/language/component/languages_list_widget.dart';
 import 'package:store/presentation/language/controller/language_screen_bloc.dart';
 
-import '../../../core/util/di.dart';
+import '../../../core/util/app_module.dart';
 import '../../common/elevated_btn_widget.dart';
 
 class LanguageScreen extends StatelessWidget {

@@ -6,9 +6,11 @@ class Deal extends Equatable {
   final int id;
   final int productId;
   final String name;
-  final String image;
+  final String description;
+  final List<String> images;
   final double price;
   final double discountedPrice;
+  final int availableCount;
   final double rating;
   final int ratersCount;
 
@@ -16,9 +18,11 @@ class Deal extends Equatable {
     required this.id,
     required this.productId,
     required this.name,
-    required this.image,
+    required this.description,
+    required this.images,
     required this.price,
     required this.discountedPrice,
+    required this.availableCount,
     required this.rating,
     required this.ratersCount,
   });
@@ -28,9 +32,11 @@ class Deal extends Equatable {
     this.id = AppConstant.emptyInt,
     this.productId = AppConstant.emptyInt,
     this.name = AppConstant.emptyStr,
-    this.image = AppConstant.emptyStr,
+    this.description = AppConstant.emptyStr,
+    this.images = AppConstant.emptyStrList,
     this.price = AppConstant.emptyDol,
     this.discountedPrice = AppConstant.emptyDol,
+    this.availableCount = AppConstant.emptyInt,
     this.rating = AppConstant.emptyDol,
     this.ratersCount = AppConstant.emptyInt,
   });
@@ -40,9 +46,11 @@ class Deal extends Equatable {
         id,
         productId,
         name,
-        image,
+        description,
+        images,
         price,
         discountedPrice,
+        availableCount,
         rating,
         ratersCount,
       ];

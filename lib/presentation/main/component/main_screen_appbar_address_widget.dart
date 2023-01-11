@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:localization/localization.dart';
+import 'package:store/core/i18n/app_string.dart';
+import 'package:store/core/theme/app_color.dart';
+import 'package:store/core/theme/app_style.dart';
 import 'package:store/core/util/size_manager.dart';
+
+import '../../../core/util/enum.dart';
+import '../../../core/util/ui_helper.dart';
+import '../../common/spacer_widget.dart';
+import '../controller/main_screen_bloc.dart';
 
 class MainScreenAppbarAddressWidget extends StatelessWidget {
   const MainScreenAppbarAddressWidget({Key? key}) : super(key: key);
@@ -7,17 +17,63 @@ class MainScreenAppbarAddressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-        expandedHeight: AppSize.height0_05,
-        toolbarHeight: AppSize.height0_05,
-        floating: false,
-        elevation: AppSize.elevationZero,
-        flexibleSpace: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints _) {
-          return Container(
-            color: Colors.amber,
-            width: AppSize.width,
-            height: AppSize.height0_05,
-          );
-        }));
+      expandedHeight: AppSize.height0_05,
+      toolbarHeight: AppSize.height0_05,
+      backgroundColor: Colors.amber,
+      floating: false,
+      elevation: AppSize.elevationZero,
+      flexibleSpace: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: AppSize.marginWidthDoubleExtraSmall,
+        ),
+        alignment: UIHelper.alienCenterStart(),
+        child: BlocBuilder<MainScreenBloc, MainScreenState>(
+          buildWhen: (prev, current) {
+            return prev.addressRequestState != current.addressRequestState;
+          },
+          builder: (context, state) {
+            switch (state.addressRequestState) {
+              case RequestStateEnum.initializing:
+                return _addressLoadingWidget();
+              case RequestStateEnum.loading:
+                return _addressLoadingWidget();
+              case RequestStateEnum.success:
+                return _addressWidget(state.address.country);
+              case RequestStateEnum.failure:
+                return _addressWidget(AppString.unlocated.i18n());
+            }
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _addressWidget(String address) {
+    return SizedBox(
+      height: AppSize.height0_05,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            AppString.deliverTo.i18n(),
+            style: AppStyle.textRegular(color: AppColor.blackLight),
+          ),
+          SpacerWidget(width: AppSize.width0_01),
+          Text(
+            address,
+            style: AppStyle.textMedium(color: AppColor.blackLight),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _addressLoadingWidget() {
+    return SizedBox(
+      height: AppSize.width0_03,
+      width: AppSize.width0_03,
+      child: const CircularProgressIndicator.adaptive(),
+    );
   }
 }

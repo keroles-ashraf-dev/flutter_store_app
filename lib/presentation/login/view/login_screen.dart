@@ -7,8 +7,8 @@ import 'package:store/core/util/size_manager.dart';
 import 'package:store/presentation/login/component/login_screen_bloc_builder_widget.dart';
 import 'package:store/presentation/login/controller/login_screen_bloc.dart';
 
+import '../../../core/util/app_module.dart';
 import '../../../core/util/app_restart.dart';
-import '../../../core/util/di.dart';
 import '../../common/sub_appbar_widget.dart';
 
 class LoginScreen extends StatelessWidget {

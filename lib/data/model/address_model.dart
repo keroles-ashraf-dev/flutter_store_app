@@ -1,5 +1,7 @@
 import 'package:store/domain/entity/address.dart';
 
+import '../../core/util/app_constant.dart';
+
 class AddressModel extends Address {
   const AddressModel(
       {required super.id,
@@ -12,6 +14,20 @@ class AddressModel extends Address {
       required super.floor,
       required super.landMark,
       required super.postCode});
+
+  /// return object with only passed values
+  const AddressModel.some({
+    super.id = AppConstant.emptyInt,
+    super.country = AppConstant.emptyStr,
+    super.state = AppConstant.emptyStr,
+    super.city = AppConstant.emptyStr,
+    super.area = AppConstant.emptyStr,
+    super.street = AppConstant.emptyStr,
+    super.building = AppConstant.emptyStr,
+    super.floor = AppConstant.emptyInt,
+    super.landMark = AppConstant.emptyStr,
+    super.postCode = AppConstant.emptyStr,
+  });
 
   factory AddressModel.fromJson(Map<String, dynamic> json) {
     return AddressModel(
@@ -26,5 +42,20 @@ class AddressModel extends Address {
       landMark: json["nearest_landMark"],
       postCode: json["postCode"],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "country": country,
+      "state": state,
+      "city": city,
+      "area": area,
+      "street": street,
+      "building": building,
+      "floor": floor,
+      "landMark": landMark,
+      "postCode": postCode,
+    };
   }
 }

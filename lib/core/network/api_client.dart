@@ -3,6 +3,7 @@ import 'package:store/core/error/error_handling.dart';
 import 'package:store/core/network/dio_factory.dart';
 
 import '../error/exception.dart';
+import '../util/app_constant.dart';
 import '../util/app_prefs.dart';
 import 'api_constant.dart';
 
@@ -18,7 +19,7 @@ abstract class ApiClient {
     String uri, {
     bool sendAuth = true,
     Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
+    Map<String, dynamic> params = AppConstant.emptyStrMap,
   });
 
   /// post request
@@ -27,7 +28,7 @@ abstract class ApiClient {
     dynamic body, {
     bool sendAuth = true,
     Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
+    Map<String, dynamic> params = AppConstant.emptyStrMap,
   });
 
   /// update request
@@ -36,7 +37,7 @@ abstract class ApiClient {
     dynamic body, {
     bool sendAuth = true,
     Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
+    Map<String, dynamic> params = AppConstant.emptyStrMap,
   });
 
   /// delete request
@@ -45,7 +46,7 @@ abstract class ApiClient {
     dynamic body, {
     bool sendAuth = true,
     Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
+    Map<String, dynamic> params = AppConstant.emptyStrMap,
   });
 }
 
@@ -85,7 +86,7 @@ class DioClient implements ApiClient {
     String uri, {
     bool sendAuth = true,
     Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
+    Map<String, dynamic> params = AppConstant.emptyStrMap,
   }) async {
     final Dio dio = _initDio(sendAuth, headers, params);
 
@@ -105,7 +106,7 @@ class DioClient implements ApiClient {
     dynamic body, {
     bool sendAuth = true,
     Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
+    Map<String, dynamic> params = AppConstant.emptyStrMap,
   }) async {
     final Dio dio = _initDio(sendAuth, headers, params);
 
@@ -125,7 +126,7 @@ class DioClient implements ApiClient {
     dynamic body, {
     bool sendAuth = true,
     Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
+    Map<String, dynamic> params = AppConstant.emptyStrMap,
   }) async {
     final Dio dio = _initDio(sendAuth, headers, params);
 
@@ -145,7 +146,7 @@ class DioClient implements ApiClient {
     dynamic body, {
     bool sendAuth = true,
     Map<String, dynamic>? headers,
-    Map<String, dynamic>? params,
+    Map<String, dynamic> params = AppConstant.emptyStrMap,
   }) async {
     final Dio dio = _initDio(sendAuth, headers, params);
 
@@ -159,8 +160,11 @@ class DioClient implements ApiClient {
   }
 
   /// init dio instance
-  Dio _initDio(bool sendAuth, Map<String, dynamic>? headers,
-      Map<String, dynamic>? params) {
+  Dio _initDio(
+    bool sendAuth,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic> params,
+  ) {
     final Dio dio = _dioFactory();
 
     /// replace default headers by passed one
@@ -172,10 +176,8 @@ class DioClient implements ApiClient {
       options.headers = defaultHeaders;
     }
 
-    /// set parameters if passed
-    if (params != null) {
-      options.queryParameters = params;
-    }
+    /// set passed parameters
+    options.queryParameters = params;
 
     dio.options = options;
 

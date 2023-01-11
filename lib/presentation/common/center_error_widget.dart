@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class HomeScreenErrorWidget extends StatelessWidget {
+class CenterErrorWidget extends StatelessWidget {
   final String error;
-  const HomeScreenErrorWidget({Key? key, required this.error}) : super(key: key);
+  const CenterErrorWidget({Key? key, required this.error}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

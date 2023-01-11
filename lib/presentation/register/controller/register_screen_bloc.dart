@@ -9,8 +9,8 @@ import 'package:store/domain/usecase/auth/register_usecase.dart';
 
 import '../../../core/error/failure.dart';
 import '../../../core/i18n/app_string.dart';
+import '../../../core/util/app_module.dart';
 import '../../../core/util/app_prefs.dart';
-import '../../../core/util/di.dart';
 import '../../../core/util/validator.dart';
 import '../../../domain/entity/user.dart';
 

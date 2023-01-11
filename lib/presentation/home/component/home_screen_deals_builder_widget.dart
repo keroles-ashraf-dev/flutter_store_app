@@ -5,8 +5,8 @@ import 'package:store/presentation/home/component/home_screen_deals_widget.dart'
 
 import '../../../core/debug/function.dart';
 import '../../../core/util/enum.dart';
+import '../../common/center_error_widget.dart';
 import '../controller/home_screen_bloc.dart';
-import 'home_screen_error_widget.dart';
 
 class HomeScreenDealsBuilderWidget extends StatelessWidget {
   const HomeScreenDealsBuilderWidget({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class HomeScreenDealsBuilderWidget extends StatelessWidget {
           case RequestStateEnum.success:
             return HomeScreenDealsWidget(deals: state.deals);
           case RequestStateEnum.failure:
-            return HomeScreenErrorWidget(error: state.dealsError);
+            return CenterErrorWidget(error: state.dealsError);
         }
       },
     );

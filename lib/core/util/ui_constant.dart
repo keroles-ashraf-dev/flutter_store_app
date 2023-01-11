@@ -1,5 +1,5 @@
 class UIConstant {
-  static const int screenChangeInterval = 1;
+  static const int screenChangeInterval = 2;
 
   /// main screen
   static const int mainScreenBottomNavBarDefaultIndex = 0;

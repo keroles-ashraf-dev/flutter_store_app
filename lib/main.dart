@@ -8,7 +8,7 @@ import 'app.dart';
 import 'core/debug/bloc_observer.dart';
 import 'core/debug/function.dart';
 import 'core/i18n/app_localization.dart';
-import 'core/util/di.dart';
+import 'core/util/app_module.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ Future<void> main() async {
   }
 
   /// setup app dependency injection
-  initDI();
+  AppModule.init();
 
   /// init app preferences (language, theme, etc)
   await di<AppPrefs>().init();

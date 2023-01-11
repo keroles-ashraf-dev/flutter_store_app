@@ -125,14 +125,4 @@ class AppSize {
   static final double iconMedium = width * 0.07;
   static final double iconLarge = width * 0.08;
   static final double iconExtraLarge = width * 0.3;
-
-  /// helping to set margin start and end
-  static EdgeInsets marginSTEB({double start = 0.0, double top = 0.0, double end = 0.0, double bottom = 0.0}){
-    return EdgeInsets.only(
-      right: AppLocalization.isRtl ? start : end,
-      left: AppLocalization.isRtl ? end : start,
-      top: top,
-      bottom: bottom,
-    );
-  }
 }

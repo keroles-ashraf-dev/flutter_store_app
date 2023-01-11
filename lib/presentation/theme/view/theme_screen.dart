@@ -10,7 +10,7 @@ import 'package:store/presentation/common/elevated_btn_widget.dart';
 import 'package:store/presentation/common/sub_appbar_widget.dart';
 import 'package:store/presentation/theme/controller/theme_screen_bloc.dart';
 
-import '../../../core/util/di.dart';
+import '../../../core/util/app_module.dart';
 import '../component/themes_list_widget.dart';
 
 class ThemeScreen extends StatelessWidget {

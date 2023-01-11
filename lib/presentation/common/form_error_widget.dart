@@ -4,10 +4,10 @@ import 'package:store/core/util/size_manager.dart';
 
 import '../../core/theme/app_color.dart';
 
-class ErrorMessageWidget extends StatelessWidget {
+class FormErrorWidget extends StatelessWidget {
   final String message;
 
-  const ErrorMessageWidget({Key? key, required this.message}) : super(key: key);
+  const FormErrorWidget({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

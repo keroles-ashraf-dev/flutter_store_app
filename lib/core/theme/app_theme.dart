@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:store/core/theme/app_style.dart';
 import 'package:store/core/util/app_prefs.dart';
-import 'package:store/core/util/di.dart';
 import 'package:store/core/util/media_query_data.dart';
 import 'package:store/core/util/size_manager.dart';
 
+import '../util/app_module.dart';
 import 'app_color.dart';
 
 enum ThemeEnum { system, light, dark }

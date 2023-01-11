@@ -30,6 +30,8 @@ class AppPrefs {
 
   String get authToken => _authToken;
 
+  bool get isLoggedIn => _authToken.isNotEmpty;
+
   Future<bool> setAppLanguage(String lang) async {
     bool success = await _prefs.setString(AppPrefsKeys.language, lang);
 

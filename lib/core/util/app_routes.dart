@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store/presentation/deal/view/deal_screen.dart';
 import 'package:store/presentation/login/view/login_screen.dart';
 import 'package:store/presentation/main/view/main_screen.dart';
 import 'package:store/presentation/register/view/register_screen.dart';
@@ -39,6 +40,9 @@ class AppRoutes {
         case Routes.routeLanguage:
         return MaterialPageRoute(
             settings: routeSettings, builder: ((context) => const LanguageScreen()));
+      case Routes.routeDeal:
+        return MaterialPageRoute(
+            settings: routeSettings, builder: ((context) => DealScreen()));
       default:
         return MaterialPageRoute(
             settings: routeSettings, builder: ((context) => Container()));
