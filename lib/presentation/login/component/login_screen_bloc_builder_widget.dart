@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/presentation/common/loading_screen.dart';
+import 'package:store/presentation/common/loading_widget.dart';
 import 'package:store/presentation/login/component/login_screen_content_widget.dart';
 import 'package:store/presentation/login/component/login_screen_form_widget.dart';
 
@@ -26,7 +26,7 @@ class LoginScreenBlocBuilderWidget extends StatelessWidget {
               serverError: state.serverError,
             );
           case RequestStateEnum.loading:
-            return const LoadingScreen();
+            return const LoadingWidget();
           case RequestStateEnum.failure:
             return LoginScreenContentWidget(
               loginRequest: state.loginRequest,
@@ -34,7 +34,7 @@ class LoginScreenBlocBuilderWidget extends StatelessWidget {
               serverError: state.serverError,
             );
           case RequestStateEnum.success:
-            return const LoadingScreen();
+            return const LoadingWidget();
         }
       },
     );

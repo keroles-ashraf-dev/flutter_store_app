@@ -23,7 +23,7 @@ class HomeScreenCarouselWidget extends StatelessWidget {
           autoPlayCurve: Curves.easeInOutQuad,
           enableInfiniteScroll: true,
           disableCenter: true,
-          viewportFraction: UIConstant.homeCarouselViewport,
+          viewportFraction: UIConstant.carouselViewport,
         ),
         items: carousel.map((i) => carouselCard(i)).toList(),
       ),

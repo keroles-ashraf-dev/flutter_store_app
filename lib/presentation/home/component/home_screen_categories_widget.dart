@@ -26,7 +26,8 @@ class HomeScreenCategoriesWidget extends StatelessWidget {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: (AppSize.width / UIConstant.homeCategoryCardWidth).floor(),
+          crossAxisCount:
+              (AppSize.width / UIConstant.homeCategoryCardWidth).floor(),
           childAspectRatio: UIConstant.homeCategoryCardAspectRatio,
           crossAxisSpacing: AppSize.width0_02,
           mainAxisSpacing: AppSize.width0_02,
@@ -39,7 +40,7 @@ class HomeScreenCategoriesWidget extends StatelessWidget {
 
   Widget categoryCard(BuildContext context, int i) {
     return InkWell(
-      onTap: () => _categoryCardClick(context, categories[i].id),
+      onTap: () => _categoryCardClick(context, categories[i].name, categories[i].id),
       child: Card(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -68,7 +69,7 @@ class HomeScreenCategoriesWidget extends StatelessWidget {
     );
   }
 
-  void _categoryCardClick(BuildContext context, int categoryId) {
-    AppNavigator.push(context, Routes.routeCategory, data: categoryId);
+  void _categoryCardClick(BuildContext context, String categoryName, int categoryId) {
+    AppNavigator.push(context, Routes.routeCategory, data: {'name': categoryName, 'id': categoryId});
   }
 }

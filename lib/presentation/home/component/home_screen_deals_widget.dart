@@ -6,6 +6,7 @@ import 'package:store/core/util/size_manager.dart';
 import 'package:store/core/util/ui_helper.dart';
 import 'package:store/presentation/common/ratingbar_widget.dart';
 
+import '../../../core/util/app_constant.dart';
 import '../../../core/util/app_navigator.dart';
 import '../../../core/util/app_routes.dart';
 import '../../../domain/entity/deal.dart';
@@ -23,8 +24,9 @@ class HomeScreenDealsWidget extends StatelessWidget {
       width: AppSize.width,
       height: AppSize.height3_5,
       margin: EdgeInsets.only(
-        right: AppSize.marginWidthExtraSmall,
+        bottom: AppSize.marginHeightDoubleExtraSmall,
         left: AppSize.marginWidthExtraSmall,
+        right: AppSize.marginWidthExtraSmall,
       ),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -72,21 +74,19 @@ class HomeScreenDealsWidget extends StatelessWidget {
                   height: AppSize.height0_01,
                 ),
                 Text(
-                  deals[i].price.toString(),
+                  deals[i].price.toString() + AppConstant.dollarSign,
                   style: AppStyle.textRegular(
                     color: AppColor.greyLight,
                   ).copyWith(
                     decoration: TextDecoration.lineThrough,
                   ),
                 ),
-                SpacerWidget(
-                  height: AppSize.height0_01,
-                ),
+                SpacerWidget(height: AppSize.height0_01),
                 Text(
-                  deals[i].discountedPrice.toString(),
+                  deals[i].discountedPrice.toString() + AppConstant.dollarSign,
                   style: AppStyle.textBold(
                     color: AppColor.orange,
-                    size: AppSize.fontLarge,
+                    size: AppSize.fontExtraLarge,
                   ),
                 ),
                 SpacerWidget(

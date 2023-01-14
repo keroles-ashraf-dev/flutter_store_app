@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
@@ -19,7 +20,7 @@ class MainScreenAppbarAddressWidget extends StatelessWidget {
     return SliverAppBar(
       expandedHeight: AppSize.height0_05,
       toolbarHeight: AppSize.height0_05,
-      backgroundColor: Colors.amber,
+      backgroundColor: AppColor.orangeLight,
       floating: false,
       elevation: AppSize.elevationZero,
       flexibleSpace: Container(
@@ -73,7 +74,7 @@ class MainScreenAppbarAddressWidget extends StatelessWidget {
     return SizedBox(
       height: AppSize.width0_03,
       width: AppSize.width0_03,
-      child: const CircularProgressIndicator.adaptive(),
+      child: const CupertinoActivityIndicator(color: AppColor.black),
     );
   }
 }

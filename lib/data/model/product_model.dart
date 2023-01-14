@@ -1,12 +1,15 @@
+import 'package:store/core/util/extension.dart';
 import 'package:store/domain/entity/product.dart';
 
 class ProductModel extends Product {
   const ProductModel({
     required super.id,
     required super.name,
-    required super.image,
+    required super.description,
+    required super.images,
     required super.price,
     required super.discountedPrice,
+    required super.availableCount,
     required super.rating,
     required super.ratersCount,
   });
@@ -15,10 +18,12 @@ class ProductModel extends Product {
     return ProductModel(
       id: json['id'],
       name: json['name'],
-      image: json['image'],
+      description: json['description'].toString().orEmpty(),
+      images: List.from(json['images']),
       price: json['price'],
-      discountedPrice: json['discounted_price'],
-      rating: json['rating'],
+      discountedPrice: json['discounted_price'].toString().toDoubleOrEmpty(),
+      availableCount: json['available_count'],
+      rating: json['rating'].toString().toDoubleOrEmpty(),
       ratersCount: json['raters_count'],
     );
   }
@@ -27,9 +32,11 @@ class ProductModel extends Product {
     return {
       "id": id,
       "name": name,
-      "image": image,
+      "description": description,
+      "images": images,
       "price": price,
       "discounted-price": discountedPrice,
+      "available-count": availableCount,
       "rating": rating,
       "raters-count": ratersCount,
     };

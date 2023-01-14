@@ -7,9 +7,10 @@ extension NonNullString on String? {
   }
 }
 
-extension StringToDouble on String {
-  double toDouble() {
-    return double.tryParse(this) ?? AppConstant.zeroDol;
+extension StringToDouble on String? {
+  double toDoubleOrEmpty() {
+    if (this == null) return AppConstant.emptyDol;
+    return double.tryParse(this!) ?? AppConstant.emptyDol;
   }
 }
 

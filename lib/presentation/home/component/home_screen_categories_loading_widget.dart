@@ -26,7 +26,7 @@ class HomeScreenCategoriesLoadingWidget extends StatelessWidget {
             crossAxisSpacing: AppSize.width0_02,
             mainAxisSpacing: AppSize.width0_02,
           ),
-          itemCount: UIConstant.loadingItemsCount,
+          itemCount: UIConstant.homeShimmerLoadingItemsCount,
           itemBuilder: (context, i) => _categoryCard(),
         ),
       ),

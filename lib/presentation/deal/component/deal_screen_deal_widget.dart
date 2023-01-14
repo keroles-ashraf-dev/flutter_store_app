@@ -83,7 +83,7 @@ class DealScreenDealWidget extends StatelessWidget {
                 ),
                 SpacerWidget(height: AppSize.height0_02),
                 Text(deal.description),
-                SpacerWidget(height: AppSize.height0_02),
+                SpacerWidget(height: AppSize.height0_05),
                 ElevatedBtnWidget(
                   width: AppSize.width,
                   text: AppString.addToCart.i18n(),

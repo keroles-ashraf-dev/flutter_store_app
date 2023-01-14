@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:store/data/datasource/remote/product_remote_datasource.dart';
 import 'package:store/data/mapper/product_mapper.dart';
+import 'package:store/domain/entity/get_category_products_request.dart';
 import 'package:store/domain/entity/product.dart';
 import 'package:store/domain/repository/base_product_repository.dart';
 
@@ -24,33 +25,21 @@ class ProductRepositoryImpl implements BaseProductRepository {
   );
 
   @override
-  Future<Either<Failure, List<Product>>> getDeals() async {
+  Future<Either<Failure, List<Product>>> getCategoryProducts(GetCategoryProductsRequest request) async {
     try {
-      /// load data from cache
-      final dealsModels = await _productLocalDatasource.getDeals();
-      final deals = dealsModels.map((e) => e.toEntity).toList();
-
-      return Right(deals);
-    } on CacheException catch (_) {
-      /// cache thrown exception so load data from server
-      try {
-        /// check network first
-        if (!(await _networkInfo.isConnected)) {
-          return Left(_errorHandler.localError());
-        }
-
-        /// load data from server
-        final dealsModels = await _productRemoteDatasource.getDeals();
-
-        /// cache data
-        await _productLocalDatasource.cacheDeals(dealsModels);
-
-        final deals = dealsModels.map((e) => e.toEntity).toList();
-        return Right(deals);
-      } on ServerException catch (e) {
-        /// server thrown exception so return failure
-        return Left(e.serverFailure);
+      /// check network first
+      if (!(await _networkInfo.isConnected)) {
+        return Left(_errorHandler.localError());
       }
+
+      /// load data from server
+      final prodsModels = await _productRemoteDatasource.getCategoryProducts(request.toModel);
+
+      final prods = prodsModels.map((e) => e.toEntity).toList();
+      return Right(prods);
+    } on ServerException catch (e) {
+      /// server thrown exception so return failure
+      return Left(e.serverFailure);
     }
   }
 }

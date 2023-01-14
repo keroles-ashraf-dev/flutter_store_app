@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store/core/util/ui_constant.dart';
 
 import '../../../core/util/size_manager.dart';
 import '../../common/shimmer_widget.dart';
@@ -19,7 +20,7 @@ class HomeScreenDealsLoadingWidget extends StatelessWidget {
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
-          itemCount: 3,
+          itemCount: UIConstant.homeShimmerLoadingItemsCount,
           itemBuilder: (context, i) => _dealsCard(),
         ),
       ),

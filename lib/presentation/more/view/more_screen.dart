@@ -34,12 +34,12 @@ class MoreScreen extends StatelessWidget {
             MoreItemWidget(
               title: AppString.support.i18n(),
               leading: Icon(Icons.contact_support_outlined, size: AppSize.iconSmall),
-              route: Routes.routeLanguage,
+              route: Routes.routeSupport,
             ),
             MoreItemWidget(
               title: AppString.about.i18n(),
               leading: Icon(Icons.info_outline, size: AppSize.iconSmall),
-              route: Routes.routeLanguage,
+              route: Routes.routeAbout,
             ),
             Visibility(
               visible: di<AppPrefs>().isLoggedIn,
@@ -51,7 +51,7 @@ class MoreScreen extends StatelessWidget {
               child: MoreItemWidget(
                 title: AppString.logout.i18n(),
                 leading: Icon(Icons.power_settings_new, size: AppSize.iconSmall),
-                route: Routes.routeLanguage,
+                route: Routes.routeLogout,
               ),
             ),
           ],

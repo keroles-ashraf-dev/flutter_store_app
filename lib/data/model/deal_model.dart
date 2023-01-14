@@ -23,9 +23,9 @@ class DealModel extends Deal {
       description: json['description'],
       images: List.from(json['images']),
       price: json['price'],
-      discountedPrice: json['discounted_price'],
+      discountedPrice: json['discounted_price'].toString().toDoubleOrEmpty(),
       availableCount: json['available_count'],
-      rating: json['rating'].toString().toDouble(),
+      rating: json['rating'].toString().toDoubleOrEmpty(),
       ratersCount: json['raters_count'],
     );
   }

@@ -26,6 +26,7 @@ class AppString {
   static const String deliverTo = 'deliver_to';
   static const String support = 'support';
   static const String about = 'about';
+  static const String more = 'more';
 
   /// error handler
   static const String serverError = 'server_error';

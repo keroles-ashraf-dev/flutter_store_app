@@ -11,7 +11,9 @@ import 'package:store/domain/usecase/address/get_address_usecase.dart';
 import 'package:store/domain/usecase/auth/login_usecase.dart';
 import 'package:store/domain/usecase/auth/register_usecase.dart';
 import 'package:store/domain/usecase/category/get_main_categories_usecase.dart';
+import 'package:store/domain/usecase/product/get_category_products_usecase.dart';
 import 'package:store/domain/usecase/user/get_user_data_usecase.dart';
+import 'package:store/presentation/category/controller/category_screen_bloc.dart';
 import 'package:store/presentation/home/controller/home_screen_bloc.dart';
 import 'package:store/presentation/login/controller/login_screen_bloc.dart';
 import 'package:store/presentation/register/controller/register_screen_bloc.dart';
@@ -69,8 +71,7 @@ class AppModule {
     di.registerLazySingleton<Validator>(() => Validator());
     di.registerLazySingleton<ErrorHandler>(() => ErrorHandler());
     di.registerLazySingleton<CacheManager>(() => CacheManager());
-    di.registerLazySingleton<ApiManager>(
-        () => ApiManager(di<AppPrefs>(), di<ErrorHandler>()));
+    di.registerLazySingleton<ApiManager>(() => ApiManager(di<AppPrefs>(), di<ErrorHandler>()));
 
     /// bloc
     di.registerFactory<InitialScreenBloc>(
@@ -83,8 +84,10 @@ class AppModule {
         () => RegisterScreenBloc(di<AppPrefs>(), di<RegisterUsecase>()));
     di.registerFactory<HomeScreenBloc>(
       () => HomeScreenBloc(di<GetMainCarouselUsecase>(), di<GetMainCategoriesUsecase>(), di<GetDealsUsecase>()),);
+    di.registerFactory<CategoryScreenBloc>(
+        () => CategoryScreenBloc(di<GetCategoryProductsUsecase>()));
     di.registerFactory<DealScreenBloc>(
-        () => DealScreenBloc(di<GetDealUsecase>()));
+            () => DealScreenBloc(di<GetDealUsecase>()));
     di.registerFactory<ThemeScreenBloc>(() => ThemeScreenBloc());
     di.registerFactory<LanguageScreenBloc>(() => LanguageScreenBloc());
 
@@ -105,6 +108,8 @@ class AppModule {
         () => GetDealUsecase(di<BaseDealRepository>()));
     di.registerLazySingleton<GetAddressUsecase>(
         () => GetAddressUsecase(di<BaseAddressRepository>()));
+    di.registerLazySingleton<GetCategoryProductsUsecase>(
+        () => GetCategoryProductsUsecase(di<BaseProductRepository>()));
 
     /// repository
     di.registerLazySingleton<BaseUserRepository>(() => UserRepositoryImpl(

@@ -23,7 +23,7 @@ class CacheManager {
 
   /// check if cache is valid and exists
   Future<bool> isValid(String createdKey, String dataKey) async {
-    return false;
+    //return false;
     final int? created = (await _cacheClient.read(createdKey)) as int?;
 
     if (created == null) return false;

@@ -28,7 +28,7 @@ class CarouserWidget extends StatelessWidget {
           autoPlayCurve: Curves.easeInOutQuad,
           enableInfiniteScroll: true,
           disableCenter: true,
-          viewportFraction: UIConstant.homeCarouselViewport,
+          viewportFraction: UIConstant.carouselViewport,
         ),
         items: images.map((i) => carouselCard(i)).toList(),
       ),
