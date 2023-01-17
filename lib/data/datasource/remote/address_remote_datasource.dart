@@ -1,8 +1,8 @@
-import 'package:store/core/network/api_constant.dart';
 import 'package:store/data/model/address_model.dart';
 import 'package:store/data/model/get_address_request_model.dart';
 
-import '../../../core/network/api_manager.dart';
+import '../../network/api_constant.dart';
+import '../../network/api_manager.dart';
 
 abstract class BaseAddressRemoteDatasource {
   Future<List<AddressModel>> getAddresses();

@@ -1,7 +1,6 @@
-import 'package:store/core/network/api_constant.dart';
-import 'package:store/data/model/carousel_model.dart';
-
-import '../../../core/network/api_manager.dart';
+import '../../model/carousel_model.dart';
+import '../../network/api_constant.dart';
+import '../../network/api_manager.dart';
 
 abstract class BaseCarouselRemoteDatasource {
   Future<List<CarouselItemModel>> getMainCarousel();

@@ -1,7 +1,7 @@
-import 'package:store/core/network/api_constant.dart';
 import 'package:store/data/model/category_model.dart';
 
-import '../../../core/network/api_manager.dart';
+import '../../network/api_constant.dart';
+import '../../network/api_manager.dart';
 
 abstract class BaseCategoryRemoteDatasource {
   Future<List<CategoryModel>> getMainCategories();

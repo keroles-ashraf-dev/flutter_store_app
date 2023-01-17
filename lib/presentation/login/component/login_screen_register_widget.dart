@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/theme/app_style.dart';
 
-import '../../../core/navigation/app_navigator.dart';
-import '../../../core/navigation/routes.dart';
-import '../../../core/util/size_manager.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/navigation/app_navigator.dart';
+import '../../../app/navigation/routes.dart';
+import '../../../app/theme/app_color.dart';
+import '../../../app/theme/app_style.dart';
+import '../../resource/size_manager.dart';
 
 class LoginScreenRegisterWidget extends StatelessWidget {
   const LoginScreenRegisterWidget({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class LoginScreenRegisterWidget extends StatelessWidget {
           onPressed: () => AppNavigator.replace(context, Routes.routeRegister),
           child: Text(
             AppString.register.i18n(),
-            style: AppStyle.textRegular(color: Theme.of(context).primaryColor),
+            style: AppStyle.textRegular(color: AppColor.primary),
           ),
         ),
       ],

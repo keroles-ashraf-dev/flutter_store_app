@@ -1,20 +1,18 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/debug/function.dart';
-import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/enum.dart';
 import 'package:store/domain/entity/carousel_item.dart';
 import 'package:store/domain/entity/no_param.dart';
 
-import '../../../core/error/failure.dart';
-import '../../../core/util/function.dart';
-import '../../../core/util/ui_constant.dart';
+import '../../../app/error/failure.dart';
+import '../../../app/util/app_constant.dart';
+import '../../../app/util/enum.dart';
 import '../../../domain/entity/category.dart';
 import '../../../domain/entity/deal.dart';
 import '../../../domain/usecase/carousel/get_main_carousel_usecase.dart';
 import '../../../domain/usecase/category/get_main_categories_usecase.dart';
 import '../../../domain/usecase/deal/get_deals_usecase.dart';
+import '../../resource/function.dart';
 
 part 'home_screen_event.dart';
 
@@ -85,7 +83,8 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
     });
   }
 
-  Future<void> _onGetDealsEvent(HomeScreenGetDealsEvent event, Emitter<HomeScreenState> emit) async {
+  Future<void> _onGetDealsEvent(
+      HomeScreenGetDealsEvent event, Emitter<HomeScreenState> emit) async {
     final res = await _dealsUsecase(const NoParams());
 
     await delayScreenChanging().then((_) => emit(_foldGetDealsRes(res)));

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:store/presentation/login/component/login_screen_form_widget.dart';
 
-import '../../../core/util/size_manager.dart';
 import '../../../domain/entity/login_request.dart';
 import '../../common/spacer_widget.dart';
+import '../../resource/size_manager.dart';
 import 'login_screen_register_widget.dart';
 
 class LoginScreenContentWidget extends StatelessWidget {

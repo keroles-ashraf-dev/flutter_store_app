@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/util/size_manager.dart';
-import '../../../core/util/ui_constant.dart';
 import '../../common/shimmer_widget.dart';
+import '../../resource/size_manager.dart';
+import '../../resource/ui_constant.dart';
 
 class HomeScreenCategoriesLoadingWidget extends StatelessWidget {
   const HomeScreenCategoriesLoadingWidget({Key? key}) : super(key: key);

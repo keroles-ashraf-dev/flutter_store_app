@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/util/size_manager.dart';
 import 'package:store/presentation/common/form_error_widget.dart';
 import 'package:store/presentation/common/spacer_widget.dart';
 import 'package:store/presentation/login/controller/login_screen_bloc.dart';
 
-import '../../../core/i18n/app_string.dart';
+import '../../../app/i18n/app_string.dart';
 import '../../../domain/entity/login_request.dart';
 import '../../common/password_text_field_widget.dart';
 import '../../common/text_field_widget.dart';
+import '../../resource/size_manager.dart';
 
 class LoginScreenFormWidget extends StatelessWidget {
   final LoginRequest loginRequest;
@@ -80,7 +80,6 @@ class LoginScreenFormWidget extends StatelessWidget {
       password: _passwordController.text,
     );
 
-    BlocProvider.of<LoginScreenBloc>(context)
-        .add(LoginScreenLoginEvent(loginRequest));
+    BlocProvider.of<LoginScreenBloc>(context).add(LoginScreenLoginEvent(loginRequest));
   }
 }

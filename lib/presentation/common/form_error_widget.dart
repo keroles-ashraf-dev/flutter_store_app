@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/theme/app_style.dart';
-import 'package:store/core/util/size_manager.dart';
 
-import '../../core/theme/app_color.dart';
+import '../../app/theme/app_color.dart';
+import '../../app/theme/app_style.dart';
+import '../resource/size_manager.dart';
 
 class FormErrorWidget extends StatelessWidget {
   final String message;

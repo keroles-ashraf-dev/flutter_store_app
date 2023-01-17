@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 
-import '../../../core/i18n/app_string.dart';
-import '../../../core/theme/app_color.dart';
-import '../../../core/theme/app_style.dart';
-import '../../../core/util/app_constant.dart';
-import '../../../core/util/asset_manager.dart';
-import '../../../core/util/size_manager.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/theme/app_color.dart';
+import '../../../app/theme/app_style.dart';
+import '../../../app/util/app_constant.dart';
+import '../../../app/util/asset_manager.dart';
 import '../../common/elevated_btn_widget.dart';
 import '../../common/ratingbar_widget.dart';
 import '../../common/shimmer_widget.dart';
 import '../../common/spacer_widget.dart';
+import '../../resource/size_manager.dart';
 
 class DealScreenLoadingWidget extends StatelessWidget {
   const DealScreenLoadingWidget({Key? key}) : super(key: key);
@@ -29,7 +29,9 @@ class DealScreenLoadingWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SpacerWidget(height: AppSize.height0_01),
-                const RatingbarWidget(rating: AppConstant.emptyDol, ratersCount: AppConstant.emptyInt),
+                const RatingbarWidget(
+                    rating: AppConstant.emptyDol,
+                    ratersCount: AppConstant.emptyInt),
               ],
             ),
           ),
@@ -52,7 +54,7 @@ class DealScreenLoadingWidget extends StatelessWidget {
                 Text(
                   AppConstant.dollarSign,
                   style: AppStyle.textRegular(
-                    color: AppColor.greyLight,
+                    color: AppColor.disabled,
                     size: AppSize.fontLarge,
                   ).copyWith(
                     decoration: TextDecoration.lineThrough,
@@ -62,7 +64,7 @@ class DealScreenLoadingWidget extends StatelessWidget {
                 Text(
                   AppConstant.dollarSign,
                   style: AppStyle.textBold(
-                    color: AppColor.orange,
+                    color: AppColor.primary,
                     size: AppSize.fontExtraLarge,
                   ),
                 ),
@@ -75,7 +77,10 @@ class DealScreenLoadingWidget extends StatelessWidget {
                   ),
                 ),
                 SpacerWidget(height: AppSize.height0_02),
-                SizedBox(height: AppSize.height2,width: AppSize.width,),
+                SizedBox(
+                  height: AppSize.height2,
+                  width: AppSize.width,
+                ),
                 SpacerWidget(height: AppSize.height0_02),
                 ElevatedBtnWidget(
                   width: AppSize.width,
@@ -89,5 +94,4 @@ class DealScreenLoadingWidget extends StatelessWidget {
       ),
     );
   }
-
 }

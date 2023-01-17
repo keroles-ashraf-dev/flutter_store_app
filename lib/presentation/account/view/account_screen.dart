@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/service_locator/app_module.dart';
 
-import 'package:store/core/util/size_manager.dart';
-
-import '../../../core/navigation/app_navigator.dart';
-import '../../../core/navigation/routes.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/navigation/app_navigator.dart';
+import '../../../app/navigation/routes.dart';
+import '../../../app/service_locator/service_locator.dart';
 import '../../../domain/entity/user.dart';
+import '../../resource/size_manager.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -22,7 +21,7 @@ class AccountScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (!AppModule().isRegistered<User>())
+          if (!ServiceLocator.isRegistered<User>())
             InkWell(
                 onTap: () {
                   AppNavigator.push(context, Routes.routeLogin);

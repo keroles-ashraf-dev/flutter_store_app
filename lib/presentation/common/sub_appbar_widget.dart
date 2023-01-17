@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/size_manager.dart';
-import 'package:store/core/util/ui_helper.dart';
 
-import '../../core/navigation/app_navigator.dart';
+import '../../app/navigation/app_navigator.dart';
+import '../../app/util/app_constant.dart';
+import '../resource/size_manager.dart';
+import '../resource/ui_helper.dart';
 
 class SubAppbarWidget extends StatelessWidget {
   final String title;

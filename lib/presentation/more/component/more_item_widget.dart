@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/navigation/app_navigator.dart';
-import '../../../core/util/size_manager.dart';
+import '../../../app/navigation/app_navigator.dart';
+import '../../resource/size_manager.dart';
 
 class MoreItemWidget extends StatelessWidget {
   final String title;

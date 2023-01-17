@@ -1,16 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/size_manager.dart';
 import 'package:store/domain/entity/product.dart';
 import 'package:store/presentation/category/component/category_screen_load_more_widget.dart';
 import 'package:store/presentation/common/ratingbar_widget.dart';
 
-import '../../../core/navigation/app_navigator.dart';
-import '../../../core/navigation/routes.dart';
-import '../../../core/theme/app_color.dart';
-import '../../../core/theme/app_style.dart';
+import '../../../app/navigation/app_navigator.dart';
+import '../../../app/navigation/routes.dart';
+import '../../../app/theme/app_color.dart';
+import '../../../app/theme/app_style.dart';
+import '../../../app/util/app_constant.dart';
 import '../../common/spacer_widget.dart';
+import '../../resource/size_manager.dart';
 
 class CategoryScreenProductsWidget extends StatelessWidget {
   final int categoryId;
@@ -85,7 +85,7 @@ class CategoryScreenProductsWidget extends StatelessWidget {
                     child: Text(
                       products[i].price.toString() + AppConstant.dollarSign,
                       style: AppStyle.textRegular(
-                        color: AppColor.greyLight,
+                        color: AppColor.disabled,
                         size: AppSize.fontLarge,
                       ).copyWith(
                         decoration: TextDecoration.lineThrough,
@@ -98,7 +98,7 @@ class CategoryScreenProductsWidget extends StatelessWidget {
                     replacement: Text(
                       products[i].price.toString() + AppConstant.dollarSign,
                       style: AppStyle.textBold(
-                        color: AppColor.orange,
+                        color: AppColor.primary,
                         size: AppSize.fontExtraLarge,
                       ),
                     ),
@@ -106,7 +106,7 @@ class CategoryScreenProductsWidget extends StatelessWidget {
                       products[i].discountedPrice.toString() +
                           AppConstant.dollarSign,
                       style: AppStyle.textBold(
-                        color: AppColor.orange,
+                        color: AppColor.primary,
                         size: AppSize.fontExtraLarge,
                       ),
                     ),

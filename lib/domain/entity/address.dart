@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../core/util/app_constant.dart';
+import '../../app/util/app_constant.dart';
 
 class Address extends Equatable {
   final int id;
@@ -49,7 +49,7 @@ class Address extends Equatable {
         city,
         area,
         street,
-    building,
+        building,
         floor,
         landMark,
         postCode,

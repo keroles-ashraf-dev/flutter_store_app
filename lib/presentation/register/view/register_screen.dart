@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/util/enum.dart';
-import 'package:store/core/util/size_manager.dart';
-import 'package:store/presentation/register/controller/register_screen_bloc.dart';
 
-import '../../../core/service_locator/app_module.dart';
-import '../../../core/util/app_restart.dart';
-import '../../../core/util/ui_constant.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/service_locator/service_locator.dart';
+import '../../../app/util/app_restart.dart';
+import '../../../app/util/enum.dart';
 import '../../common/sub_appbar_widget.dart';
+import '../../resource/size_manager.dart';
+import '../../resource/ui_constant.dart';
 import '../component/register_screen_bloc_builder_widget.dart';
+import '../controller/register_screen_bloc.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -20,6 +20,9 @@ class RegisterScreen extends StatelessWidget {
     return BlocProvider<RegisterScreenBloc>(
       create: (context) => sl<RegisterScreenBloc>(),
       child: BlocListener<RegisterScreenBloc, RegisterScreenState>(
+        listenWhen: (context, state) {
+          return state.registerRequestState == RequestStateEnum.success;
+        },
         listener: (context, state) {
           if (state.registerRequestState == RequestStateEnum.success) {
             restartApp(context);

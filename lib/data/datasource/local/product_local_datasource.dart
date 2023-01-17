@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:store/core/cache/cache_constant.dart';
-import 'package:store/core/cache/cache_manager.dart';
-import 'package:store/core/error/error_handling.dart';
-import 'package:store/core/error/exception.dart';
-import 'package:store/core/util/function.dart';
 import 'package:store/data/model/product_model.dart';
+
+import '../../../app/error/error_handling.dart';
+import '../../../app/error/exception.dart';
+import '../../../app/util/function.dart';
+import '../../cache/cache_constant.dart';
+import '../../cache/cache_manager.dart';
 
 abstract class BaseProductLocalDatasource {
   Future<List<ProductModel>> getDeals();
@@ -50,6 +51,7 @@ class ProductLocalDatasourceImpl implements BaseProductLocalDatasource {
     final String dealsJson = json.encode(dealsMap);
 
     await _cacheManager().write(CacheConstant.dealsDataKey, dealsJson);
-    await _cacheManager().write(CacheConstant.dealsCreatedKey, currentTimestamp());
+    await _cacheManager()
+        .write(CacheConstant.dealsCreatedKey, currentTimestamp());
   }
 }

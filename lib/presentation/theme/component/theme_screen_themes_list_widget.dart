@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/theme/app_theme.dart';
-import 'package:store/core/util/size_manager.dart';
+
 import 'package:store/presentation/theme/controller/theme_screen_bloc.dart';
+
+import '../../../app/theme/app_theme.dart';
+import '../../resource/size_manager.dart';
 
 class ThemeScreenThemesListWidget extends StatelessWidget {
   final ThemeEnum selectedTheme;

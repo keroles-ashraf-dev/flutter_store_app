@@ -1,7 +1,6 @@
-import 'package:store/core/network/api_constant.dart';
-import 'package:store/core/network/api_manager.dart';
-
 import '../../model/user_model.dart';
+import '../../network/api_constant.dart';
+import '../../network/api_manager.dart';
 
 abstract class BaseUserRemoteDatasource {
   Future<UserModel> getUserData();

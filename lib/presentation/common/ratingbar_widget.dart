@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:store/core/theme/app_color.dart';
-import 'package:store/core/util/size_manager.dart';
-
-import '../../core/util/ui_constant.dart';
+import '../../app/theme/app_color.dart';
+import '../resource/size_manager.dart';
+import '../resource/ui_constant.dart';
 import 'spacer_widget.dart';
 
 class RatingbarWidget extends StatelessWidget {

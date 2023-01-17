@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:store/core/cache/cache_constant.dart';
-import 'package:store/core/cache/cache_manager.dart';
-import 'package:store/core/error/error_handling.dart';
-import 'package:store/core/error/exception.dart';
-import 'package:store/core/util/function.dart';
 import 'package:store/data/model/carousel_model.dart';
+
+import '../../../app/error/error_handling.dart';
+import '../../../app/error/exception.dart';
+import '../../../app/util/function.dart';
+import '../../cache/cache_constant.dart';
+import '../../cache/cache_manager.dart';
 
 abstract class BaseCarouselLocalDatasource {
   Future<List<CarouselItemModel>> getMainCarousel();
@@ -28,7 +29,8 @@ class CarouselLocalDatasourceImpl implements BaseCarouselLocalDatasource {
       )) {
         throw CacheException(_errorHandler.cacheError());
       }
-      final data = await _cacheManager().read(CacheConstant.mainCarouselDataKey);
+      final data =
+          await _cacheManager().read(CacheConstant.mainCarouselDataKey);
 
       if (data == null) {
         throw CacheException(_errorHandler.cacheError());

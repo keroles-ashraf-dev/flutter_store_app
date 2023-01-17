@@ -1,5 +1,4 @@
-import 'package:store/core/util/extension.dart';
-import 'package:store/data/model/address_model.dart';
+import 'package:store/app/util/extension.dart';
 import 'package:store/domain/entity/user.dart';
 
 class UserModel extends User {

@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/theme/app_color.dart';
-import 'package:store/core/theme/app_style.dart';
-import 'package:store/core/util/size_manager.dart';
 
-import '../../../core/util/enum.dart';
-import '../../../core/util/ui_helper.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/theme/app_color.dart';
+import '../../../app/theme/app_style.dart';
+import '../../../app/util/enum.dart';
 import '../../common/spacer_widget.dart';
+import '../../resource/size_manager.dart';
+import '../../resource/ui_helper.dart';
 import '../controller/main_screen_bloc.dart';
 
 class MainScreenAppbarAddressWidget extends StatelessWidget {
@@ -20,7 +20,7 @@ class MainScreenAppbarAddressWidget extends StatelessWidget {
     return SliverAppBar(
       expandedHeight: AppSize.height0_05,
       toolbarHeight: AppSize.height0_05,
-      backgroundColor: AppColor.orangeLight,
+      backgroundColor: AppColor.primaryLight,
       floating: false,
       elevation: AppSize.elevationZero,
       flexibleSpace: Container(

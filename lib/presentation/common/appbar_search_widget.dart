@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/theme/app_color.dart';
-import 'package:store/core/util/size_manager.dart';
+
+import '../../app/i18n/app_string.dart';
+import '../../app/theme/app_color.dart';
+import '../resource/size_manager.dart';
 
 class AppbarSearchWidget extends StatelessWidget {
   const AppbarSearchWidget({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class AppbarSearchWidget extends StatelessWidget {
     return SliverAppBar(
       expandedHeight: AppSize.height0_07,
       pinned: true,
-      backgroundColor: AppColor.orange,
+      backgroundColor: AppColor.primary,
       title: Container(
         height: AppSize.height0_06,
         margin: EdgeInsets.symmetric(

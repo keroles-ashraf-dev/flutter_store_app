@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:store/core/util/size_manager.dart';
-import 'package:store/core/util/ui_constant.dart';
-import 'package:store/presentation/common/spacer_widget.dart';
 
-import '../../../core/navigation/app_navigator.dart';
-import '../../../core/navigation/routes.dart';
+import '../../../app/navigation/app_navigator.dart';
+import '../../../app/navigation/routes.dart';
 import '../../../domain/entity/category.dart';
+import '../../common/spacer_widget.dart';
+import '../../resource/size_manager.dart';
+import '../../resource/ui_constant.dart';
 
 class HomeScreenCategoriesWidget extends StatelessWidget {
   final List<Category> categories;
@@ -26,8 +26,7 @@ class HomeScreenCategoriesWidget extends StatelessWidget {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount:
-              (AppSize.width / UIConstant.homeCategoryCardWidth).floor(),
+          crossAxisCount: (AppSize.width / AppSize.width3).floor(),
           childAspectRatio: UIConstant.homeCategoryCardAspectRatio,
           crossAxisSpacing: AppSize.width0_02,
           mainAxisSpacing: AppSize.width0_02,

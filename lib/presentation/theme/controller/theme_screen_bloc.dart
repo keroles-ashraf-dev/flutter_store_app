@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/theme/app_theme.dart';
 
-import '../../../core/util/app_prefs.dart';
+import '../../../app/theme/app_theme.dart';
+import '../../../app/util/app_prefs.dart';
 
 part 'theme_screen_event.dart';
 
@@ -17,12 +17,15 @@ class ThemeScreenBloc extends Bloc<ThemeScreenEvent, ThemeScreenState> {
     on<ThemeScreenApplyThemeEvent>(_themeApplyEvent);
   }
 
-  void _themeChangeEvent(ThemeScreenChangeThemeEvent event, Emitter<ThemeScreenState> emit) {
+  void _themeChangeEvent(
+      ThemeScreenChangeThemeEvent event, Emitter<ThemeScreenState> emit) {
     emit(ThemeScreenState(selectedTheme: event.selectedTheme, apply: false));
   }
 
-  Future<void> _themeApplyEvent(ThemeScreenApplyThemeEvent event, Emitter<ThemeScreenState> emit) async {
+  Future<void> _themeApplyEvent(
+      ThemeScreenApplyThemeEvent event, Emitter<ThemeScreenState> emit) async {
     final bool success = await _appPrefs.setAppTheme(event.selectedTheme.name);
-    if (success) emit(ThemeScreenState(selectedTheme: event.selectedTheme, apply: true));
+    if (success)
+      emit(ThemeScreenState(selectedTheme: event.selectedTheme, apply: true));
   }
 }

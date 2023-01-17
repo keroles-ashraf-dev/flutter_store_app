@@ -4,7 +4,7 @@ import 'package:store/presentation/common/center_error_widget.dart';
 import 'package:store/presentation/deal/component/deal_screen_loading_widget.dart';
 import 'package:store/presentation/deal/controller/deal_screen_bloc.dart';
 
-import '../../../core/util/enum.dart';
+import '../../../app/util/enum.dart';
 import 'deal_screen_deal_widget.dart';
 
 class DealScreenBuilderWidget extends StatelessWidget {

@@ -1,16 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:store/core/theme/app_color.dart';
-import 'package:store/core/theme/app_style.dart';
-import 'package:store/core/util/size_manager.dart';
-import 'package:store/core/util/ui_helper.dart';
-import 'package:store/presentation/common/ratingbar_widget.dart';
 
-import '../../../core/navigation/app_navigator.dart';
-import '../../../core/navigation/routes.dart';
-import '../../../core/util/app_constant.dart';
+import '../../../app/navigation/app_navigator.dart';
+import '../../../app/navigation/routes.dart';
+import '../../../app/theme/app_color.dart';
+import '../../../app/theme/app_style.dart';
+import '../../../app/util/app_constant.dart';
 import '../../../domain/entity/deal.dart';
+import '../../common/ratingbar_widget.dart';
 import '../../common/spacer_widget.dart';
+import '../../resource/size_manager.dart';
+import '../../resource/ui_helper.dart';
 
 class HomeScreenDealsWidget extends StatelessWidget {
   final List<Deal> deals;
@@ -76,7 +76,7 @@ class HomeScreenDealsWidget extends StatelessWidget {
                 Text(
                   deals[i].price.toString() + AppConstant.dollarSign,
                   style: AppStyle.textRegular(
-                    color: AppColor.greyLight,
+                    color: AppColor.disabled,
                   ).copyWith(
                     decoration: TextDecoration.lineThrough,
                   ),
@@ -85,7 +85,7 @@ class HomeScreenDealsWidget extends StatelessWidget {
                 Text(
                   deals[i].discountedPrice.toString() + AppConstant.dollarSign,
                   style: AppStyle.textBold(
-                    color: AppColor.orange,
+                    color: AppColor.primary,
                     size: AppSize.fontExtraLarge,
                   ),
                 ),

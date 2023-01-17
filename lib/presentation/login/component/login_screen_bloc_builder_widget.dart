@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/presentation/common/loading_widget.dart';
 import 'package:store/presentation/login/component/login_screen_content_widget.dart';
-import 'package:store/presentation/login/component/login_screen_form_widget.dart';
 
-import '../../../core/util/enum.dart';
+import '../../../app/util/enum.dart';
 import '../controller/login_screen_bloc.dart';
 
 class LoginScreenBlocBuilderWidget extends StatelessWidget {

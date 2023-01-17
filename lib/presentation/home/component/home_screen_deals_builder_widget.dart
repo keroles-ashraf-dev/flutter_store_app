@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/presentation/home/component/home_screen_deals_loading_widget.dart';
 import 'package:store/presentation/home/component/home_screen_deals_widget.dart';
 
-import '../../../core/debug/function.dart';
-import '../../../core/util/enum.dart';
+
+import '../../../app/util/enum.dart';
 import '../../common/center_error_widget.dart';
 import '../controller/home_screen_bloc.dart';
 

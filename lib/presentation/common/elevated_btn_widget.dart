@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/util/size_manager.dart';
+import '../resource/size_manager.dart';
 
 class ElevatedBtnWidget extends StatelessWidget {
   final String text;

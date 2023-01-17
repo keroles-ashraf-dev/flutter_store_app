@@ -1,4 +1,4 @@
-import 'package:store/core/util/extension.dart';
+import 'package:store/app/util/extension.dart';
 
 import '../../domain/entity/cart_item.dart';
 

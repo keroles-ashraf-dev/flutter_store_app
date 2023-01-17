@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:store/core/cache/cache_manager.dart';
-import 'package:store/core/util/app_prefs.dart';
+import 'package:store/app/service_locator/service_locator.dart';
 
-import 'app.dart';
-import 'core/debug/bloc_observer.dart';
-import 'core/debug/function.dart';
-import 'core/i18n/app_localization.dart';
-import 'core/service_locator/app_module.dart';
+import 'app/app.dart';
+import 'app/debug/bloc_observer.dart';
+import 'app/debug/function.dart';
+import 'app/i18n/app_localization.dart';
+import 'app/util/app_prefs.dart';
+import 'data/cache/cache_manager.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +24,8 @@ Future<void> main() async {
   /// init app cache
   await CacheManager().init();
 
-  /// setup app service locator
-  AppModule().init();
+  /// setup app module
+  ServiceLocator.initAppModule();
 
   /// setup app localization (define json localization files path)
   AppLocalization.init();

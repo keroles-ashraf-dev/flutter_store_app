@@ -1,16 +1,16 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/enum.dart';
-import 'package:store/domain/entity/deal.dart';
-import 'package:store/domain/entity/get_deal_request.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/error/failure.dart';
-import '../../../core/util/function.dart';
+import '../../../app/error/failure.dart';
+import '../../../app/util/app_constant.dart';
+import '../../../app/util/enum.dart';
+import '../../../domain/entity/deal.dart';
+import '../../../domain/entity/get_deal_request.dart';
 import '../../../domain/usecase/deal/get_deal_usecase.dart';
+import '../../resource/function.dart';
 
 part 'deal_screen_event.dart';
 

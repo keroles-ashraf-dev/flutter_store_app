@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/presentation/account/view/account_screen.dart';
+import 'package:store/presentation/cart/view/cart_screen.dart';
 import 'package:store/presentation/home/view/home_screen.dart';
 import 'package:store/presentation/more/view/more_screen.dart';
 
@@ -12,9 +13,7 @@ class MainScreenContent extends StatelessWidget {
   final List<Widget> _navigationScreens = [
     const HomeScreen(),
     const AccountScreen(),
-    Container(
-      color: Colors.green,
-    ),
+    const CartScreen(),
     const MoreScreen(),
   ];
 

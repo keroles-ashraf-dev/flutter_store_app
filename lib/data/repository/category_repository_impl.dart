@@ -4,11 +4,11 @@ import 'package:store/data/datasource/remote/category_remote_datasource.dart';
 import 'package:store/data/mapper/category_mapper.dart';
 import 'package:store/domain/repository/base_category_repository.dart';
 
-import '../../core/error/error_handling.dart';
-import '../../core/error/exception.dart';
-import '../../core/error/failure.dart';
-import '../../core/network/network_info.dart';
+import '../../app/error/error_handling.dart';
+import '../../app/error/exception.dart';
+import '../../app/error/failure.dart';
 import '../../domain/entity/category.dart';
+import '../network/network_info.dart';
 
 class CategoryRepositoryImpl implements BaseCategoryRepository {
   final ErrorHandler _errorHandler;

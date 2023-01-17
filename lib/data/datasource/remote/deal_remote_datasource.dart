@@ -1,8 +1,8 @@
-import 'package:store/core/network/api_constant.dart';
 import 'package:store/data/model/deal_model.dart';
 import 'package:store/data/model/get_deal_request_model.dart';
 
-import '../../../core/network/api_manager.dart';
+import '../../network/api_constant.dart';
+import '../../network/api_manager.dart';
 
 abstract class BaseDealRemoteDatasource {
   Future<List<DealModel>> getDeals();

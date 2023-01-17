@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../core/util/app_constant.dart';
+import '../../app/util/app_constant.dart';
 
 class LoginRequest extends Equatable {
   final String email;

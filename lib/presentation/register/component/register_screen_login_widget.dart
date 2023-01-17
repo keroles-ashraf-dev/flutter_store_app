@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/theme/app_style.dart';
 
+import '../../../app/i18n/app_string.dart';
+import '../../../app/navigation/app_navigator.dart';
+import '../../../app/navigation/routes.dart';
+import '../../../app/theme/app_style.dart';
+import '../../resource/size_manager.dart';
 
-import '../../../core/navigation/app_navigator.dart';
-import '../../../core/navigation/routes.dart';
-import '../../../core/util/size_manager.dart';
 
 class RegisterScreenLoginWidget extends StatelessWidget {
   const RegisterScreenLoginWidget({Key? key}) : super(key: key);

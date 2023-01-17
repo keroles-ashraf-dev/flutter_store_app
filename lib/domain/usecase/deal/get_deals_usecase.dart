@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:store/core/error/failure.dart';
+import '../../../app/error/failure.dart';
 import 'package:store/domain/entity/deal.dart';
 import 'package:store/domain/repository/base_deal_repository.dart';
 

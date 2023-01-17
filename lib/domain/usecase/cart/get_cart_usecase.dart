@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:store/core/error/failure.dart';
+import '../../../app/error/failure.dart';
 import 'package:store/domain/entity/cart.dart';
 import 'package:store/domain/entity/get_cart_request.dart';
 import 'package:store/domain/repository/base_cart_repository.dart';
 
+import '../../../app/error/failure.dart';
 import '../base/base_usecase.dart';
 
 class GetCartUsecase extends BaseUsecase<Cart, GetCartRequest> {

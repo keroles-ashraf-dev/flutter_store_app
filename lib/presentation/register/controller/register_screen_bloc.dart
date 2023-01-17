@@ -2,24 +2,23 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/session/session.dart';
-import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/enum.dart';
-import 'package:store/core/util/function.dart';
 import 'package:store/domain/entity/register_request.dart';
 import 'package:store/domain/usecase/auth/register_usecase.dart';
 
-import '../../../core/error/failure.dart';
-import '../../../core/i18n/app_string.dart';
-import '../../../core/util/validator.dart';
+import '../../../app/error/failure.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/session/session.dart';
+import '../../../app/util/app_constant.dart';
+import '../../../app/util/enum.dart';
+import '../../../app/validation/validator.dart';
 import '../../../domain/entity/user.dart';
+import '../../resource/function.dart';
 
 part 'register_screen_event.dart';
 
 part 'register_screen_state.dart';
 
-class RegisterScreenBloc
-    extends Bloc<RegisterScreenEvent, RegisterScreenState> {
+class RegisterScreenBloc extends Bloc<RegisterScreenEvent, RegisterScreenState> {
   final Session _session;
   final Validator _validator;
   final RegisterUsecase _registerUsecase;
@@ -32,8 +31,12 @@ class RegisterScreenBloc
     on<RegisterScreenRegisterEvent>(_onRegisterEvent);
   }
 
-  Future<void> _onRegisterEvent(RegisterScreenRegisterEvent event, Emitter<RegisterScreenState> emit) async {
-    emit(state.copyWith(registerRequestState: RequestStateEnum.loading, registerRequest: event.registerRequest,));
+  Future<void> _onRegisterEvent(RegisterScreenRegisterEvent event,
+      Emitter<RegisterScreenState> emit) async {
+    emit(state.copyWith(
+      registerRequestState: RequestStateEnum.loading,
+      registerRequest: event.registerRequest,
+    ));
 
     /// check register data validation
     final Map<String, String> errors = _isRegisterInputsValid(event.registerRequest);

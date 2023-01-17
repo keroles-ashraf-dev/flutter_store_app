@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:store/core/util/enum.dart';
+
+import '../../app/util/enum.dart';
 
 class Filter extends Equatable {
   final FilterSortByEnum sortBy;

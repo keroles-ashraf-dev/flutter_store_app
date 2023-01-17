@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/presentation/common/loading_widget.dart';
 import 'package:store/presentation/register/component/register_screen_content_widget.dart';
 
-import '../../../core/util/enum.dart';
+import '../../../app/util/enum.dart';
 import '../controller/register_screen_bloc.dart';
 
 class RegisterScreenBlocBuilderWidget extends StatelessWidget {

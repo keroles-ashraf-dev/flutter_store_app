@@ -4,7 +4,7 @@ import 'package:store/presentation/category/component/category_screen_loading_wi
 import 'package:store/presentation/category/component/category_screen_products_widget.dart';
 import 'package:store/presentation/common/center_error_widget.dart';
 
-import '../../../core/util/enum.dart';
+import '../../../app/util/enum.dart';
 import '../controller/category_screen_bloc.dart';
 
 class CategoryScreenContentBuilderWidget extends StatelessWidget {
@@ -17,11 +17,9 @@ class CategoryScreenContentBuilderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoryScreenBloc, CategoryScreenState>(
       buildWhen: (prev, current) {
-        return (prev.getCategoryProductsRequestState !=
-                current.getCategoryProductsRequestState) ||
-            (current.loadMoreCategoryProductsRequestState ==
-                    RequestStateEnum.success &&
-                prev.products.length < current.products.length);
+        return (prev.getCategoryProductsRequestState != current.getCategoryProductsRequestState) ||
+            (current.loadMoreCategoryProductsRequestState == RequestStateEnum.success
+                && prev.products.length < current.products.length);
       },
       builder: (context, state) {
         switch (state.getCategoryProductsRequestState) {

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:store/presentation/theme/controller/theme_screen_bloc.dart';
 
-import '../../../core/i18n/app_string.dart';
-import '../../../core/theme/app_theme.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/theme/app_theme.dart';
 import '../../common/elevated_btn_widget.dart';
 import 'theme_screen_themes_list_widget.dart';
 
@@ -37,6 +37,7 @@ class ThemeScreenContentWidget extends StatelessWidget {
   }
 
   void _applyTheme(BuildContext context, ThemeEnum selectedTheme) {
-    BlocProvider.of<ThemeScreenBloc>(context).add(ThemeScreenApplyThemeEvent(selectedTheme));
+    BlocProvider.of<ThemeScreenBloc>(context)
+        .add(ThemeScreenApplyThemeEvent(selectedTheme));
   }
 }

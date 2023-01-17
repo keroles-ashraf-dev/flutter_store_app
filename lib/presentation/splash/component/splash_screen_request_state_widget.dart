@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/util/enum.dart';
+import '../../../app/util/enum.dart';
 import '../controller/splash_screen_bloc.dart';
 import 'splash_screen_error_widget.dart';
 import 'splash_screen_progress_widget.dart';
@@ -13,8 +13,7 @@ class SplashScreenRequestStateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SplashScreenBloc, SplashScreenState>(
       buildWhen: (previous, current) {
-        return (previous != current &&
-            previous.getUserDataRequestState != RequestStateEnum.success);
+        return (previous != current && previous.getUserDataRequestState != RequestStateEnum.success);
       },
       builder: (context, state) {
         switch (state.getUserDataRequestState) {

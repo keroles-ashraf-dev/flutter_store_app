@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/size_manager.dart';
-import 'package:store/core/util/ui_constant.dart';
+
 import 'package:store/domain/entity/get_category_products_request.dart';
 import 'package:store/domain/entity/pagination.dart';
 import 'package:store/presentation/common/center_error_widget.dart';
 import 'package:store/presentation/common/elevated_btn_widget.dart';
 
-import '../../../core/util/enum.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/util/app_constant.dart';
+import '../../../app/util/enum.dart';
+import '../../resource/size_manager.dart';
+import '../../resource/ui_constant.dart';
 import '../controller/category_screen_bloc.dart';
 
 class CategoryScreenLoadMoreWidget extends StatelessWidget {

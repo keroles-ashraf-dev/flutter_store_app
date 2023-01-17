@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/size_manager.dart';
 import 'package:store/presentation/common/carousel_widget.dart';
 import 'package:store/presentation/common/elevated_btn_widget.dart';
 import 'package:store/presentation/common/ratingbar_widget.dart';
 
-import '../../../core/theme/app_color.dart';
-import '../../../core/theme/app_style.dart';
+import '../../../app/i18n/app_string.dart';
+import '../../../app/theme/app_color.dart';
+import '../../../app/theme/app_style.dart';
+import '../../../app/util/app_constant.dart';
 import '../../../domain/entity/deal.dart';
 import '../../common/spacer_widget.dart';
+import '../../resource/size_manager.dart';
 
 class DealScreenDealWidget extends StatelessWidget {
   final Deal deal;
@@ -59,7 +59,7 @@ class DealScreenDealWidget extends StatelessWidget {
                 Text(
                   deal.price.toString() + AppConstant.dollarSign,
                   style: AppStyle.textRegular(
-                    color: AppColor.greyLight,
+                    color: AppColor.disabled,
                     size: AppSize.fontLarge,
                   ).copyWith(
                     decoration: TextDecoration.lineThrough,
@@ -69,13 +69,15 @@ class DealScreenDealWidget extends StatelessWidget {
                 Text(
                   deal.discountedPrice.toString() + AppConstant.dollarSign,
                   style: AppStyle.textBold(
-                    color: AppColor.orange,
+                    color: AppColor.primary,
                     size: AppSize.fontExtraLarge,
                   ),
                 ),
                 SpacerWidget(height: AppSize.height0_02),
                 Text(
-                  deal.availableCount.toString() + AppConstant.space + AppString.inStock.i18n(),
+                  deal.availableCount.toString() +
+                      AppConstant.space +
+                      AppString.inStock.i18n(),
                   style: AppStyle.textBold(
                     color: AppColor.green,
                     size: AppSize.fontExtraLarge,

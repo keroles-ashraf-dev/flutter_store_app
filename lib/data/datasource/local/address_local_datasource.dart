@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:store/core/cache/cache_constant.dart';
-import 'package:store/core/cache/cache_manager.dart';
-import 'package:store/core/error/error_handling.dart';
-import 'package:store/core/error/exception.dart';
-import 'package:store/core/util/function.dart';
 import 'package:store/data/model/address_model.dart';
+
+import '../../../app/error/error_handling.dart';
+import '../../../app/error/exception.dart';
+import '../../../app/util/function.dart';
+import '../../cache/cache_constant.dart';
+import '../../cache/cache_manager.dart';
 
 abstract class BaseAddressLocalDatasource {
   Future<AddressModel> getDefaultAddress();
@@ -49,7 +50,9 @@ class AddressLocalDatasourceImpl implements BaseAddressLocalDatasource {
     final addressMap = address.toJson();
     final String addressJson = json.encode(addressMap);
 
-    await _cacheManager().write(CacheConstant.defaultAddressDataKey, addressJson);
-    await _cacheManager().write(CacheConstant.defaultAddressCreatedKey, currentTimestamp());
+    await _cacheManager()
+        .write(CacheConstant.defaultAddressDataKey, addressJson);
+    await _cacheManager()
+        .write(CacheConstant.defaultAddressCreatedKey, currentTimestamp());
   }
 }

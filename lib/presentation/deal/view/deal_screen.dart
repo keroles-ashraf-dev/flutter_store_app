@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/util/ui_constant.dart';
 import 'package:store/domain/entity/get_deal_request.dart';
 import 'package:store/presentation/deal/component/deal_screen_builder_widget.dart';
 import 'package:store/presentation/deal/controller/deal_screen_bloc.dart';
 
-import '../../../core/service_locator/app_module.dart';
-import '../../../core/util/size_manager.dart';
+import '../../../app/service_locator/service_locator.dart';
 import '../../common/sub_appbar_widget.dart';
+import '../../resource/size_manager.dart';
+import '../../resource/ui_constant.dart';
 
 class DealScreen extends StatelessWidget {
   DealScreen({Key? key}) : super(key: key);

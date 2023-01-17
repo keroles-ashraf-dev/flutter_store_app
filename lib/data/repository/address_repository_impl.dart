@@ -4,12 +4,12 @@ import 'package:store/data/mapper/address_mapper.dart';
 import 'package:store/domain/entity/address.dart';
 import 'package:store/domain/entity/get_address_request.dart';
 
-import '../../core/error/error_handling.dart';
-import '../../core/error/exception.dart';
-import '../../core/error/failure.dart';
-import '../../core/network/network_info.dart';
+import '../../app/error/error_handling.dart';
+import '../../app/error/exception.dart';
+import '../../app/error/failure.dart';
 import '../../domain/repository/base_address_repository.dart';
 import '../datasource/local/address_local_datasource.dart';
+import '../network/network_info.dart';
 
 class AddressRepositoryImpl implements BaseAddressRepository {
   final ErrorHandler _errorHandler;
@@ -33,7 +33,8 @@ class AddressRepositoryImpl implements BaseAddressRepository {
       }
 
       /// load data from server
-      final addressModel = await _addressRemoteDatasource.getAddress(request.toModel);
+      final addressModel =
+          await _addressRemoteDatasource.getAddress(request.toModel);
       final address = addressModel.toEntity;
 
       return Right(address);

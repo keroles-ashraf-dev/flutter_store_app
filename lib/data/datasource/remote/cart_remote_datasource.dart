@@ -1,8 +1,8 @@
-import 'package:store/core/network/api_constant.dart';
 import 'package:store/data/model/cart_model.dart';
 import 'package:store/data/model/get_cart_request_model.dart';
 
-import '../../../core/network/api_manager.dart';
+import '../../network/api_constant.dart';
+import '../../network/api_manager.dart';
 
 abstract class BaseCartRemoteDatasource {
   Future<CartModel> getCart(GetCartRequestModel requestModel);

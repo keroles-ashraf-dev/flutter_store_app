@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/session/session.dart';
 import 'package:store/domain/entity/get_address_request.dart';
 import 'package:store/presentation/main/component/main_screen_content.dart';
 import 'package:store/presentation/main/controller/main_screen_bloc.dart';
 
-import '../../../core/service_locator/app_module.dart';
+import '../../../app/service_locator/service_locator.dart';
+import '../../../app/session/session.dart';
 import '../../../domain/entity/user.dart';
 import '../../common/appbar_search_widget.dart';
 import '../component/main_screen_appbar_address_widget.dart';

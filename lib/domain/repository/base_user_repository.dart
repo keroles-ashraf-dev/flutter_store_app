@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../core/error/failure.dart';
-import '../entity/no_param.dart';
+import '../../app/error/failure.dart';
 import '../entity/user.dart';
 
 abstract class BaseUserRepository {

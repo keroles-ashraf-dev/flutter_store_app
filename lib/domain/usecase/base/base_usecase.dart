@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../core/error/failure.dart';
+import '../../../app/error/failure.dart';
+import '../../../app/error/failure.dart';
 
 /// callable class
 /// out -> extenders returned type

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/util/enum.dart';
 import 'package:store/domain/entity/filter.dart';
 import 'package:store/presentation/common/elevated_btn_widget.dart';
 import 'package:store/presentation/common/spacer_widget.dart';
 
-import '../../core/navigation/app_navigator.dart';
-import '../../core/util/size_manager.dart';
+import '../../app/i18n/app_string.dart';
+import '../../app/navigation/app_navigator.dart';
+import '../../app/util/enum.dart';
+import '../resource/size_manager.dart';
 
 class FilterBottomSheetWidget extends StatefulWidget {
   final Filter filter;

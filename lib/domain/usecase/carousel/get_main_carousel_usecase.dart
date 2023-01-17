@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../core/error/failure.dart';
+import '../../../app/error/failure.dart';
 import '../../entity/carousel_item.dart';
 import '../../entity/no_param.dart';
 import '../../repository/base_carousel_repository.dart';

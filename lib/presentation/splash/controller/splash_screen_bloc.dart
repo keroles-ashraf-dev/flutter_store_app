@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/core/error/failure.dart';
-import 'package:store/core/session/session.dart';
-import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/enum.dart';
-import 'package:store/core/util/function.dart';
 import 'package:store/domain/entity/user.dart';
 
+import '../../../app/error/failure.dart';
+import '../../../app/session/session.dart';
+import '../../../app/util/app_constant.dart';
+import '../../../app/util/enum.dart';
 import '../../../domain/entity/no_param.dart';
 import '../../../domain/usecase/user/get_user_data_usecase.dart';
+import '../../resource/function.dart';
 
 part 'splash_screen_event.dart';
 

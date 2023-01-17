@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:store/core/util/size_manager.dart';
 
-import '../../../core/util/app_constant.dart';
+import '../../../app/util/app_constant.dart';
+import '../../resource/size_manager.dart';
 
 class NotFoundScreen extends StatelessWidget {
   const NotFoundScreen({Key? key}) : super(key: key);

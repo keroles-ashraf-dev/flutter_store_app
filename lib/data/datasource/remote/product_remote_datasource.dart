@@ -1,12 +1,12 @@
-import 'package:store/core/debug/function.dart';
-import 'package:store/core/network/api_constant.dart';
 import 'package:store/data/model/get_category_products_request_model.dart';
 import 'package:store/data/model/product_model.dart';
 
-import '../../../core/network/api_manager.dart';
+import '../../network/api_constant.dart';
+import '../../network/api_manager.dart';
 
 abstract class BaseProductRemoteDatasource {
-  Future<List<ProductModel>> getCategoryProducts(GetCategoryProductsRequestModel requestModel);
+  Future<List<ProductModel>> getCategoryProducts(
+      GetCategoryProductsRequestModel requestModel);
 }
 
 class ProductRemoteDatasourceImpl implements BaseProductRemoteDatasource {
@@ -15,7 +15,8 @@ class ProductRemoteDatasourceImpl implements BaseProductRemoteDatasource {
   ProductRemoteDatasourceImpl(this._apiManager);
 
   @override
-  Future<List<ProductModel>> getCategoryProducts(GetCategoryProductsRequestModel requestModel) async {
+  Future<List<ProductModel>> getCategoryProducts(
+      GetCategoryProductsRequestModel requestModel) async {
     try {
       final res = await _apiManager().get(
         ApiConstant.categoryProductsUri,
