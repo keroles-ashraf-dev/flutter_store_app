@@ -7,6 +7,7 @@ class AppString {
   static const String light = 'light';
   static const String dark = 'dark';
   static const String save = 'save';
+  static const String cancel = 'cancel';
   static const String searchHint = 'search_hint';
   static const String gettingThingsReady = 'getting_things_ready';
   static const String login = 'login';
@@ -27,6 +28,8 @@ class AppString {
   static const String support = 'support';
   static const String about = 'about';
   static const String more = 'more';
+  static const String sortBy = 'sort_by';
+  static const String orderBy = 'order_by';
 
   /// error handler
   static const String serverError = 'server_error';

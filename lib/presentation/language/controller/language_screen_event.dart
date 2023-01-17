@@ -7,10 +7,19 @@ abstract class LanguageScreenEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LanguageScreenChangeEvent extends LanguageScreenEvent{
+class LanguageScreenChangeLanguageEvent extends LanguageScreenEvent{
   final LanguageEnum selectedLang;
 
-  const LanguageScreenChangeEvent(this.selectedLang);
+  const LanguageScreenChangeLanguageEvent(this.selectedLang);
+
+  @override
+  List<Object> get props => [selectedLang];
+}
+
+class LanguageScreenApplyLanguageEvent extends LanguageScreenEvent{
+  final LanguageEnum selectedLang;
+
+  const LanguageScreenApplyLanguageEvent(this.selectedLang);
 
   @override
   List<Object> get props => [selectedLang];

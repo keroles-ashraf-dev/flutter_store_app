@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:localization/localization.dart';
-import 'package:store/core/debug/function.dart';
 import 'package:store/core/util/app_constant.dart';
 
 import '../i18n/app_string.dart';
@@ -9,7 +8,7 @@ import 'failure.dart';
 class ErrorHandler {
   ServerFailure serverError({dynamic error}) {
     if (error is DioError) {
-      /// if error from dio, handle it
+      /// if error from slo, handle it
       return _handleApiClientError(error);
     }
 

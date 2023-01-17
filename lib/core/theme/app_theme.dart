@@ -5,7 +5,7 @@ import 'package:store/core/util/app_prefs.dart';
 import 'package:store/core/util/media_query_data.dart';
 import 'package:store/core/util/size_manager.dart';
 
-import '../util/app_module.dart';
+import '../service_locator/app_module.dart';
 import 'app_color.dart';
 
 enum ThemeEnum { system, light, dark }
@@ -22,7 +22,7 @@ class AppTheme {
   static final String dark = ThemeEnum.dark.name;
 
   static ThemeData getAppTheme() {
-    final String prefsTheme = di<AppPrefs>().appTheme;
+    final String prefsTheme = sl<AppPrefs>().appTheme;
 
     if (prefsTheme == system) {
       currentTheme = ThemeEnum.system;
@@ -226,6 +226,14 @@ class AppTheme {
       /// icon
       iconTheme: IconThemeData(
           color: AppColor.blackLight, size: AppSize.iconExtraSmall),
+
+      /// bottom sheet
+      bottomSheetTheme: BottomSheetThemeData(
+        elevation: AppSize.elevationExtraSmall,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSize.radiusSmall),
+        ),
+      ),
 
       /// bottom navbar
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -453,6 +461,7 @@ class AppTheme {
       disabledColor: AppColor.greyLight,
       splashColor: AppColor.orangeLight,
       errorColor: AppColor.red,
+      unselectedWidgetColor: AppColor.greyExtraLight,
       visualDensity: VisualDensity.adaptivePlatformDensity,
     );
   }

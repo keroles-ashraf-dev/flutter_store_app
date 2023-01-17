@@ -1,19 +1,19 @@
-part of 'initial_screen_bloc.dart';
+part of 'splash_screen_bloc.dart';
 
-class InitialScreenState extends Equatable {
+class SplashScreenState extends Equatable {
   final RequestStateEnum getUserDataRequestState;
   final String serverError;
 
-  const InitialScreenState({
+  const SplashScreenState({
     this.getUserDataRequestState = RequestStateEnum.loading,
     this.serverError = AppConstant.emptyStr,
   });
 
-  InitialScreenState copyWith({
+  SplashScreenState copyWith({
     RequestStateEnum? getUserDataRequestState,
     String? serverError,
   }) {
-    return InitialScreenState(
+    return SplashScreenState(
       getUserDataRequestState:
           getUserDataRequestState ?? this.getUserDataRequestState,
       serverError: serverError ?? this.serverError,

@@ -6,7 +6,7 @@ import 'package:store/presentation/home/component/home_screen_categories_builder
 import 'package:store/presentation/home/component/home_screen_deals_builder_widget.dart';
 import 'package:store/presentation/home/controller/home_screen_bloc.dart';
 
-import '../../../core/util/app_module.dart';
+import '../../../core/service_locator/app_module.dart';
 import '../../../core/util/size_manager.dart';
 import '../../common/spacer_widget.dart';
 
@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<HomeScreenBloc>(
         create: (context) {
-          return di<HomeScreenBloc>()
+          return sl<HomeScreenBloc>()
             ..add(const HomeScreenGetMainCarouselEvent())
             ..add(const HomeScreenGetMainCategoriesEvent())
             ..add(const HomeScreenGetDealsEvent());

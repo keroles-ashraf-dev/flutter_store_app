@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:localization/localization.dart';
 
-import '../util/app_module.dart';
+import '../service_locator/app_module.dart';
 import '../util/app_prefs.dart';
 
 enum LanguageEnum { system, english, arabic }
@@ -51,7 +51,7 @@ class AppLocalization {
       return englishLocale;
     }
 
-    final String lang = di<AppPrefs>().appLanguage;
+    final String lang = sl<AppPrefs>().appLanguage;
 
     /// if lang from prefs is system and this lang is in supported locals
     /// then return this lang locale

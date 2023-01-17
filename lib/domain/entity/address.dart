@@ -49,7 +49,7 @@ class Address extends Equatable {
         city,
         area,
         street,
-        building,
+    building,
         floor,
         landMark,
         postCode,

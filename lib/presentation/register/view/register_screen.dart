@@ -6,8 +6,9 @@ import 'package:store/core/util/enum.dart';
 import 'package:store/core/util/size_manager.dart';
 import 'package:store/presentation/register/controller/register_screen_bloc.dart';
 
-import '../../../core/util/app_module.dart';
+import '../../../core/service_locator/app_module.dart';
 import '../../../core/util/app_restart.dart';
+import '../../../core/util/ui_constant.dart';
 import '../../common/sub_appbar_widget.dart';
 import '../component/register_screen_bloc_builder_widget.dart';
 
@@ -17,7 +18,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<RegisterScreenBloc>(
-      create: (context) => di<RegisterScreenBloc>(),
+      create: (context) => sl<RegisterScreenBloc>(),
       child: BlocListener<RegisterScreenBloc, RegisterScreenState>(
         listener: (context, state) {
           if (state.registerRequestState == RequestStateEnum.success) {
@@ -27,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
         child: SafeArea(
           child: Scaffold(
             appBar: PreferredSize(
-              preferredSize: Size(AppSize.width, AppSize.subAppbarHeight),
+              preferredSize: Size(AppSize.width, UIConstant.subAppbarHeight),
               child: SubAppbarWidget(title: AppString.register.i18n()),
             ),
             body: Container(

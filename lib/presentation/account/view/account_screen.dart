@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/util/app_navigator.dart';
-import 'package:store/core/util/app_routes.dart';
+import 'package:store/core/service_locator/app_module.dart';
+
 import 'package:store/core/util/size_manager.dart';
 
-import '../../../core/util/app_module.dart';
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
 import '../../../domain/entity/user.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -21,10 +22,12 @@ class AccountScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (!di.isRegistered(instance: User))
-            InkWell(onTap: () {
-              AppNavigator.push(context, Routes.routeLogin);
-            }, child: Text(AppString.login.i18n())),
+          if (!AppModule().isRegistered<User>())
+            InkWell(
+                onTap: () {
+                  AppNavigator.push(context, Routes.routeLogin);
+                },
+                child: Text(AppString.login.i18n())),
         ],
       ),
     );

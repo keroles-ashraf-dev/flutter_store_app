@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../core/util/asset_manager.dart';
 import '../../../core/util/size_manager.dart';
-import '../../common/shimmer_widget.dart';
 
 class HomeScreenCarouselLoadingWidget extends StatelessWidget {
   const HomeScreenCarouselLoadingWidget({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store/core/i18n/app_localization.dart';
-import 'package:store/core/i18n/app_string.dart';
 import 'package:store/core/theme/app_theme.dart';
+import 'package:store/core/util/app_constant.dart';
 import 'package:store/core/util/extension.dart';
 
 class AppPrefsKeys {
@@ -11,6 +11,12 @@ class AppPrefsKeys {
 }
 
 class AppPrefs {
+  AppPrefs._internal();
+
+  static final AppPrefs _instance = AppPrefs._internal();
+
+  factory AppPrefs() => _instance;
+
   late final SharedPreferences _prefs;
   late String _language;
   late String _theme;
@@ -29,8 +35,6 @@ class AppPrefs {
   String get appTheme => _theme;
 
   String get authToken => _authToken;
-
-  bool get isLoggedIn => _authToken.isNotEmpty;
 
   Future<bool> setAppLanguage(String lang) async {
     bool success = await _prefs.setString(AppPrefsKeys.language, lang);
@@ -52,6 +56,14 @@ class AppPrefs {
     bool success = await _prefs.setString(AppPrefsKeys.authToken, token);
 
     if (success) _authToken = token;
+
+    return success;
+  }
+
+  Future<bool> removeAuthToken() async {
+    bool success = await _prefs.remove(AppPrefsKeys.authToken);
+
+    if (success) _authToken = AppConstant.emptyStr;
 
     return success;
   }

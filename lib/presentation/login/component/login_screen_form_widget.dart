@@ -25,7 +25,6 @@ class LoginScreenFormWidget extends StatelessWidget {
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final bool _securePassword = true;
 
   void _initControllers() {
     _emailController.text = loginRequest.email;

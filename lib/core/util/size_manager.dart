@@ -13,8 +13,6 @@ class AppSize {
   static const double borderWidthLarge = 0.15;
   static const double borderWidthExtraLarge = 0.2;
 
-  static final double subAppbarHeight = height * 0.06;
-
   static final double width0_01 = width * 0.01;
   static final double width0_02 = width * 0.02;
   static final double width0_03 = width * 0.03;
@@ -77,8 +75,8 @@ class AppSize {
   static final double marginHeightTripleExtraLarge = height * 0.35;
   static final double marginHeightQuadrupleExtraLarge = height * 0.4;
 
-  static final double paddingWidthTripleExtraSmall = width * 0.0125;
-  static final double paddingWidthDoubleExtraSmall = width * 0.025;
+  static final double paddingWidthTripleExtraSmall = width * 0.02;
+  static final double paddingWidthDoubleExtraSmall = width * 0.04;
   static final double paddingWidthExtraSmall = width * 0.05;
   static final double paddingWidthSmall = width * 0.1;
   static final double paddingWidthMedium = width * 0.15;

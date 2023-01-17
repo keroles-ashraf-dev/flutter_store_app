@@ -2,37 +2,34 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/core/error/failure.dart';
+import 'package:store/core/session/session.dart';
 import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/app_prefs.dart';
 import 'package:store/core/util/enum.dart';
 import 'package:store/core/util/function.dart';
 import 'package:store/domain/entity/user.dart';
 
-import '../../../core/util/app_module.dart';
 import '../../../domain/entity/no_param.dart';
 import '../../../domain/usecase/user/get_user_data_usecase.dart';
 
-part 'initial_screen_event.dart';
+part 'splash_screen_event.dart';
 
-part 'initial_screen_state.dart';
+part 'splash_screen_state.dart';
 
-class InitialScreenBloc extends Bloc<InitialScreenEvent, InitialScreenState> {
-  final AppPrefs _appPrefs;
+class SplashScreenBloc extends Bloc<SplashScreenEvent, SplashScreenState> {
+  final Session _session;
   final GetUserDataUsecase _getUserDataUseCase;
 
-  InitialScreenBloc(this._appPrefs, this._getUserDataUseCase)
-      : super(const InitialScreenState()) {
-    on<InitialScreenGetUserDataEvent>(_onGetDataEvent);
+  SplashScreenBloc(this._session, this._getUserDataUseCase)
+      : super(const SplashScreenState()) {
+    on<SplashScreenGetUserDataEvent>(_onGetDataEvent);
   }
 
-  Future<void> _onGetDataEvent(InitialScreenGetUserDataEvent event,
-      Emitter<InitialScreenState> emit) async {
+  Future<void> _onGetDataEvent(SplashScreenGetUserDataEvent event,
+      Emitter<SplashScreenState> emit) async {
     /// first check user token in preferences
     /// if exist then get user data from server else return loaded state
     /// to go to main screen
-    if (!_appPrefs.isLoggedIn) {
-      _shareUserToDI(const User.empty());
-
+    if (!_session.isLoggedIn) {
       await delayScreenChanging().then((value) {
         emit(state.copyWith(getUserDataRequestState: RequestStateEnum.success));
       });
@@ -46,7 +43,7 @@ class InitialScreenBloc extends Bloc<InitialScreenEvent, InitialScreenState> {
     });
   }
 
-  InitialScreenState _foldGetUserDataResponse(Either<Failure, User> either) {
+  SplashScreenState _foldGetUserDataResponse(Either<Failure, User> either) {
     return either.fold((l) {
       /// return error state to show error message
       return state.copyWith(
@@ -54,17 +51,15 @@ class InitialScreenBloc extends Bloc<InitialScreenEvent, InitialScreenState> {
           serverError: l.message);
     }, (r) {
       /// share user object and return loaded state to go to main screen
-      _shareUserToDI(r);
+      _shareUserToSession(r);
       return state.copyWith(
           getUserDataRequestState: RequestStateEnum.success,
           serverError: AppConstant.emptyStr);
     });
   }
 
-  void _shareUserToDI(User user) {
-    if (AppModule.isRegistered<User>()) return;
-
+  void _shareUserToSession(User user) {
     /// share user object
-    di.registerSingleton<User>(user);
+    _session.start(user);
   }
 }

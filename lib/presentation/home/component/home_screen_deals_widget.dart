@@ -6,9 +6,9 @@ import 'package:store/core/util/size_manager.dart';
 import 'package:store/core/util/ui_helper.dart';
 import 'package:store/presentation/common/ratingbar_widget.dart';
 
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
 import '../../../core/util/app_constant.dart';
-import '../../../core/util/app_navigator.dart';
-import '../../../core/util/app_routes.dart';
 import '../../../domain/entity/deal.dart';
 import '../../common/spacer_widget.dart';
 

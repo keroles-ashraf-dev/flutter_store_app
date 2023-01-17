@@ -5,10 +5,10 @@ import 'package:store/core/theme/app_theme.dart';
 import 'package:store/core/util/size_manager.dart';
 import 'package:store/presentation/theme/controller/theme_screen_bloc.dart';
 
-class ThemesListWidget extends StatelessWidget {
+class ThemeScreenThemesListWidget extends StatelessWidget {
   final ThemeEnum selectedTheme;
 
-  const ThemesListWidget({Key? key, required this.selectedTheme})
+  const ThemeScreenThemesListWidget({Key? key, required this.selectedTheme})
       : super(key: key);
 
   @override
@@ -31,6 +31,6 @@ class ThemesListWidget extends StatelessWidget {
 
   /// theme list tile on tap
   void _changeSelectedTheme(BuildContext context, ThemeEnum theme) {
-    BlocProvider.of<ThemeScreenBloc>(context).add(ThemeScreenChangeEvent(theme));
+    BlocProvider.of<ThemeScreenBloc>(context).add(ThemeScreenChangeThemeEvent(theme));
   }
 }

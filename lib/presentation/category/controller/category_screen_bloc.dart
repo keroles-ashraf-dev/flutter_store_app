@@ -9,27 +9,42 @@ import 'package:store/domain/entity/get_category_products_request.dart';
 
 import '../../../core/error/failure.dart';
 import '../../../core/util/function.dart';
+import '../../../domain/entity/filter.dart';
 import '../../../domain/entity/product.dart';
 import '../../../domain/usecase/product/get_category_products_usecase.dart';
 
 part 'category_screen_event.dart';
+
 part 'category_screen_state.dart';
 
-class CategoryScreenBloc extends Bloc<CategoryScreenEvent, CategoryScreenState> {
+class CategoryScreenBloc
+    extends Bloc<CategoryScreenEvent, CategoryScreenState> {
   final GetCategoryProductsUsecase _categoryProductsUsecase;
 
-  CategoryScreenBloc(this._categoryProductsUsecase) : super(const CategoryScreenState()) {
+  CategoryScreenBloc(this._categoryProductsUsecase)
+      : super(const CategoryScreenState()) {
     on<CategoryScreenGetCategoryProductsEvent>(_getCategoryProductsEvent);
-    on<CategoryScreenLoadMoreCategoryProductsEvent>(_loadMoreCategoryProductsEvent);
+    on<CategoryScreenLoadMoreCategoryProductsEvent>(
+        _loadMoreCategoryProductsEvent);
   }
 
-  Future<void> _getCategoryProductsEvent(CategoryScreenGetCategoryProductsEvent event, Emitter<CategoryScreenState> emit) async {
+  Future<void> _getCategoryProductsEvent(
+      CategoryScreenGetCategoryProductsEvent event,
+      Emitter<CategoryScreenState> emit) async {
+    emit(state.copyWith(
+      getCategoryProductsRequestState: RequestStateEnum.loading,
+      noMoreProducts: false,
+      filter: event.categoryProductsRequest.filter,
+    ));
+
     final res = await _categoryProductsUsecase(event.categoryProductsRequest);
 
-    await delayScreenChanging().then((_) => emit(_foldCategoryProductsRes(res)));
+    await delayScreenChanging()
+        .then((_) => emit(_foldCategoryProductsRes(res)));
   }
 
-  CategoryScreenState _foldCategoryProductsRes(Either<Failure, List<Product>> either) {
+  CategoryScreenState _foldCategoryProductsRes(
+      Either<Failure, List<Product>> either) {
     return either.fold((l) {
       /// return error state to show error message
       return state.copyWith(
@@ -46,15 +61,21 @@ class CategoryScreenBloc extends Bloc<CategoryScreenEvent, CategoryScreenState> 
     });
   }
 
-  Future<void> _loadMoreCategoryProductsEvent(CategoryScreenLoadMoreCategoryProductsEvent event, Emitter<CategoryScreenState> emit) async {
-   emit(state.copyWith(loadMoreCategoryProductsRequestState: RequestStateEnum.loading));
+  Future<void> _loadMoreCategoryProductsEvent(
+      CategoryScreenLoadMoreCategoryProductsEvent event,
+      Emitter<CategoryScreenState> emit) async {
+    emit(state.copyWith(
+      loadMoreCategoryProductsRequestState: RequestStateEnum.loading,
+    ));
 
     final res = await _categoryProductsUsecase(event.categoryProductsRequest);
 
-    await delayScreenChanging().then((_) => emit(_foldLoadMoreCategoryProductsRes(res)));
+    await delayScreenChanging()
+        .then((_) => emit(_foldLoadMoreCategoryProductsRes(res)));
   }
 
-  CategoryScreenState _foldLoadMoreCategoryProductsRes(Either<Failure, List<Product>> either) {
+  CategoryScreenState _foldLoadMoreCategoryProductsRes(
+      Either<Failure, List<Product>> either) {
     return either.fold((l) {
       /// return error state to show error message
       return state.copyWith(

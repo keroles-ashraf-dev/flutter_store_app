@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/core/util/ui_constant.dart';
 import 'package:store/domain/entity/get_deal_request.dart';
 import 'package:store/presentation/deal/component/deal_screen_builder_widget.dart';
 import 'package:store/presentation/deal/controller/deal_screen_bloc.dart';
 
-import '../../../core/util/app_module.dart';
+import '../../../core/service_locator/app_module.dart';
 import '../../../core/util/size_manager.dart';
 import '../../common/sub_appbar_widget.dart';
 
@@ -18,11 +19,11 @@ class DealScreen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size(AppSize.width, AppSize.subAppbarHeight),
+          preferredSize: Size(AppSize.width, UIConstant.subAppbarHeight),
           child: const SubAppbarWidget()),
       body: BlocProvider<DealScreenBloc>(
         create: (context) {
-          return di<DealScreenBloc>()
+          return sl<DealScreenBloc>()
             ..add(DealScreenGetDealDataEvent(GetDealRequest(id: id)));
         },
         child: SizedBox(

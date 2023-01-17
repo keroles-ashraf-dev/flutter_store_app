@@ -8,7 +8,7 @@ import 'app.dart';
 import 'core/debug/bloc_observer.dart';
 import 'core/debug/function.dart';
 import 'core/i18n/app_localization.dart';
-import 'core/util/app_module.dart';
+import 'core/service_locator/app_module.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,18 +18,18 @@ Future<void> main() async {
     Bloc.observer = MyBlocObserver();
   }
 
-  /// setup app dependency injection
-  AppModule.init();
-
   /// init app preferences (language, theme, etc)
-  await di<AppPrefs>().init();
+  await AppPrefs().init();
 
   /// init app cache
-  await di<CacheManager>().init();
+  await CacheManager().init();
+
+  /// setup app service locator
+  AppModule().init();
 
   /// setup app localization (define json localization files path)
   AppLocalization.init();
 
   /// phoenix for restart app on (theme, language) changing
-  runApp(Phoenix(child: const MyApp()));
+  runApp(Phoenix(child: MyApp()));
 }

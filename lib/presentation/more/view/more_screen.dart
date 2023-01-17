@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:store/core/i18n/app_string.dart';
-import 'package:store/core/util/app_prefs.dart';
-import 'package:store/core/util/app_routes.dart';
+import 'package:store/core/session/session.dart';
 import 'package:store/presentation/more/component/more_item_widget.dart';
 
-import '../../../core/util/app_module.dart';
+import '../../../core/navigation/routes.dart';
+import '../../../core/service_locator/app_module.dart';
 import '../../../core/util/size_manager.dart';
 
 class MoreScreen extends StatelessWidget {
@@ -33,7 +33,8 @@ class MoreScreen extends StatelessWidget {
             ),
             MoreItemWidget(
               title: AppString.support.i18n(),
-              leading: Icon(Icons.contact_support_outlined, size: AppSize.iconSmall),
+              leading:
+                  Icon(Icons.contact_support_outlined, size: AppSize.iconSmall),
               route: Routes.routeSupport,
             ),
             MoreItemWidget(
@@ -42,7 +43,7 @@ class MoreScreen extends StatelessWidget {
               route: Routes.routeAbout,
             ),
             Visibility(
-              visible: di<AppPrefs>().isLoggedIn,
+              visible: sl<Session>().isLoggedIn,
               replacement: MoreItemWidget(
                 title: AppString.login.i18n(),
                 leading: Icon(Icons.login, size: AppSize.iconSmall),
@@ -50,7 +51,8 @@ class MoreScreen extends StatelessWidget {
               ),
               child: MoreItemWidget(
                 title: AppString.logout.i18n(),
-                leading: Icon(Icons.power_settings_new, size: AppSize.iconSmall),
+                leading:
+                    Icon(Icons.power_settings_new, size: AppSize.iconSmall),
                 route: Routes.routeLogout,
               ),
             ),

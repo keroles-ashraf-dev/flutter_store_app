@@ -1,10 +1,11 @@
 part of 'theme_screen_bloc.dart';
 
-class ThemeScreenSelectedState extends Equatable {
-   final ThemeEnum selectedTheme;
+class ThemeScreenState extends Equatable {
+  final ThemeEnum selectedTheme;
+  final bool apply;
 
-  const ThemeScreenSelectedState(this.selectedTheme);
+  const ThemeScreenState({required this.selectedTheme, this.apply = false});
 
   @override
-  List<Object> get props => [selectedTheme];
+  List<Object> get props => [selectedTheme, apply];
 }

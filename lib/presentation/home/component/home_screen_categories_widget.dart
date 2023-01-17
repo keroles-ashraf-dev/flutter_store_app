@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:store/core/util/app_navigator.dart';
-import 'package:store/core/util/app_routes.dart';
 import 'package:store/core/util/size_manager.dart';
 import 'package:store/core/util/ui_constant.dart';
 import 'package:store/presentation/common/spacer_widget.dart';
 
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
 import '../../../domain/entity/category.dart';
 
 class HomeScreenCategoriesWidget extends StatelessWidget {
@@ -40,7 +40,8 @@ class HomeScreenCategoriesWidget extends StatelessWidget {
 
   Widget categoryCard(BuildContext context, int i) {
     return InkWell(
-      onTap: () => _categoryCardClick(context, categories[i].name, categories[i].id),
+      onTap: () =>
+          _categoryCardClick(context, categories[i].name, categories[i].id),
       child: Card(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -69,7 +70,9 @@ class HomeScreenCategoriesWidget extends StatelessWidget {
     );
   }
 
-  void _categoryCardClick(BuildContext context, String categoryName, int categoryId) {
-    AppNavigator.push(context, Routes.routeCategory, data: {'name': categoryName, 'id': categoryId});
+  void _categoryCardClick(
+      BuildContext context, String categoryName, int categoryId) {
+    AppNavigator.push(context, Routes.routeCategory,
+        data: {'name': categoryName, 'id': categoryId});
   }
 }

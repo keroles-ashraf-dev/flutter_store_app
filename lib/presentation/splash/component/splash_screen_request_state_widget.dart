@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/util/enum.dart';
-import '../controller/initial_screen_bloc.dart';
-import 'initial_screen_error_widget.dart';
-import 'initial_screen_progress_widget.dart';
+import '../controller/splash_screen_bloc.dart';
+import 'splash_screen_error_widget.dart';
+import 'splash_screen_progress_widget.dart';
 
-class InitialScreenRequestStateWidget extends StatelessWidget {
-  const InitialScreenRequestStateWidget({Key? key}) : super(key: key);
+class SplashScreenRequestStateWidget extends StatelessWidget {
+  const SplashScreenRequestStateWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<InitialScreenBloc, InitialScreenState>(
+    return BlocBuilder<SplashScreenBloc, SplashScreenState>(
       buildWhen: (previous, current) {
         return (previous != current &&
             previous.getUserDataRequestState != RequestStateEnum.success);
@@ -19,13 +19,13 @@ class InitialScreenRequestStateWidget extends StatelessWidget {
       builder: (context, state) {
         switch (state.getUserDataRequestState) {
           case RequestStateEnum.initializing:
-            return const InitialScreenProgressWidget();
+            return const SplashScreenProgressWidget();
           case RequestStateEnum.loading:
-            return const InitialScreenProgressWidget();
+            return const SplashScreenProgressWidget();
           case RequestStateEnum.success:
-            return const InitialScreenProgressWidget();
+            return const SplashScreenProgressWidget();
           case RequestStateEnum.failure:
-            return InitialScreenErrorWidget(message: state.serverError);
+            return SplashScreenErrorWidget(message: state.serverError);
         }
       },
     );

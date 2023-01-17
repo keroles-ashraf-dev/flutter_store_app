@@ -44,7 +44,8 @@ class CategoryScreenLoadMoreWidget extends StatelessWidget {
             case RequestStateEnum.success:
               return _loadMoreView(context, state.noMoreProducts);
             case RequestStateEnum.failure:
-              return _loadMoreView(context, state.noMoreProducts, error: state.loadMoreCategoryProductsError);
+              return _loadMoreView(context, state.noMoreProducts,
+                  error: state.loadMoreCategoryProductsError);
           }
         },
       ),
@@ -59,8 +60,9 @@ class CategoryScreenLoadMoreWidget extends StatelessWidget {
     );
   }
 
-  Widget _loadMoreView(BuildContext context, bool noMoreProducts, {String error = AppConstant.emptyStr}) {
-    if(noMoreProducts) return const SizedBox.shrink();
+  Widget _loadMoreView(BuildContext context, bool noMoreProducts,
+      {String error = AppConstant.emptyStr}) {
+    if (noMoreProducts) return const SizedBox.shrink();
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,

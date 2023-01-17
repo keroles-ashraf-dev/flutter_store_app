@@ -24,6 +24,7 @@ class ApiConstant {
   static const String resDataAddressesKey = 'addresses';
   static const String resDataCountryKey = 'country';
   static const String resDataProductsKey = 'products';
+  static const String resDataCartKey = 'cart';
 
   /// base url
   //static const String baseUrl = 'https://top-store.lxvll.com';
@@ -52,4 +53,7 @@ class ApiConstant {
 
   /// carousel uri
   static const String mainCarouselUri = '/api/v1/main-carousel';
+
+  /// cart uri
+  static const String cartUri = '/api/v1/cart';
 }

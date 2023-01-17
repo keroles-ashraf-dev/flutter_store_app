@@ -7,7 +7,6 @@ import 'package:store/presentation/common/spacer_widget.dart';
 import 'package:store/presentation/common/text_field_widget.dart';
 import 'package:store/presentation/register/controller/register_screen_bloc.dart';
 
-import '../../../core/debug/function.dart';
 import '../../../core/i18n/app_string.dart';
 import '../../../domain/entity/register_request.dart';
 import '../../common/password_text_field_widget.dart';

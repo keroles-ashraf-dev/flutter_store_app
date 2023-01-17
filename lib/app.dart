@@ -3,10 +3,16 @@ import 'package:store/core/theme/app_theme.dart';
 import 'package:store/core/util/app_constant.dart';
 
 import 'core/i18n/app_localization.dart';
-import 'core/util/app_routes.dart';
+import 'core/navigation/app_route.dart';
+import 'core/navigation/routes.dart';
 
+/// singleton class
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp._internal();
+
+  static const MyApp _instance = MyApp._internal();
+
+  factory MyApp() => _instance;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +23,8 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocalization.supportedLocales,
       localeResolutionCallback: AppLocalization.localeCallback,
       theme: AppTheme.getAppTheme(),
-      initialRoute: Routes.routeInitial,
-      onGenerateRoute: AppRoutes.onGenerateRoute,
+      initialRoute: Routes.routeSplash,
+      onGenerateRoute: AppRoute.onGenerateRoute,
     );
   }
 }

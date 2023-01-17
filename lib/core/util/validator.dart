@@ -20,15 +20,6 @@ class Validator {
     final regex = RegExp(r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$');
 
     return regex.hasMatch(email);
-
-    // final trimmedEmail = email.replaceAll(' ', '');
-
-    // if (trimmedEmail.isEmpty ||
-    //     !trimmedEmail.contains('@') ||
-    //     trimmedEmail.length < 5) {
-    //   return false;
-    // }
-    // return true;
   }
 
   bool number(String number) {

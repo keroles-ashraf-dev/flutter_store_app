@@ -1,13 +1,11 @@
 import 'package:equatable/equatable.dart';
+import 'package:store/core/util/ui_constant.dart';
 
 import '../../core/util/app_constant.dart';
 
 class Pagination extends Equatable {
-  /// requested items count
-  final int itemsCount;
-
-  /// started position
-  final int offset;
+  final int itemsCount; // requested items count
+  final int offset; // started position
 
   const Pagination({
     required this.itemsCount,
@@ -15,9 +13,9 @@ class Pagination extends Equatable {
   });
 
   /// return empty object
-  const Pagination.empty({
-    this.itemsCount = AppConstant.emptyInt,
-    this.offset = AppConstant.emptyInt,
+  const Pagination.initial({
+    this.itemsCount = UIConstant.paginationItemsCountCount,
+    this.offset = AppConstant.zeroInt,
   });
 
   @override

@@ -6,6 +6,12 @@ import 'cache_client.dart';
 
 /// callable class
 class CacheManager {
+  CacheManager._internal();
+
+  static final CacheManager _instance = CacheManager._internal();
+
+  factory CacheManager() => _instance;
+
   late final CacheClient _cacheClient;
 
   /// initiate cache clients

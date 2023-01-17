@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:store/core/i18n/app_string.dart';
 import 'package:store/core/theme/app_style.dart';
-import 'package:store/core/util/app_navigator.dart';
-import 'package:store/core/util/app_routes.dart';
 
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
 import '../../../core/util/size_manager.dart';
-import '../../common/spacer_widget.dart';
 
 class LoginScreenRegisterWidget extends StatelessWidget {
   const LoginScreenRegisterWidget({Key? key}) : super(key: key);

@@ -1,13 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:store/core/util/app_constant.dart';
-import 'package:store/core/util/app_navigator.dart';
-import 'package:store/core/util/app_routes.dart';
 import 'package:store/core/util/size_manager.dart';
 import 'package:store/domain/entity/product.dart';
 import 'package:store/presentation/category/component/category_screen_load_more_widget.dart';
 import 'package:store/presentation/common/ratingbar_widget.dart';
 
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
 import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_style.dart';
 import '../../common/spacer_widget.dart';
@@ -16,7 +16,8 @@ class CategoryScreenProductsWidget extends StatelessWidget {
   final int categoryId;
   final List<Product> products;
 
-  const CategoryScreenProductsWidget({Key? key, required this.products, required this.categoryId})
+  const CategoryScreenProductsWidget(
+      {Key? key, required this.products, required this.categoryId})
       : super(key: key);
 
   @override
@@ -94,7 +95,7 @@ class CategoryScreenProductsWidget extends StatelessWidget {
                   SpacerWidget(height: AppSize.height0_01),
                   Visibility(
                     visible: products[i].discountedPrice > AppConstant.zeroDol,
-                    replacement:  Text(
+                    replacement: Text(
                       products[i].price.toString() + AppConstant.dollarSign,
                       style: AppStyle.textBold(
                         color: AppColor.orange,
@@ -102,7 +103,8 @@ class CategoryScreenProductsWidget extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      products[i].discountedPrice.toString() + AppConstant.dollarSign,
+                      products[i].discountedPrice.toString() +
+                          AppConstant.dollarSign,
                       style: AppStyle.textBold(
                         color: AppColor.orange,
                         size: AppSize.fontExtraLarge,

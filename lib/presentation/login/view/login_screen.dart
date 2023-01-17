@@ -4,10 +4,11 @@ import 'package:localization/localization.dart';
 import 'package:store/core/i18n/app_string.dart';
 import 'package:store/core/util/enum.dart';
 import 'package:store/core/util/size_manager.dart';
+import 'package:store/core/util/ui_constant.dart';
 import 'package:store/presentation/login/component/login_screen_bloc_builder_widget.dart';
 import 'package:store/presentation/login/controller/login_screen_bloc.dart';
 
-import '../../../core/util/app_module.dart';
+import '../../../core/service_locator/app_module.dart';
 import '../../../core/util/app_restart.dart';
 import '../../common/sub_appbar_widget.dart';
 
@@ -17,7 +18,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginScreenBloc>(
-      create: (context) => di<LoginScreenBloc>(),
+      create: (context) => sl<LoginScreenBloc>(),
       child: BlocListener<LoginScreenBloc, LoginScreenState>(
         listener: (context, state) {
           if (state.loginRequestState == RequestStateEnum.success) {
@@ -27,7 +28,7 @@ class LoginScreen extends StatelessWidget {
         child: SafeArea(
           child: Scaffold(
             appBar: PreferredSize(
-                preferredSize: Size(AppSize.width, AppSize.subAppbarHeight),
+                preferredSize: Size(AppSize.width, UIConstant.subAppbarHeight),
                 child: SubAppbarWidget(title: AppString.login.i18n())),
             body: Container(
               alignment: Alignment.center,

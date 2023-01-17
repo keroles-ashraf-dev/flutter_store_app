@@ -5,8 +5,8 @@ import 'package:store/core/util/size_manager.dart';
 import '../../../core/i18n/app_string.dart';
 import '../../common/spacer_widget.dart';
 
-class InitialScreenProgressWidget extends StatelessWidget {
-  const InitialScreenProgressWidget({Key? key}) : super(key: key);
+class SplashScreenProgressWidget extends StatelessWidget {
+  const SplashScreenProgressWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -5,13 +5,11 @@ class AppNavigator {
     Navigator.of(context).pop(result);
   }
 
-  static Future<void> push(BuildContext context, String route,
-      {dynamic data}) async {
+  static Future<void> push(BuildContext context, String route, {dynamic data}) async {
     await Navigator.of(context).pushNamed(route, arguments: data);
   }
 
-  static Future<void> replace(BuildContext context, String route,
-      {dynamic data}) async {
+  static Future<void> replace(BuildContext context, String route, {dynamic data}) async {
     await Navigator.of(context).pushReplacementNamed(route, arguments: data);
   }
 }

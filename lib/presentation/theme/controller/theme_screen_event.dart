@@ -7,10 +7,19 @@ abstract class ThemeScreenEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class ThemeScreenChangeEvent extends ThemeScreenEvent{
+class ThemeScreenChangeThemeEvent extends ThemeScreenEvent{
   final ThemeEnum selectedTheme;
 
-  const ThemeScreenChangeEvent(this.selectedTheme);
+  const ThemeScreenChangeThemeEvent(this.selectedTheme);
+
+  @override
+  List<Object> get props => [selectedTheme];
+}
+
+class ThemeScreenApplyThemeEvent extends ThemeScreenEvent{
+  final ThemeEnum selectedTheme;
+
+  const ThemeScreenApplyThemeEvent(this.selectedTheme);
 
   @override
   List<Object> get props => [selectedTheme];

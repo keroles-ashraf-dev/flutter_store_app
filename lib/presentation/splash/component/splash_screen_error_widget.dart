@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class InitialScreenErrorWidget extends StatelessWidget {
+class SplashScreenErrorWidget extends StatelessWidget {
   final String message;
 
-  const InitialScreenErrorWidget({Key? key, required this.message})
+  const SplashScreenErrorWidget({Key? key, required this.message})
       : super(key: key);
 
   @override

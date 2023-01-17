@@ -1,3 +1,4 @@
+import 'package:store/data/mapper/filter_mapper.dart';
 import 'package:store/data/mapper/pagination_mapper.dart';
 import 'package:store/data/model/get_category_products_request_model.dart';
 import 'package:store/data/model/product_model.dart';
@@ -21,7 +22,7 @@ extension ProductModelMapper on ProductModel {
   }
 }
 
-extension ProductMapper on ProductModel {
+extension ProductMapper on Product {
   ProductModel get toModel {
     return ProductModel(
       id: id,
@@ -41,7 +42,8 @@ extension GetCategoryProductsRequestMapper on GetCategoryProductsRequest {
   GetCategoryProductsRequestModel get toModel {
     return GetCategoryProductsRequestModel(
       categoryId: categoryId,
-      paginationModel: pagination.toModel,
+      pagination: pagination.toModel,
+      filter: filter.toModel,
     );
   }
 }
