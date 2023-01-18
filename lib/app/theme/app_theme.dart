@@ -194,6 +194,21 @@ class AppTheme {
         ),
       ),
 
+      /// text button
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          fixedSize: MaterialStateProperty.all(
+            Size(AppSize.width5, AppSize.height0_06),
+          ),
+          textStyle: MaterialStateProperty.all(
+            AppStyle.textMedium(
+              color: AppColor.black,
+              size: AppSize.fontLarge,
+            ),
+          ),
+        ),
+      ),
+
       /// list tile
       listTileTheme: ListTileThemeData(
         dense: true,
@@ -400,6 +415,21 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               AppSize.radiusTripleExtraLarge,
+            ),
+          ),
+        ),
+      ),
+
+      /// text button
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          fixedSize: MaterialStateProperty.all(
+            Size(AppSize.width5, AppSize.height0_06),
+          ),
+          textStyle: MaterialStateProperty.all(
+            AppStyle.textMedium(
+              color: AppColor.white,
+              size: AppSize.fontLarge,
             ),
           ),
         ),
