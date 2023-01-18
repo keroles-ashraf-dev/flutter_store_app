@@ -39,7 +39,7 @@ class SplashScreenBloc extends Bloc<SplashScreenEvent, SplashScreenState> {
     final res = await _getUserDataUseCase(const NoParams());
 
     await delayScreenChanging().then((value) {
-      _foldGetUserDataResponse(res);
+      emit(_foldGetUserDataResponse(res));
     });
   }
 

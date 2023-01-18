@@ -4,9 +4,9 @@ import 'package:store/domain/entity/get_address_request.dart';
 import 'package:store/presentation/main/component/main_screen_content.dart';
 import 'package:store/presentation/main/controller/main_screen_bloc.dart';
 
+import '../../../app/debug/function.dart';
 import '../../../app/service_locator/service_locator.dart';
 import '../../../app/session/session.dart';
-import '../../../domain/entity/user.dart';
 import '../../common/appbar_search_widget.dart';
 import '../component/main_screen_appbar_address_widget.dart';
 import '../component/main_screen_bottom_navbar_widget.dart';
@@ -16,6 +16,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log('main screen build');
     return BlocProvider<MainScreenBloc>(
       create: (context) {
         return sl<MainScreenBloc>()
@@ -32,7 +33,7 @@ class MainScreen extends StatelessWidget {
                   const MainScreenAppbarAddressWidget()
                 ];
               },
-              body: MainScreenContent(),
+              body: const MainScreenContent(),
             ),
             bottomNavigationBar: const MainScreenBottomNavbarWidget()),
       ),

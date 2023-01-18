@@ -13,21 +13,23 @@ class AccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        vertical: AppSize.marginHeightExtraLarge,
-        horizontal: AppSize.marginWidthSmall,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (!ServiceLocator.isRegistered<User>())
-            InkWell(
-                onTap: () {
-                  AppNavigator.push(context, Routes.routeLogin);
-                },
-                child: Text(AppString.login.i18n())),
-        ],
+    return Scaffold(
+      body: Container(
+        margin: EdgeInsets.symmetric(
+          vertical: AppSize.marginHeightExtraLarge,
+          horizontal: AppSize.marginWidthSmall,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (!ServiceLocator.isRegistered<User>())
+              InkWell(
+                  onTap: () {
+                    AppNavigator.push(context, Routes.routeLogin);
+                  },
+                  child: Text(AppString.login.i18n())),
+          ],
+        ),
       ),
     );
   }

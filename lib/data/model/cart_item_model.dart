@@ -15,7 +15,7 @@ class CartItemModel extends CartItem {
 
   factory CartItemModel.fromJson(Map<String, dynamic> json) {
     return CartItemModel(
-      productId: json['product_id'],
+      productId: json['id'],
       name: json['name'],
       price: json['price'],
       discountedPrice: json['discounted_price'].toString().toDoubleOrEmpty(),

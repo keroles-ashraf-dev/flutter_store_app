@@ -14,6 +14,7 @@ import '../../presentation/not_found/view/not_found_screen.dart';
 import '../../presentation/register/view/register_screen.dart';
 import '../../presentation/splash/view/splash_screen.dart';
 import '../../presentation/theme/view/theme_screen.dart';
+import '../debug/function.dart';
 import '../verification/verifier.dart';
 import 'routes.dart';
 
@@ -22,6 +23,7 @@ class AppRoute {
     /// verify if requested route require verifications like (login)
     /// if so then return new Route depends on required verifications
     routeSettings = Verifier.verify(routeSettings);
+      log(routeSettings.name);
     switch (routeSettings.name) {
       case Routes.routeSplash:
         ServiceLocator.initSplashModule();
@@ -31,11 +33,9 @@ class AppRoute {
         );
       case Routes.routeMain:
         ServiceLocator.initMainModule();
-        ServiceLocator.initHomeModule();
-        ServiceLocator.initCartModule();
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: ((context) =>  const MainScreen()),
+          builder: ((context) => const MainScreen()),
         );
       case Routes.routeHome:
         ServiceLocator.initHomeModule();
@@ -100,6 +100,11 @@ class AppRoute {
         return MaterialPageRoute(
           settings: routeSettings,
           builder: ((context) => const LanguageScreen()),
+        );
+      case Routes.routeNotFound:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: ((context) => const NotFoundScreen()),
         );
       default:
         return MaterialPageRoute(

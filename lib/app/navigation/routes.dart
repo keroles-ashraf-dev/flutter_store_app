@@ -15,4 +15,5 @@ class Routes {
   static const String routeTheme = '/main/more/theme';
   static const String routeLanguage = '/main/more/language';
   static const String routeAbout = '/main/more/about';
+  static const String routeNotFound = '/not-found';
 }

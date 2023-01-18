@@ -1,31 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/app/navigation/routes.dart';
 import 'package:store/presentation/main/controller/main_screen_bloc.dart';
 
+import '../../../app/debug/function.dart';
 import '../../../app/util/app_constant.dart';
 
 class MainScreenBottomNavbarWidget extends StatelessWidget {
-  const MainScreenBottomNavbarWidget({super.key});
+  const MainScreenBottomNavbarWidget({super.key,});
 
   @override
   Widget build(BuildContext context) {
+    log('main screen Bottom Navbar build');
     return BlocBuilder<MainScreenBloc, MainScreenState>(
       buildWhen: (prev, current) => prev.screenIndex != current.screenIndex,
       builder: (context, state) {
-       return _bottomNavbar(context, state.screenIndex);
+        log('main screen Bottom Navbar bloc builder');
+        return _bottomNavbar(context, state.screenIndex);
       },
     );
   }
 
-  Widget _bottomNavbar(BuildContext context, int i){
+  Widget _bottomNavbar(BuildContext context, int i) {
     return BottomNavigationBar(
       currentIndex: i,
       onTap: (i) => _changeSelectedScreen(context, i),
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: AppConstant.emptyStr),
-        BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: AppConstant.emptyStr),
-        BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: AppConstant.emptyStr),
-        BottomNavigationBarItem(icon: Icon(Icons.menu), label: AppConstant.emptyStr),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined), label: AppConstant.emptyStr),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline), label: AppConstant.emptyStr),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined), label: AppConstant.emptyStr),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.menu), label: AppConstant.emptyStr),
       ],
     );
   }

@@ -9,6 +9,10 @@ class UIConstant {
 
   /// main screen
   static const int mainScreenBottomNavBarDefaultIndex = 0;
+  static const int mainScreenHomeScreenIndex = 0;
+  static const int mainScreenAccountScreenIndex = 1;
+  static const int mainScreenCartScreenIndex = 2;
+  static const int mainScreenMoreScreenIndex = 3;
 
   /// home screen
   static const int homeCategoryCardWidth = 120;

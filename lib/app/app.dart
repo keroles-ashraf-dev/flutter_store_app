@@ -8,11 +8,18 @@ import 'util/app_constant.dart';
 
 /// singleton class
 class MyApp extends StatelessWidget {
-  const MyApp._internal();
+  MyApp._internal();
 
-  static const MyApp _instance = MyApp._internal();
+  static final MyApp _instance = MyApp._internal();
 
   factory MyApp() => _instance;
+
+  /// we have two Navigator through the app one for MaterialAPP and one
+  /// for MainScreenContentWidget so we need to identify each one by a Key
+  /// to avoid conflict
+  final _appNavigatorKey = GlobalKey<NavigatorState>();
+
+  GlobalKey<NavigatorState> get appNavigatorKey => _appNavigatorKey;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +30,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocalization.supportedLocales,
       localeResolutionCallback: AppLocalization.localeCallback,
       theme: AppTheme.getAppTheme(),
+      navigatorKey: _appNavigatorKey,
       initialRoute: Routes.routeSplash,
       onGenerateRoute: AppRoute.onGenerateRoute,
     );

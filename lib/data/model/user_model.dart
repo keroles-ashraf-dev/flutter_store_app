@@ -1,3 +1,4 @@
+import 'package:store/app/util/app_constant.dart';
 import 'package:store/app/util/extension.dart';
 import 'package:store/domain/entity/user.dart';
 
@@ -30,7 +31,7 @@ class UserModel extends User {
         phone: json['phone'],
         phoneVerified: json['phone_verified'],
         created: json['created'],
-        status: json['status'],
-        defaultAddressId: json['default_address_id'],
+        status: json['status']??AppConstant.emptyInt,
+        defaultAddressId: json['default_address_id'] ?? AppConstant.emptyInt,
       );
 }
