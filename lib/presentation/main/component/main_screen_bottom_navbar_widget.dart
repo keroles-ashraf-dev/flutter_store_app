@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/app/navigation/routes.dart';
 import 'package:store/presentation/main/controller/main_screen_bloc.dart';
 
-import '../../../app/debug/function.dart';
 import '../../../app/util/app_constant.dart';
 
 class MainScreenBottomNavbarWidget extends StatelessWidget {
@@ -11,11 +9,9 @@ class MainScreenBottomNavbarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log('main screen Bottom Navbar build');
     return BlocBuilder<MainScreenBloc, MainScreenState>(
       buildWhen: (prev, current) => prev.screenIndex != current.screenIndex,
       builder: (context, state) {
-        log('main screen Bottom Navbar bloc builder');
         return _bottomNavbar(context, state.screenIndex);
       },
     );

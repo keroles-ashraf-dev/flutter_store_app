@@ -9,6 +9,7 @@
   "save": "حفظ",
   "search_hint": "بحث...",
   "getting_things_ready": "جاري الاستعداد للبدء...",
+  "login_required_hint": "يجب ان تقوم بتسجيل دخولك لعرض لذلك المحتوي",
   "login": "تسجيل دخول",
   "logout": "تسجيل خروج",
   "register": "تسجيل",

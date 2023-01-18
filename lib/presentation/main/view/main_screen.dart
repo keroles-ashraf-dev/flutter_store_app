@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/domain/entity/get_address_request.dart';
-import 'package:store/presentation/main/component/main_screen_content.dart';
+import 'package:store/presentation/main/component/main_screen_content_widget.dart';
 import 'package:store/presentation/main/controller/main_screen_bloc.dart';
 
-import '../../../app/debug/function.dart';
 import '../../../app/service_locator/service_locator.dart';
 import '../../../app/session/session.dart';
 import '../../common/appbar_search_widget.dart';
@@ -16,7 +15,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log('main screen build');
     return BlocProvider<MainScreenBloc>(
       create: (context) {
         return sl<MainScreenBloc>()

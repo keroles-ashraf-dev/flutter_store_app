@@ -6,6 +6,7 @@ class Routes {
   static const String routeProduct = '/main/categories/product';
   static const String routeDeal = '/main/deals/deal';
   static const String routeAccount = '/main/account';
+  static const String routeLoginRequired = '/main/account/login-required';
   static const String routeLogin = '/main/account/login';
   static const String routeRegister = '/main/account/register';
   static const String routeLogout = '/main/account/logout';

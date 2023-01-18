@@ -11,6 +11,7 @@ class AppString {
   static const String searchHint = 'search_hint';
   static const String gettingThingsReady = 'getting_things_ready';
   static const String login = 'login';
+  static const String loginRequiredHint = 'login_required_hint';
   static const String logout = 'logout';
   static const String register = 'register';
   static const String firstName = 'first_name';

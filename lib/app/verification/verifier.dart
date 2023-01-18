@@ -14,7 +14,7 @@ class Verifier {
   }
 
   static bool _isLoginRequired(String route) {
-    final List<String> loginRequiredRoutes = [Routes.routeCart];
+    final List<String> loginRequiredRoutes = [Routes.routeAccount, Routes.routeCart];
 
     for (String e in loginRequiredRoutes) {
       if (e == route) return true;
@@ -25,6 +25,6 @@ class Verifier {
   static RouteSettings _verifyLoginAction(RouteSettings routeSettings) {
     if (sl<Session>().isLoggedIn) return routeSettings;
 
-    return const RouteSettings(name: Routes.routeLogin);
+    return const RouteSettings(name: Routes.routeLoginRequired);
   }
 }

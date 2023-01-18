@@ -8,6 +8,7 @@ import '../../presentation/category/view/category_screen.dart';
 import '../../presentation/deal/view/deal_screen.dart';
 import '../../presentation/language/view/language_screen.dart';
 import '../../presentation/login/view/login_screen.dart';
+import '../../presentation/login_required/view/login_required_screen.dart';
 import '../../presentation/main/view/main_screen.dart';
 import '../../presentation/more/view/more_screen.dart';
 import '../../presentation/not_found/view/not_found_screen.dart';
@@ -65,6 +66,11 @@ class AppRoute {
         return MaterialPageRoute(
           settings: routeSettings,
           builder: ((context) => const AccountScreen()),
+        );
+      case Routes.routeLoginRequired:
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: ((context) => const LoginRequiredScreen()),
         );
       case Routes.routeLogin:
         ServiceLocator.initLoginModule();

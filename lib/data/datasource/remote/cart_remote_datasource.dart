@@ -18,6 +18,7 @@ class CartRemoteDatasourceImpl implements BaseCartRemoteDatasource {
     try {
       final res = await _apiManager().get(
         ApiConstant.cartUri,
+        sendAuth: true,
         params: requestModel.toJson(),
       );
 

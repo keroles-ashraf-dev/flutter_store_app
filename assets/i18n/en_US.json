@@ -9,6 +9,7 @@
   "save": "Save",
   "search_hint": "Search...",
   "getting_things_ready": "Getting things ready...",
+  "login_required_hint": "Login is required to access that content",
   "login": "Login",
   "logout": "Logout",
   "register": "Register",
