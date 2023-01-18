@@ -21,8 +21,7 @@ class CartScreenBloc extends Bloc<CartScreenEvent, CartScreenState> {
     on<CartScreenGetCartEvent>(_getCartEvent);
   }
 
-  Future<void> _getCartEvent(
-      CartScreenGetCartEvent event, Emitter<CartScreenState> emit) async {
+  Future<void> _getCartEvent(CartScreenGetCartEvent event, Emitter<CartScreenState> emit) async {
     final res = await _cartUsecase(event.request);
 
     await delayScreenChanging().then((_) => emit(_foldGetCartRes(res)));

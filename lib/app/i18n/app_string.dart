@@ -31,6 +31,12 @@ class AppString {
   static const String more = 'more';
   static const String sortBy = 'sort_by';
   static const String orderBy = 'order_by';
+  static const String items = 'items';
+  static const String shipping = 'shipping';
+  static const String vat = 'vat';
+  static const String total = 'total';
+  static const String placeOrder = 'place_order';
+  static const String checkout = 'checkout';
 
   /// error handler
   static const String serverError = 'server_error';

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../domain/entity/cart.dart';
+
 class CartScreenItemsWidget extends StatelessWidget {
-  const CartScreenItemsWidget({Key? key}) : super(key: key);
+  final Cart cart;
+
+  const CartScreenItemsWidget({Key? key, required this.cart}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

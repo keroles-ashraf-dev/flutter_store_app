@@ -8,6 +8,7 @@ import '../../app/i18n/app_string.dart';
 import '../../app/navigation/app_navigator.dart';
 import '../../app/util/enum.dart';
 import '../resource/size_manager.dart';
+import 'radio_tile_widget.dart';
 
 class FilterBottomSheetWidget extends StatefulWidget {
   final Filter filter;
@@ -55,6 +56,14 @@ class _FilterBottomSheetWidgetState extends State<FilterBottomSheetWidget> {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: FilterSortByEnum.values.length,
               itemBuilder: (context, i) {
+                return RadioTaleWidget(
+                  title: FilterSortByEnum.values[i].name.i18n(),
+                  value: FilterSortByEnum.values[i],
+                  groupValue: _sortBySelected,
+                  onChanged: (val) {
+                    if (val != null) setState(() => _sortBySelected = val);
+                  },
+                );
                 return _sortByRadioListTale(
                   title: FilterSortByEnum.values[i].name.i18n(),
                   value: FilterSortByEnum.values[i],
@@ -74,6 +83,15 @@ class _FilterBottomSheetWidgetState extends State<FilterBottomSheetWidget> {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: FilterOrderByEnum.values.length,
               itemBuilder: (context, i) {
+                return RadioTaleWidget(
+                  padding: EdgeInsets.symmetric(vertical: AppSize.height0_01),
+                  title: FilterOrderByEnum.values[i].name.i18n(),
+                  value: FilterOrderByEnum.values[i],
+                  groupValue: _orderBySelected,
+                  onChanged: (val) {
+                    if (val != null) setState(() => _orderBySelected = val);
+                  },
+                );
                 return _orderByRadioListTale(
                   title: FilterOrderByEnum.values[i].name.i18n(),
                   value: FilterOrderByEnum.values[i],

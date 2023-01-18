@@ -3,6 +3,7 @@ class AppConstant {
   static const String space = ' ';
   static const String notFound = 'Not Found';
   static const String dollarSign = '\$';
+  static const String colonSign = ':';
 
   /// empty cons
   static const String emptyStr = '';
