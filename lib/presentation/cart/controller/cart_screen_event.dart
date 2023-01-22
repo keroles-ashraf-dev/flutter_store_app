@@ -14,9 +14,18 @@ class CartScreenGetCartEvent extends CartScreenEvent {
 }
 
 class CartScreenIncreaseCartItemEvent extends CartScreenEvent {
-  final GetCartRequest request;
+  final IncreaseCartItemRequest request;
 
   const CartScreenIncreaseCartItemEvent(this.request);
+
+  @override
+  List<Object> get props => [request];
+}
+
+class CartScreenDecreaseCartItemEvent extends CartScreenEvent {
+  final DecreaseCartItemRequest request;
+
+  const CartScreenDecreaseCartItemEvent(this.request);
 
   @override
   List<Object> get props => [request];

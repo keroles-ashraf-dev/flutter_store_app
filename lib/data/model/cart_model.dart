@@ -14,10 +14,10 @@ class CartModel extends Cart {
   factory CartModel.fromJson(Map<String, dynamic> json) {
     return CartModel(
       items: List.from((json['items'] as List).map((e) => CartItemModel.fromJson(e))),
-      subtotal: json['subtotal'],
+      subtotal: json['subtotal'].toString().toDoubleOrEmpty(),
       shipping: json['shipping'].toString().toDoubleOrEmpty(),
-      vat: json['vat'],
-      total: json['total'],
+      vat: json['vat'].toString().toDoubleOrEmpty(),
+      total: json['total'].toString().toDoubleOrEmpty(),
     );
   }
 

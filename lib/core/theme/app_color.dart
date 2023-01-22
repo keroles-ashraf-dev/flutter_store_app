@@ -6,6 +6,7 @@ class AppColor {
   static const Color primaryDark = Color(0xffd97800);
   static const Color disabled = Color(0xff9d9d9d);
   static const Color unselected = Color(0xffe8e8e8);
+  static const Color overlay = Color(0x79000000);
   static const Color error = Color(0xffff0000);
   static const Color yellow = Color(0xffFFD814);
   static const Color blue = Color(0xff0066c0);

@@ -24,7 +24,8 @@ class CartScreen extends StatelessWidget {
       },
       child: BlocBuilder<CartScreenBloc, CartScreenState>(
         buildWhen: (prev, current) {
-          return prev.cartRequestState != current.cartRequestState;
+          return (prev.cartRequestState != current.cartRequestState)
+              || (current.cartUpdatingRequestState == RequestStateEnum.success);
         },
         builder: (context, state) {
           switch (state.cartRequestState) {
@@ -35,7 +36,7 @@ class CartScreen extends StatelessWidget {
             case RequestStateEnum.success:
               return CartScreenContentWidget(cart: state.cart);
             case RequestStateEnum.failure:
-              return CenterErrorWidget(error: state.error);
+              return CenterErrorWidget(error: state.getCartError);
           }
         },
       ),

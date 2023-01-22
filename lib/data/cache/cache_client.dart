@@ -25,38 +25,38 @@ abstract class CacheClient {
 }
 
 class HiveClient implements CacheClient {
-  late final Box _box;
+  Box? _box;
 
   /// initiate hive box
   @override
   Future<void> init(Directory appDir) async {
     await Hive.initFlutter(appDir.path + CacheConstant.cacheSubDir);
-    _box = await Hive.openBox(CacheConstant.boxName);
+    _box ??= await Hive.openBox(CacheConstant.boxName);
   }
 
   /// check if key exist in cache
   @override
   bool exist(String key) {
-    return _box.containsKey(key);
+    return _box!.containsKey(key);
   }
 
   /// write to hive box
   @override
   Future<void> write(String key, dynamic data) async {
-    await _box.put(key, data);
+    await _box!.put(key, data);
   }
 
   /// read from hive box
   @override
   Future<dynamic> read(String key) async {
-    final data = await _box.get(key);
+    final data = await _box!.get(key);
     return data;
   }
 
   /// clear data of the passed key from hive box
   @override
   Future<void> remove(String key) async {
-    await _box.delete(key);
+    await _box!.delete(key);
   }
 
   /// clear all data

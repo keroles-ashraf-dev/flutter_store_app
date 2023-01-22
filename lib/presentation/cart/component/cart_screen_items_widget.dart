@@ -109,7 +109,7 @@ class CartScreenItemsWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   SpacerWidget(height: AppSize.height0_01),
-                  ItemQuantityWidget(quantity: i.count),
+                  ItemQuantityWidget(productId: i.productId, quantity: i.count),
                 ],
               ),
             ],

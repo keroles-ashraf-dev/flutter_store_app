@@ -1,7 +1,7 @@
 class ApiConstant {
   static const String apiKey = '654gnh6???f4h664g41jy54hj0++-*/8995+6+5596';
   static const int apiTimeOut = 30000; // 5 min
- 
+
   /// header
   static const String headerContentTypeKey = 'content-type';
   static const String headerAcceptKey = 'accept';
@@ -56,4 +56,6 @@ class ApiConstant {
 
   /// cart uri
   static const String cartUri = '/api/v1/cart';
+  static const String increaseCartItemUri = '/api/v1/cart/increase';
+  static const String decreaseCartItemUri = '/api/v1/cart/decrease';
 }

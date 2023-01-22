@@ -4,6 +4,8 @@ import 'package:store/domain/repository/base_user_repository.dart';
 import 'package:store/domain/usecase/address/get_address_usecase.dart';
 import 'package:store/domain/usecase/auth/login_usecase.dart';
 import 'package:store/domain/usecase/auth/register_usecase.dart';
+import 'package:store/domain/usecase/cart/decrease_cart_item_usecase.dart';
+import 'package:store/domain/usecase/cart/increase_cart_item_usecase.dart';
 import 'package:store/domain/usecase/category/get_main_categories_usecase.dart';
 import 'package:store/domain/usecase/product/get_category_products_usecase.dart';
 import 'package:store/domain/usecase/user/get_user_data_usecase.dart';
@@ -357,7 +359,7 @@ class ServiceLocator {
     /// bloc
     if (!isRegistered<CartScreenBloc>()) {
       _sl.registerFactory<CartScreenBloc>(
-        () => CartScreenBloc(_sl<GetCartUsecase>()),
+        () => CartScreenBloc(_sl<GetCartUsecase>(), _sl<IncreaseCartItemUsecase>(), _sl<DecreaseCartItemUsecase>()),
       );
     }
 
@@ -365,6 +367,16 @@ class ServiceLocator {
     if (!isRegistered<GetCartUsecase>()) {
       _sl.registerLazySingleton<GetCartUsecase>(
           () => GetCartUsecase(_sl<BaseCartRepository>()));
+    }
+
+    if (!isRegistered<IncreaseCartItemUsecase>()) {
+      _sl.registerLazySingleton<IncreaseCartItemUsecase>(
+              () => IncreaseCartItemUsecase(_sl<BaseCartRepository>()));
+    }
+
+    if (!isRegistered<DecreaseCartItemUsecase>()) {
+      _sl.registerLazySingleton<DecreaseCartItemUsecase>(
+              () => DecreaseCartItemUsecase(_sl<BaseCartRepository>()));
     }
 
     /// repository

@@ -12,28 +12,28 @@ class CacheManager {
 
   factory CacheManager() => _instance;
 
-  late final CacheClient _cacheClient;
+  CacheClient? _cacheClient;
 
   /// initiate cache clients
   Future<void> init() async {
     final appDir = await getApplicationDocumentsDirectory();
 
-    _cacheClient = HiveClient();
-    await _cacheClient.init(appDir);
+    _cacheClient ??= HiveClient();
+    await _cacheClient!.init(appDir);
   }
 
   /// return cache client instance
   CacheClient call() {
-    return _cacheClient;
+    return _cacheClient!;
   }
 
   /// check if cache is valid and exists
   Future<bool> isValid(String createdKey, String dataKey) async {
     //return false;
-    final int? created = (await _cacheClient.read(createdKey)) as int?;
+    final int? created = (await _cacheClient!.read(createdKey)) as int?;
 
     if (created == null) return false;
-    if (!_cacheClient.exist(dataKey)) return false;
+    if (!_cacheClient!.exist(dataKey)) return false;
 
     final current = currentTimestamp();
 
@@ -41,8 +41,8 @@ class CacheManager {
 
     if (diff < CacheConstant.cacheValidSeconds) return true;
 
-    await _cacheClient.remove(createdKey);
-    await _cacheClient.remove(dataKey);
+    await _cacheClient!.remove(createdKey);
+    await _cacheClient!.remove(dataKey);
     return false;
   }
 }

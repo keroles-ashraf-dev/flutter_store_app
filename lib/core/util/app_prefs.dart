@@ -18,17 +18,17 @@ class AppPrefs {
 
   factory AppPrefs() => _instance;
 
-  late final SharedPreferences _prefs;
+  SharedPreferences? _prefs;
   late String _language;
   late String _theme;
   late String _authToken;
 
   Future<void> init() async {
-    _prefs = await SharedPreferences.getInstance();
+   _prefs ??= await SharedPreferences.getInstance();
 
-    _language = _prefs.getString(AppPrefsKeys.language) ?? AppLocalization.system;
-    _theme = _prefs.getString(AppPrefsKeys.theme) ?? AppTheme.system;
-    _authToken = _prefs.getString(AppPrefsKeys.authToken).orEmpty();
+    _language = _prefs!.getString(AppPrefsKeys.language) ?? AppLocalization.system;
+    _theme = _prefs!.getString(AppPrefsKeys.theme) ?? AppTheme.system;
+    _authToken = _prefs!.getString(AppPrefsKeys.authToken).orEmpty();
   }
 
   String get appLanguage => _language;
@@ -38,7 +38,7 @@ class AppPrefs {
   String get authToken => _authToken;
 
   Future<bool> setAppLanguage(String lang) async {
-    bool success = await _prefs.setString(AppPrefsKeys.language, lang);
+    bool success = await _prefs!.setString(AppPrefsKeys.language, lang);
 
     if (success) _language = lang;
 
@@ -46,7 +46,7 @@ class AppPrefs {
   }
 
   Future<bool> setAppTheme(String theme) async {
-    bool success = await _prefs.setString(AppPrefsKeys.theme, theme);
+    bool success = await _prefs!.setString(AppPrefsKeys.theme, theme);
 
     if (success) _theme = theme;
 
@@ -54,7 +54,7 @@ class AppPrefs {
   }
 
   Future<bool> setAuthToken(String token) async {
-    bool success = await _prefs.setString(AppPrefsKeys.authToken, token);
+    bool success = await _prefs!.setString(AppPrefsKeys.authToken, token);
 
     if (success) _authToken = token;
 
@@ -62,7 +62,7 @@ class AppPrefs {
   }
 
   Future<bool> removeAuthToken() async {
-    bool success = await _prefs.remove(AppPrefsKeys.authToken);
+    bool success = await _prefs!.remove(AppPrefsKeys.authToken);
 
     if (success) _authToken = AppConstant.emptyStr;
 
