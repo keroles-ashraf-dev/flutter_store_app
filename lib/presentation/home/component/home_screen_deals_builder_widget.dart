@@ -4,8 +4,8 @@ import 'package:store/presentation/home/component/home_screen_deals_loading_widg
 import 'package:store/presentation/home/component/home_screen_deals_widget.dart';
 
 
-import '../../../app/util/enum.dart';
-import '../../common/center_error_widget.dart';
+import '../../../core/util/enum.dart';
+import '../../resource/component/center_error_widget.dart';
 import '../controller/home_screen_bloc.dart';
 
 class HomeScreenDealsBuilderWidget extends StatelessWidget {

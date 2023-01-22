@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../app/i18n/app_localization.dart';
+import '../../core/i18n/app_localization.dart';
 
 class UIHelper {
   /// helping to set margin start and end

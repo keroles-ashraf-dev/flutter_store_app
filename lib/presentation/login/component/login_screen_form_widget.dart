@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:store/presentation/common/form_error_widget.dart';
-import 'package:store/presentation/common/spacer_widget.dart';
+import 'package:store/presentation/resource/component/form_error_widget.dart';
+import 'package:store/presentation/resource/component/spacer_widget.dart';
 import 'package:store/presentation/login/controller/login_screen_bloc.dart';
 
-import '../../../app/i18n/app_string.dart';
+import '../../../core/i18n/app_string.dart';
 import '../../../domain/entity/login_request.dart';
-import '../../common/password_text_field_widget.dart';
-import '../../common/text_field_widget.dart';
+import '../../resource/component/password_text_field_widget.dart';
+import '../../resource/component/text_field_widget.dart';
 import '../../resource/size_manager.dart';
 
 class LoginScreenFormWidget extends StatelessWidget {

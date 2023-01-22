@@ -4,9 +4,9 @@ import 'package:store/domain/entity/get_address_request.dart';
 import 'package:store/presentation/main/component/main_screen_content_widget.dart';
 import 'package:store/presentation/main/controller/main_screen_bloc.dart';
 
-import '../../../app/service_locator/service_locator.dart';
-import '../../../app/session/session.dart';
-import '../../common/appbar_search_widget.dart';
+import '../../../core/service_locator/service_locator.dart';
+import '../../../core/session/session.dart';
+import '../../resource/component/appbar_search_widget.dart';
 import '../component/main_screen_appbar_address_widget.dart';
 import '../component/main_screen_bottom_navbar_widget.dart';
 

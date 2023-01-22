@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:store/domain/entity/pagination.dart';
 
-import '../../app/util/app_constant.dart';
+import '../../core/util/app_constant.dart';
 import 'filter.dart';
 
 class GetCategoryProductsRequest extends Equatable {

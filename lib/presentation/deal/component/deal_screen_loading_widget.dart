@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 
-import '../../../app/i18n/app_string.dart';
-import '../../../app/theme/app_color.dart';
-import '../../../app/theme/app_style.dart';
-import '../../../app/util/app_constant.dart';
-import '../../../app/util/asset_manager.dart';
-import '../../common/elevated_btn_widget.dart';
-import '../../common/ratingbar_widget.dart';
-import '../../common/shimmer_widget.dart';
-import '../../common/spacer_widget.dart';
+import '../../../core/i18n/app_string.dart';
+import '../../../core/theme/app_color.dart';
+import '../../../core/theme/app_style.dart';
+import '../../../core/util/app_constant.dart';
+import '../../../core/util/asset_manager.dart';
+import '../../resource/component/elevated_btn_widget.dart';
+import '../../resource/component/ratingbar_widget.dart';
+import '../../resource/component/shimmer_widget.dart';
+import '../../resource/component/spacer_widget.dart';
 import '../../resource/size_manager.dart';
 
 class DealScreenLoadingWidget extends StatelessWidget {

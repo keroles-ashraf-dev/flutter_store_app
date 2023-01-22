@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:store/presentation/language/component/language_screen_languages_list_widget.dart';
 
-import '../../../app/i18n/app_localization.dart';
-import '../../../app/i18n/app_string.dart';
-import '../../common/elevated_btn_widget.dart';
+import '../../../core/i18n/app_localization.dart';
+import '../../../core/i18n/app_string.dart';
+import '../../resource/component/elevated_btn_widget.dart';
 import '../controller/language_screen_bloc.dart';
 
 class LanguageScreenContentWidget extends StatelessWidget {

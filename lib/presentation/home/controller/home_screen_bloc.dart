@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/domain/entity/carousel_item.dart';
 import 'package:store/domain/entity/no_param.dart';
 
-import '../../../app/error/failure.dart';
-import '../../../app/util/app_constant.dart';
-import '../../../app/util/enum.dart';
+import '../../../core/error/failure.dart';
+import '../../../core/util/app_constant.dart';
+import '../../../core/util/enum.dart';
 import '../../../domain/entity/category.dart';
 import '../../../domain/entity/deal.dart';
 import '../../../domain/usecase/carousel/get_main_carousel_usecase.dart';

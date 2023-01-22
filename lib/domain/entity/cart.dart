@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:store/domain/entity/cart_item.dart';
 
-import '../../app/util/app_constant.dart';
+import '../../core/util/app_constant.dart';
 
 class Cart extends Equatable {
   final List<CartItem> items;

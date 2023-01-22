@@ -3,10 +3,10 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/error/failure.dart';
-import '../../../app/navigation/routes.dart';
-import '../../../app/util/app_constant.dart';
-import '../../../app/util/enum.dart';
+import '../../../core/error/failure.dart';
+import '../../../core/navigation/routes.dart';
+import '../../../core/util/app_constant.dart';
+import '../../../core/util/enum.dart';
 import '../../../domain/entity/address.dart';
 import '../../../domain/entity/get_address_request.dart';
 import '../../../domain/usecase/address/get_address_usecase.dart';

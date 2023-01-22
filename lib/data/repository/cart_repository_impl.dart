@@ -4,9 +4,9 @@ import 'package:store/data/mapper/cart_mapper.dart';
 import 'package:store/domain/entity/cart.dart';
 import 'package:store/domain/entity/get_cart_request.dart';
 
-import '../../app/error/error_handling.dart';
-import '../../app/error/exception.dart';
-import '../../app/error/failure.dart';
+import '../../core/error/error_handling.dart';
+import '../../core/error/exception.dart';
+import '../../core/error/failure.dart';
 import '../../domain/repository/base_cart_repository.dart';
 import '../network/network_info.dart';
 

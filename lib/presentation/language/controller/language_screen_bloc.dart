@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/i18n/app_localization.dart';
-import '../../../app/util/app_prefs.dart';
+import '../../../core/i18n/app_localization.dart';
+import '../../../core/util/app_prefs.dart';
 
 part 'language_screen_event.dart';
 

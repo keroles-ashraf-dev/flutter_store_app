@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:store/data/model/category_model.dart';
 
-import '../../../app/error/error_handling.dart';
-import '../../../app/error/exception.dart';
-import '../../../app/util/function.dart';
+import '../../../core/error/error_handling.dart';
+import '../../../core/error/exception.dart';
+import '../../../core/util/function.dart';
 import '../../cache/cache_constant.dart';
 import '../../cache/cache_manager.dart';
 

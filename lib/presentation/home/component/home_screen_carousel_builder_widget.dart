@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/presentation/home/component/home_screen_carousel_loading_widget.dart';
 
-import '../../../app/util/enum.dart';
-import '../../common/center_error_widget.dart';
+import '../../../core/util/enum.dart';
+import '../../resource/component/center_error_widget.dart';
 import '../controller/home_screen_bloc.dart';
 import 'home_screen_carousel_widget.dart';
 

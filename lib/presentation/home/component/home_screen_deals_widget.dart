@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../app/navigation/app_navigator.dart';
-import '../../../app/navigation/routes.dart';
-import '../../../app/theme/app_color.dart';
-import '../../../app/theme/app_style.dart';
-import '../../../app/util/app_constant.dart';
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
+import '../../../core/theme/app_color.dart';
+import '../../../core/theme/app_style.dart';
+import '../../../core/util/app_constant.dart';
 import '../../../domain/entity/deal.dart';
-import '../../common/ratingbar_widget.dart';
-import '../../common/spacer_widget.dart';
+import '../../resource/component/ratingbar_widget.dart';
+import '../../resource/component/spacer_widget.dart';
 import '../../resource/size_manager.dart';
 import '../../resource/ui_helper.dart';
 

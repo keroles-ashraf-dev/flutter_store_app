@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../../app/navigation/app_navigator.dart';
-import '../../../app/navigation/routes.dart';
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
 import '../../../domain/entity/category.dart';
-import '../../common/spacer_widget.dart';
+import '../../resource/component/spacer_widget.dart';
 import '../../resource/size_manager.dart';
 import '../../resource/ui_constant.dart';
 

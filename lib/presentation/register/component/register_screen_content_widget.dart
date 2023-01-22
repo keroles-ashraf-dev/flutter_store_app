@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:store/presentation/register/component/register_screen_form_widget.dart';
 
 import '../../../domain/entity/register_request.dart';
-import '../../common/spacer_widget.dart';
+import '../../resource/component/spacer_widget.dart';
 import '../../resource/size_manager.dart';
 import 'register_screen_login_widget.dart';
 

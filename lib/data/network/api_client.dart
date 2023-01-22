@@ -1,19 +1,13 @@
 import 'package:dio/dio.dart';
 
-import '../../app/error/error_handling.dart';
-import '../../app/error/exception.dart';
-import '../../app/util/app_constant.dart';
-import '../../app/util/app_prefs.dart';
+import '../../core/error/error_handling.dart';
+import '../../core/error/exception.dart';
+import '../../core/util/app_constant.dart';
+import '../../core/util/app_prefs.dart';
 import 'api_constant.dart';
 import 'dio_factory.dart';
 
 abstract class ApiClient {
-  final AppPrefs _appPrefs;
-  final ErrorHandler _errorHandler;
-  late final Map<String, String> defaultHeaders;
-
-  ApiClient(this._appPrefs, this._errorHandler);
-
   /// get request
   Future<dynamic> get(
     String uri, {
@@ -51,15 +45,12 @@ abstract class ApiClient {
 }
 
 class DioClient implements ApiClient {
-  late final DioFactory _dioFactory;
-  late final BaseOptions options;
-
-  @override
   final AppPrefs _appPrefs;
-  @override
   final ErrorHandler _errorHandler;
-  @override
+
+  late final DioFactory _dioFactory;
   late final Map<String, String> defaultHeaders;
+  late final BaseOptions options;
 
   DioClient(this._appPrefs, this._errorHandler) {
     _dioFactory = DioFactory();

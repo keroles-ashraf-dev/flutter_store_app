@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../../app/debug/function.dart';
+import '../../core/debug/function.dart';
 
 /// callable class
 class DioFactory {

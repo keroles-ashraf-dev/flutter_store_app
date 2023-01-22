@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../app/util/app_constant.dart';
+import '../../core/util/app_constant.dart';
 import '../../presentation/resource/ui_constant.dart';
 
 class Pagination extends Equatable {

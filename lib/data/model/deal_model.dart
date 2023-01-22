@@ -1,4 +1,4 @@
-import 'package:store/app/util/extension.dart';
+import 'package:store/core/util/extension.dart';
 import 'package:store/domain/entity/deal.dart';
 
 class DealModel extends Deal {

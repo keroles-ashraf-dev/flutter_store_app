@@ -1,5 +1,5 @@
-import '../../app/error/error_handling.dart';
-import '../../app/util/app_prefs.dart';
+import '../../core/error/error_handling.dart';
+import '../../core/util/app_prefs.dart';
 import 'api_client.dart';
 
 /// callable class

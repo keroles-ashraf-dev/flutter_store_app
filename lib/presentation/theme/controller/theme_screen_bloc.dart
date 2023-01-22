@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/theme/app_theme.dart';
-import '../../../app/util/app_prefs.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../core/util/app_prefs.dart';
 
 part 'theme_screen_event.dart';
 

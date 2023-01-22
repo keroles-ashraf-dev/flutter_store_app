@@ -4,8 +4,8 @@ import 'package:store/domain/entity/get_deal_request.dart';
 import 'package:store/presentation/deal/component/deal_screen_builder_widget.dart';
 import 'package:store/presentation/deal/controller/deal_screen_bloc.dart';
 
-import '../../../app/service_locator/service_locator.dart';
-import '../../common/sub_appbar_widget.dart';
+import '../../../core/service_locator/service_locator.dart';
+import '../../resource/component/sub_appbar_widget.dart';
 import '../../resource/size_manager.dart';
 import '../../resource/ui_constant.dart';
 

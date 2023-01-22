@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 
-import '../../../app/i18n/app_string.dart';
-import '../../common/spacer_widget.dart';
+import '../../../core/i18n/app_string.dart';
+import '../../resource/component/spacer_widget.dart';
 import '../../resource/size_manager.dart';
 
 class SplashScreenProgressWidget extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/presentation/main/controller/main_screen_bloc.dart';
 
-import '../../../app/util/app_constant.dart';
+import '../../../core/util/app_constant.dart';
 
 class MainScreenBottomNavbarWidget extends StatelessWidget {
   const MainScreenBottomNavbarWidget({super.key,});

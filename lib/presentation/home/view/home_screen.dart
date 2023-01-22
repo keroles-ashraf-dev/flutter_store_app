@@ -5,9 +5,9 @@ import 'package:store/presentation/home/component/home_screen_categories_builder
 import 'package:store/presentation/home/component/home_screen_deals_builder_widget.dart';
 import 'package:store/presentation/home/controller/home_screen_bloc.dart';
 
-import '../../../app/service_locator/service_locator.dart';
-import '../../../app/theme/app_color.dart';
-import '../../common/spacer_widget.dart';
+import '../../../core/service_locator/service_locator.dart';
+import '../../../core/theme/app_color.dart';
+import '../../resource/component/spacer_widget.dart';
 import '../../resource/size_manager.dart';
 
 class HomeScreen extends StatelessWidget {

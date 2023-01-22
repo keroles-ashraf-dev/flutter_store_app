@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:localization/localization.dart';
-import 'package:store/app/i18n/app_string.dart';
-import 'package:store/app/util/enum.dart';
-import 'package:store/presentation/common/elevated_btn_widget.dart';
-import 'package:store/presentation/common/radio_tile_widget.dart';
-import 'package:store/presentation/common/spacer_widget.dart';
+import 'package:store/core/i18n/app_string.dart';
+import 'package:store/core/util/enum.dart';
+import 'package:store/presentation/resource/component/elevated_btn_widget.dart';
+import 'package:store/presentation/resource/component/radio_tile_widget.dart';
+import 'package:store/presentation/resource/component/spacer_widget.dart';
 
-import '../../../app/util/app_constant.dart';
+import '../../../core/util/app_constant.dart';
 import '../../../domain/entity/cart.dart';
 import '../../resource/size_manager.dart';
 
@@ -22,7 +22,7 @@ class CartScreenCheckoutWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _itemCart(AppString.items.i18n(), cart.subtotal.toString()),
         SpacerWidget(height: AppSize.height0_01),
@@ -31,9 +31,9 @@ class CartScreenCheckoutWidget extends StatelessWidget {
         _itemCart(AppString.vat.i18n(), cart.vat.toString()),
         SpacerWidget(height: AppSize.height0_01),
         _itemCart(AppString.total.i18n(), cart.total.toString()),
-        SpacerWidget(height: AppSize.height0_02),
+        SpacerWidget(height: AppSize.height0_01),
         _paymentMethodWidget(),
-        SpacerWidget(height: AppSize.height0_03),
+        SpacerWidget(height: AppSize.height0_01),
         ElevatedBtnWidget(
           width: AppSize.width8,
           text: AppString.placeOrder.i18n(),
@@ -57,20 +57,27 @@ class CartScreenCheckoutWidget extends StatelessWidget {
   Widget _paymentMethodWidget() {
     return StatefulBuilder(
       builder: (_, setState) {
-        return SizedBox(
+        return Container(
+          height: AppSize.height0_07,
           width: AppSize.width8,
+          alignment: Alignment.center,
           child: ListView.builder(
-            shrinkWrap: true,
-              itemCount: PaymentMethodEnum.values.length,
+              shrinkWrap: true,
               scrollDirection: Axis.horizontal,
+              itemCount: PaymentMethodEnum.values.length,
               itemBuilder: (context, i) {
-            return RadioTaleWidget(
-              title: PaymentMethodEnum.values[i].name.i18n(),
-              value: PaymentMethodEnum.values[i],
-              groupValue: _selectedPaymentRadio,
-              onChanged: _paymentRadioOnChanged,
-            );
-          }),
+                return RadioTaleWidget(
+                  width: AppSize.width3,
+                  margin: EdgeInsets.symmetric(
+                    horizontal: AppSize.marginWidthDoubleExtraSmall,
+                  ),
+                  shapeBorder: const Border(),
+                  title: PaymentMethodEnum.values[i].name.i18n(),
+                  value: PaymentMethodEnum.values[i],
+                  groupValue: _selectedPaymentRadio,
+                  onChanged: (val) => _paymentRadioOnChanged(val, setState),
+                );
+              }),
         );
       },
     );
@@ -78,7 +85,7 @@ class CartScreenCheckoutWidget extends StatelessWidget {
 
   void _paymentRadioOnChanged(PaymentMethodEnum val, Function setState) {
     _selectedPaymentRadio = val;
-    setState();
+    setState(() {});
   }
 
   void _checkoutAction() {}

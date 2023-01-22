@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/util/asset_manager.dart';
+import '../../../core/util/asset_manager.dart';
 import '../../resource/size_manager.dart';
 
 class HomeScreenCarouselLoadingWidget extends StatelessWidget {

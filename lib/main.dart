@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:store/app/service_locator/service_locator.dart';
+import 'package:store/core/service_locator/service_locator.dart';
 
-import 'app/app.dart';
-import 'app/debug/bloc_observer.dart';
-import 'app/debug/function.dart';
-import 'app/i18n/app_localization.dart';
-import 'app/util/app_prefs.dart';
+import 'app.dart';
+import 'core/debug/bloc_observer.dart';
+import 'core/debug/function.dart';
+import 'core/i18n/app_localization.dart';
+import 'core/util/app_prefs.dart';
 import 'data/cache/cache_manager.dart';
 
 Future<void> main() async {
@@ -25,7 +25,7 @@ Future<void> main() async {
   await CacheManager().init();
 
   /// setup app module
-  ServiceLocator.initAppModule();
+  ServiceLocator.initCoreModule();
 
   /// setup app localization (define json localization files path)
   AppLocalization.init();

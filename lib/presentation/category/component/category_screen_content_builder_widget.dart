@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/presentation/category/component/category_screen_loading_widget.dart';
 import 'package:store/presentation/category/component/category_screen_products_widget.dart';
-import 'package:store/presentation/common/center_error_widget.dart';
+import 'package:store/presentation/resource/component/center_error_widget.dart';
 
-import '../../../app/util/enum.dart';
+import '../../../core/util/enum.dart';
 import '../controller/category_screen_bloc.dart';
 
 class CategoryScreenContentBuilderWidget extends StatelessWidget {

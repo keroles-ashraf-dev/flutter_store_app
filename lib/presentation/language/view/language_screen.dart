@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
-import 'package:store/presentation/common/sub_appbar_widget.dart';
 import 'package:store/presentation/language/component/language_screen_content_widget.dart';
 import 'package:store/presentation/language/controller/language_screen_bloc.dart';
+import 'package:store/presentation/resource/component/sub_appbar_widget.dart';
 
-import '../../../app/i18n/app_string.dart';
-import '../../../app/service_locator/service_locator.dart';
-import '../../../app/util/app_restart.dart';
+import '../../../core/i18n/app_string.dart';
+import '../../../core/service_locator/service_locator.dart';
+import '../../../core/util/app_restart.dart';
 import '../../resource/size_manager.dart';
 import '../../resource/ui_constant.dart';
 
@@ -32,8 +32,8 @@ class LanguageScreen extends StatelessWidget {
               listenWhen: (previous, current) {
                 return current.apply;
               },
-              listener: (context, state) {
-                restartApp(context);
+              listener: (context, state) async {
+                await restartApp(context);
               },
               child: const LanguageScreenContentWidget(),
             ),

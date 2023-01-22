@@ -5,12 +5,12 @@ import 'package:localization/localization.dart';
 import 'package:store/domain/entity/register_request.dart';
 import 'package:store/domain/usecase/auth/register_usecase.dart';
 
-import '../../../app/error/failure.dart';
-import '../../../app/i18n/app_string.dart';
-import '../../../app/session/session.dart';
-import '../../../app/util/app_constant.dart';
-import '../../../app/util/enum.dart';
-import '../../../app/validation/validator.dart';
+import '../../../core/error/failure.dart';
+import '../../../core/i18n/app_string.dart';
+import '../../../core/session/session.dart';
+import '../../../core/util/app_constant.dart';
+import '../../../core/util/enum.dart';
+import '../../../core/validation/validator.dart';
 import '../../../domain/entity/user.dart';
 import '../../resource/function.dart';
 

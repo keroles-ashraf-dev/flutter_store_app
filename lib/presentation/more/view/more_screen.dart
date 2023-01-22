@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:store/presentation/more/component/more_item_widget.dart';
 
-import '../../../app/i18n/app_string.dart';
-import '../../../app/navigation/routes.dart';
-import '../../../app/service_locator/service_locator.dart';
-import '../../../app/session/session.dart';
+import '../../../core/i18n/app_string.dart';
+import '../../../core/navigation/routes.dart';
+import '../../../core/service_locator/service_locator.dart';
+import '../../../core/session/session.dart';
 import '../../resource/size_manager.dart';
 
 class MoreScreen extends StatelessWidget {

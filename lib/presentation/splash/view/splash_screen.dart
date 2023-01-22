@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store/presentation/common/spacer_widget.dart';
+import 'package:store/presentation/resource/component/spacer_widget.dart';
 import 'package:store/presentation/splash/component/splash_screen_request_state_widget.dart';
 import 'package:store/presentation/splash/controller/splash_screen_bloc.dart';
 
-import '../../../app/navigation/app_navigator.dart';
-import '../../../app/navigation/routes.dart';
-import '../../../app/service_locator/service_locator.dart';
-import '../../../app/util/asset_manager.dart';
-import '../../../app/util/enum.dart';
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
+import '../../../core/service_locator/service_locator.dart';
+import '../../../core/util/asset_manager.dart';
+import '../../../core/util/enum.dart';
 import '../../resource/size_manager.dart';
 
 class SplashScreen extends StatelessWidget {

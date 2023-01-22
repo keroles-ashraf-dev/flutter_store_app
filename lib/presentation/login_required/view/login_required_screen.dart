@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
-import 'package:store/app/i18n/app_string.dart';
-import 'package:store/app/navigation/app_navigator.dart';
-import 'package:store/app/navigation/routes.dart';
-import 'package:store/presentation/common/spacer_widget.dart';
-import 'package:store/presentation/common/text_btn_widget.dart';
+import 'package:store/core/i18n/app_string.dart';
+import 'package:store/core/navigation/app_navigator.dart';
+import 'package:store/core/navigation/routes.dart';
+import 'package:store/presentation/resource/component/spacer_widget.dart';
+import 'package:store/presentation/resource/component/text_btn_widget.dart';
 
 import '../../resource/size_manager.dart';
 
@@ -27,7 +27,7 @@ class LoginRequiredScreen extends StatelessWidget {
               SpacerWidget(height: AppSize.height0_02),
               TextBtnWidget(
                 text: AppString.login.i18n(),
-                action: () => AppNavigator.replace(context, Routes.routeLogin),
+                action: () => AppNavigator.push(context, Routes.routeLogin),
               ),
             ],
           ),

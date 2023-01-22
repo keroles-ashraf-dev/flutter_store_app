@@ -1,5 +1,5 @@
-import 'package:store/app/util/app_constant.dart';
-import 'package:store/app/util/extension.dart';
+import 'package:store/core/util/app_constant.dart';
+import 'package:store/core/util/extension.dart';
 import 'package:store/domain/entity/user.dart';
 
 class UserModel extends User {

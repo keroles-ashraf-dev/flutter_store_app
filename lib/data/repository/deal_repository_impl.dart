@@ -4,9 +4,9 @@ import 'package:store/data/mapper/deal_mapper.dart';
 import 'package:store/domain/entity/deal.dart';
 import 'package:store/domain/entity/get_deal_request.dart';
 
-import '../../app/error/error_handling.dart';
-import '../../app/error/exception.dart';
-import '../../app/error/failure.dart';
+import '../../core/error/error_handling.dart';
+import '../../core/error/exception.dart';
+import '../../core/error/failure.dart';
 import '../../domain/repository/base_deal_repository.dart';
 import '../datasource/local/deal_local_datasource.dart';
 import '../network/network_info.dart';

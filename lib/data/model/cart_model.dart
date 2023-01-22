@@ -1,3 +1,4 @@
+import 'package:store/core/util/extension.dart';
 import 'package:store/data/model/cart_item_model.dart';
 import 'package:store/domain/entity/cart.dart';
 
@@ -14,7 +15,7 @@ class CartModel extends Cart {
     return CartModel(
       items: List.from((json['items'] as List).map((e) => CartItemModel.fromJson(e))),
       subtotal: json['subtotal'],
-      shipping: json['shipping'],
+      shipping: json['shipping'].toString().toDoubleOrEmpty(),
       vat: json['vat'],
       total: json['total'],
     );

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:store/domain/entity/register_request.dart';
 
-import '../../app/error/failure.dart';
+import '../../core/error/failure.dart';
 import '../entity/login_request.dart';
 import '../entity/user.dart';
 

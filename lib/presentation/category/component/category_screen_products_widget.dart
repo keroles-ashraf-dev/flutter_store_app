@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:store/domain/entity/product.dart';
 import 'package:store/presentation/category/component/category_screen_load_more_widget.dart';
-import 'package:store/presentation/common/ratingbar_widget.dart';
+import 'package:store/presentation/resource/component/ratingbar_widget.dart';
 
-import '../../../app/navigation/app_navigator.dart';
-import '../../../app/navigation/routes.dart';
-import '../../../app/theme/app_color.dart';
-import '../../../app/theme/app_style.dart';
-import '../../../app/util/app_constant.dart';
-import '../../common/spacer_widget.dart';
+import '../../../core/navigation/app_navigator.dart';
+import '../../../core/navigation/routes.dart';
+import '../../../core/theme/app_color.dart';
+import '../../../core/theme/app_style.dart';
+import '../../../core/util/app_constant.dart';
+import '../../resource/component/spacer_widget.dart';
 import '../../resource/size_manager.dart';
 
 class CategoryScreenProductsWidget extends StatelessWidget {

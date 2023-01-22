@@ -4,7 +4,7 @@ import 'package:localization/localization.dart';
 
 import 'package:store/presentation/theme/controller/theme_screen_bloc.dart';
 
-import '../../../app/theme/app_theme.dart';
+import '../../../core/theme/app_theme.dart';
 import '../../resource/size_manager.dart';
 
 class ThemeScreenThemesListWidget extends StatelessWidget {

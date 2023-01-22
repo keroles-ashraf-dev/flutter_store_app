@@ -1,12 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store/core/error/error_handling.dart';
 import 'package:store/domain/entity/user.dart';
 
-import '../../../app/error/failure.dart';
-import '../../../app/session/session.dart';
-import '../../../app/util/app_constant.dart';
-import '../../../app/util/enum.dart';
+import '../../../core/error/failure.dart';
+import '../../../core/session/session.dart';
+import '../../../core/util/app_constant.dart';
+import '../../../core/util/enum.dart';
 import '../../../domain/entity/no_param.dart';
 import '../../../domain/usecase/user/get_user_data_usecase.dart';
 import '../../resource/function.dart';
@@ -38,28 +39,43 @@ class SplashScreenBloc extends Bloc<SplashScreenEvent, SplashScreenState> {
 
     final res = await _getUserDataUseCase(const NoParams());
 
-    await delayScreenChanging().then((value) {
-      emit(_foldGetUserDataResponse(res));
+    await delayScreenChanging().then((value) async {
+      emit(await _foldGetUserDataResponse(res));
     });
   }
 
-  SplashScreenState _foldGetUserDataResponse(Either<Failure, User> either) {
-    return either.fold((l) {
+  Future<SplashScreenState> _foldGetUserDataResponse(Either<Failure, User> either) async {
+    return either.fold((l) async {
+      /// first check if failure code is authorization code
+      if (l.code == ErrorCode.unauthorizedCode || l.code == ErrorCode.badRequestCode) {
+        return await _authorizationFailure();
+      }
+
       /// return error state to show error message
       return state.copyWith(
           getUserDataRequestState: RequestStateEnum.failure,
           serverError: l.message);
-    }, (r) {
+    }, (r) async {
       /// share user object and return loaded state to go to main screen
-      _shareUserToSession(r);
+      await _shareUserToSession(r);
       return state.copyWith(
           getUserDataRequestState: RequestStateEnum.success,
           serverError: AppConstant.emptyStr);
     });
   }
 
-  void _shareUserToSession(User user) {
+  Future<SplashScreenState> _authorizationFailure() async {
+    /// remove token from prefs and destroy current session
+    await _session.logout();
+
+    return state.copyWith(
+      getUserDataRequestState: RequestStateEnum.success,
+      serverError: AppConstant.emptyStr,
+    );
+  }
+
+  Future<void> _shareUserToSession(User user) async {
     /// share user object
-    _session.start(user);
+    final success = await _session.start(user);
   }
 }

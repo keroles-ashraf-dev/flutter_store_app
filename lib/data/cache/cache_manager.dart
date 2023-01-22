@@ -1,6 +1,6 @@
 import 'package:path_provider/path_provider.dart';
 
-import '../../app/util/function.dart';
+import '../../core/util/function.dart';
 import 'cache_client.dart';
 import 'cache_constant.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../common/shimmer_widget.dart';
+import '../../resource/component/shimmer_widget.dart';
 import '../../resource/size_manager.dart';
 import '../../resource/ui_constant.dart';
 

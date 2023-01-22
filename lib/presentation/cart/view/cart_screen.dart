@@ -5,10 +5,10 @@ import 'package:store/presentation/cart/component/cart_screen_content_widget.dar
 import 'package:store/presentation/cart/component/cart_screen_loading_widget.dart';
 import 'package:store/presentation/cart/controller/cart_screen_bloc.dart';
 
-import '../../../app/service_locator/service_locator.dart';
-import '../../../app/session/session.dart';
-import '../../../app/util/enum.dart';
-import '../../common/center_error_widget.dart';
+import '../../../core/service_locator/service_locator.dart';
+import '../../../core/session/session.dart';
+import '../../../core/util/enum.dart';
+import '../../resource/component/center_error_widget.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

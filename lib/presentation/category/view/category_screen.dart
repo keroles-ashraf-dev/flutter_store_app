@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store/domain/entity/filter.dart';
 import 'package:store/domain/entity/get_category_products_request.dart';
 import 'package:store/presentation/category/controller/category_screen_bloc.dart';
-import 'package:store/presentation/common/filter_bottom_sheet_widget.dart';
+import 'package:store/presentation/resource/component/filter_bottom_sheet_widget.dart';
 
-import '../../../app/service_locator/service_locator.dart';
+import '../../../core/service_locator/service_locator.dart';
 import '../../../domain/entity/pagination.dart';
-import '../../common/sub_appbar_widget.dart';
+import '../../resource/component/sub_appbar_widget.dart';
 import '../../resource/size_manager.dart';
 import '../../resource/ui_constant.dart';
 import '../component/category_screen_content_builder_widget.dart';

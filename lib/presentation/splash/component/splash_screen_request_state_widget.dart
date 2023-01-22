@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../app/util/enum.dart';
+import '../../../core/util/enum.dart';
 import '../controller/splash_screen_bloc.dart';
 import 'splash_screen_error_widget.dart';
 import 'splash_screen_progress_widget.dart';

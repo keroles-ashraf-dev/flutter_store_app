@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 
-import '../../../app/i18n/app_string.dart';
-import '../../../app/service_locator/service_locator.dart';
-import '../../../app/util/app_restart.dart';
-import '../../../app/util/enum.dart';
-import '../../common/sub_appbar_widget.dart';
+import '../../../core/i18n/app_string.dart';
+import '../../../core/service_locator/service_locator.dart';
+import '../../../core/util/app_restart.dart';
+import '../../../core/util/enum.dart';
+import '../../resource/component/sub_appbar_widget.dart';
 import '../../resource/size_manager.dart';
 import '../../resource/ui_constant.dart';
 import '../component/register_screen_bloc_builder_widget.dart';
@@ -23,9 +23,9 @@ class RegisterScreen extends StatelessWidget {
         listenWhen: (context, state) {
           return state.registerRequestState == RequestStateEnum.success;
         },
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state.registerRequestState == RequestStateEnum.success) {
-            restartApp(context);
+            await restartApp(context, rebuildModules: true);
           }
         },
         child: SafeArea(

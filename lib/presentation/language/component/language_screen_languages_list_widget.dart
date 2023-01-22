@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 import 'package:store/presentation/language/controller/language_screen_bloc.dart';
 
-import '../../../app/i18n/app_localization.dart';
+import '../../../core/i18n/app_localization.dart';
 import '../../resource/size_manager.dart';
 
 class LanguageScreenLanguagesListWidget extends StatelessWidget {

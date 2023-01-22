@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:localization/localization.dart';
 
-import '../../../app/i18n/app_string.dart';
-import '../../../app/theme/app_color.dart';
-import '../../../app/theme/app_style.dart';
-import '../../../app/util/enum.dart';
-import '../../common/spacer_widget.dart';
+import '../../../core/i18n/app_string.dart';
+import '../../../core/theme/app_color.dart';
+import '../../../core/theme/app_style.dart';
+import '../../../core/util/enum.dart';
+import '../../resource/component/spacer_widget.dart';
 import '../../resource/size_manager.dart';
 import '../../resource/ui_helper.dart';
 import '../controller/main_screen_bloc.dart';

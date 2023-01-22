@@ -1,6 +1,7 @@
 import 'package:store/domain/entity/address.dart';
 
-import '../../app/util/app_constant.dart';
+import '../../core/util/app_constant.dart';
+import '../../core/util/app_constant.dart';
 
 
 class AddressModel extends Address {

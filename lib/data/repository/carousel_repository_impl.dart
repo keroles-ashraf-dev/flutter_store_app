@@ -5,9 +5,9 @@ import 'package:store/data/mapper/carousel_mapper.dart';
 import 'package:store/domain/entity/carousel_item.dart';
 import 'package:store/domain/repository/base_carousel_repository.dart';
 
-import '../../app/error/error_handling.dart';
-import '../../app/error/exception.dart';
-import '../../app/error/failure.dart';
+import '../../core/error/error_handling.dart';
+import '../../core/error/exception.dart';
+import '../../core/error/failure.dart';
 import '../network/network_info.dart';
 
 class CarouselRepositoryImpl implements BaseCarouselRepository {

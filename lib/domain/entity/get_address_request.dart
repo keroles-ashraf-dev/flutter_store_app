@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../app/util/app_constant.dart';
+import '../../core/util/app_constant.dart';
 
 class GetAddressRequest extends Equatable {
   final int id;
