@@ -1,4 +1,6 @@
+import 'package:store/data/model/add_to_cart_request_model.dart';
 import 'package:store/data/model/cart_model.dart';
+import 'package:store/domain/entity/add_to_cart_request.dart';
 import 'package:store/domain/entity/cart.dart';
 import 'package:store/domain/entity/get_cart_request.dart';
 
@@ -28,6 +30,15 @@ extension CartMapper on Cart {
       shipping: shipping,
       vat: vat,
       total: total,
+    );
+  }
+}
+
+extension AddToCartRequestMapper on AddToCartRequest {
+  AddToCartRequestModel get toModel {
+    return AddToCartRequestModel(
+      userId: userId,
+      productId: productId,
     );
   }
 }

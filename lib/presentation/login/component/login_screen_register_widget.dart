@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
+import 'package:store/presentation/resource/component/text_btn_widget.dart';
 
 import '../../../core/i18n/app_string.dart';
 import '../../../core/navigation/app_navigator.dart';
 import '../../../core/navigation/routes.dart';
-import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_style.dart';
 import '../../resource/size_manager.dart';
 
@@ -19,17 +19,14 @@ class LoginScreenRegisterWidget extends StatelessWidget {
       children: [
         Text(
           AppString.notMemberYet.i18n(),
-          style: AppStyle.textLight(
+          style: AppStyle.textRegular(
             color: Theme.of(context).disabledColor,
-            size: AppSize.fontSmall,
           ),
         ),
-        TextButton(
-          onPressed: () => AppNavigator.replace(context, Routes.routeRegister),
-          child: Text(
-            AppString.register.i18n(),
-            style: AppStyle.textRegular(color: AppColor.primary),
-          ),
+        TextBtnWidget(
+          width: AppSize.width2,
+          text: AppString.register.i18n(),
+          action: () => AppNavigator.replace(context, Routes.routeRegister),
         ),
       ],
     );

@@ -176,6 +176,12 @@ class AppTheme {
         ),
       ),
 
+      /// dialog theme
+      dialogTheme: const DialogTheme(
+        backgroundColor: AppColor.whiteLight,
+        alignment: Alignment.center,
+      ),
+
       /// elevated button
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -402,6 +408,12 @@ class AppTheme {
         ),
       ),
 
+      /// dialog theme
+      dialogTheme: const DialogTheme(
+        backgroundColor: AppColor.blackLight,
+        alignment: Alignment.center,
+      ),
+
       /// elevated button
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -421,16 +433,8 @@ class AppTheme {
       ),
 
       /// text button
-      buttonTheme: ButtonThemeData(
-        padding: EdgeInsets.zero
-      ),
-
-      /// text button
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
-          fixedSize: MaterialStateProperty.all(
-            Size(AppSize.width5, AppSize.height0_06),
-          ),
           textStyle: MaterialStateProperty.all(
             AppStyle.textMedium(
               color: AppColor.white,

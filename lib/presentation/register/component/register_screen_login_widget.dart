@@ -5,6 +5,7 @@ import '../../../core/i18n/app_string.dart';
 import '../../../core/navigation/app_navigator.dart';
 import '../../../core/navigation/routes.dart';
 import '../../../core/theme/app_style.dart';
+import '../../resource/component/text_btn_widget.dart';
 import '../../resource/size_manager.dart';
 
 
@@ -19,17 +20,13 @@ class RegisterScreenLoginWidget extends StatelessWidget {
       children: [
         Text(
           AppString.alreadyMember.i18n(),
-          style: AppStyle.textLight(
+          style: AppStyle.textRegular(
             color: Theme.of(context).disabledColor,
-            size: AppSize.fontSmall,
           ),
         ),
-        TextButton(
-          onPressed: () => AppNavigator.replace(context, Routes.routeLogin),
-          child: Text(
-            AppString.login.i18n(),
-            style: AppStyle.textRegular(color: Theme.of(context).primaryColor),
-          ),
+        TextBtnWidget(
+          text: AppString.login.i18n(),
+          action: () => AppNavigator.replace(context, Routes.routeLogin),
         ),
       ],
     );

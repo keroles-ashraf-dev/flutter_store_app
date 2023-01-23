@@ -25,7 +25,7 @@ class DealScreenBuilderWidget extends StatelessWidget {
           case RequestStateEnum.success:
             return DealScreenDealWidget(deal: state.deal);
           case RequestStateEnum.failure:
-            return CenterErrorWidget(error: state.error);
+            return CenterErrorWidget(error: state.getDealError);
         }
       },
     );

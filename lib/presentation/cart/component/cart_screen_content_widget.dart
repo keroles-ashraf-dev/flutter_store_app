@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store/presentation/cart/component/cart_screen_empty_widget.dart';
 import 'package:store/presentation/cart/component/cart_screen_updating_widget.dart';
 
 import '../../../domain/entity/cart.dart';
@@ -21,13 +22,17 @@ class CartScreenContentWidget extends StatelessWidget {
             vertical: AppSize.marginHeightDoubleExtraSmall,
             horizontal: AppSize.marginWidthExtraSmall,
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                CartScreenCheckoutWidget(cart: cart),
-                SpacerWidget(height: AppSize.height0_03),
-                CartScreenItemsWidget(cart: cart),
-              ],
+          child: Visibility(
+            visible: cart.items.isNotEmpty,
+            replacement: const CartScreenEmptyWidget(),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CartScreenCheckoutWidget(cart: cart),
+                  SpacerWidget(height: AppSize.height0_03),
+                  CartScreenItemsWidget(cart: cart),
+                ],
+              ),
             ),
           ),
         ),

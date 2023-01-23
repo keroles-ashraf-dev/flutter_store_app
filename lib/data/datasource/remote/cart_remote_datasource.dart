@@ -1,3 +1,4 @@
+import 'package:store/data/model/add_to_cart_request_model.dart';
 import 'package:store/data/model/cart_model.dart';
 import 'package:store/data/model/get_cart_request_model.dart';
 import 'package:store/data/model/increase_cart_item_request_model.dart';
@@ -7,6 +8,8 @@ import '../../network/api_constant.dart';
 import '../../network/api_manager.dart';
 
 abstract class BaseCartRemoteDatasource {
+  Future<void> addToCart(AddToCartRequestModel requestModel);
+
   Future<CartModel> getCart(GetCartRequestModel requestModel);
 
   Future<CartModel> increaseCartItem(IncreaseCartItemRequestModel requestModel);
@@ -18,6 +21,19 @@ class CartRemoteDatasourceImpl implements BaseCartRemoteDatasource {
   final ApiManager _apiManager;
 
   CartRemoteDatasourceImpl(this._apiManager);
+
+  @override
+  Future<void> addToCart(AddToCartRequestModel requestModel) async {
+    try {
+      final res = await _apiManager().post(
+        ApiConstant.addToCartUri,
+        requestModel.toJson(),
+        sendAuth: true,
+      );
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   @override
   Future<CartModel> getCart(GetCartRequestModel requestModel) async {
@@ -56,7 +72,8 @@ class CartRemoteDatasourceImpl implements BaseCartRemoteDatasource {
   }
 
   @override
-  Future<CartModel> decreaseCartItem(DecreaseCartItemRequestModel requestModel) async {
+  Future<CartModel> decreaseCartItem(
+      DecreaseCartItemRequestModel requestModel) async {
     try {
       final res = await _apiManager().post(
         ApiConstant.decreaseCartItemUri,

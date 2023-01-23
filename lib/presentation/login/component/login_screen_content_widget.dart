@@ -23,6 +23,7 @@ class LoginScreenContentWidget extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           LoginScreenFormWidget(
               loginRequest: loginRequest,

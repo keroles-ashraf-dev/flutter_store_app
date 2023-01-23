@@ -59,7 +59,6 @@ class DioClient implements ApiClient {
       ApiConstant.headerContentTypeKey: ApiConstant.headerValueApplicationJson,
       ApiConstant.headerAcceptKey: ApiConstant.headerValueApplicationJson,
       ApiConstant.headerApiKey: ApiConstant.apiKey,
-      ApiConstant.headerAuthorizationKey: _appPrefs.authToken,
     };
 
     options = BaseOptions(
@@ -157,14 +156,20 @@ class DioClient implements ApiClient {
     Map<String, dynamic> params,
   ) {
     final Dio dio = _dioFactory();
-
-    /// replace default headers by passed one
-    if (headers != null) options.headers = headers;
-
-    /// remove authorization from default headers
-    if (headers == null && !sendAuth) {
+    /// add authorization to default headers
+    if (sendAuth) {
+      defaultHeaders[ApiConstant.headerAuthorizationKey] = _appPrefs.authToken;
+    } else {
+      /// remove authorization from default headers
       defaultHeaders.remove(ApiConstant.headerAuthorizationKey);
+    }
+
+    /// add default headers
+    if (headers == null) {
       options.headers = defaultHeaders;
+    } else {
+      /// replace default headers by passed one
+      options.headers = headers;
     }
 
     /// set passed parameters

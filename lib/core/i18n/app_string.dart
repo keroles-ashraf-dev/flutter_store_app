@@ -7,12 +7,14 @@ class AppString {
   static const String light = 'light';
   static const String dark = 'dark';
   static const String save = 'save';
+  static const String ok = 'ok';
   static const String cancel = 'cancel';
   static const String searchHint = 'search_hint';
   static const String gettingThingsReady = 'getting_things_ready';
   static const String login = 'login';
   static const String loginRequiredHint = 'login_required_hint';
   static const String logout = 'logout';
+  static const String loggingOut = 'logging_out';
   static const String register = 'register';
   static const String firstName = 'first_name';
   static const String lastName = 'last_name';
@@ -30,13 +32,19 @@ class AppString {
   static const String about = 'about';
   static const String more = 'more';
   static const String sortBy = 'sort_by';
+  static const String name = 'name';
+  static const String price = 'price';
+  static const String rating = 'rating';
   static const String orderBy = 'order_by';
+  static const String asc = 'asc';
+  static const String desc = 'desc';
   static const String items = 'items';
   static const String shipping = 'shipping';
   static const String vat = 'vat';
   static const String total = 'total';
   static const String placeOrder = 'place_order';
   static const String checkout = 'checkout';
+  static const String emptyCart = 'empty_cart';
 
   /// error handler
   static const String serverError = 'server_error';

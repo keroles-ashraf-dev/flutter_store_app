@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:store/data/datasource/remote/cart_remote_datasource.dart';
 import 'package:store/data/mapper/cart_mapper.dart';
+import 'package:store/domain/entity/add_to_cart_request.dart';
 import 'package:store/domain/entity/cart.dart';
 import 'package:store/domain/entity/decrease_cart_item_request.dart';
 import 'package:store/domain/entity/get_cart_request.dart';
@@ -22,6 +23,24 @@ class CartRepositoryImpl implements BaseCartRepository {
     this._networkInfo,
     this._cartRemoteDatasource,
   );
+
+  @override
+  Future<Either<Failure, void>> addToCart(AddToCartRequest request) async {
+    try {
+      /// check network first
+      if (!(await _networkInfo.isConnected)) {
+        return Left(_errorHandler.localError());
+      }
+
+      /// send data to server
+      final res = await _cartRemoteDatasource.addToCart(request.toModel);
+
+      return Right(res);
+    } on ServerException catch (e) {
+      /// server thrown exception so return failure
+      return Left(e.serverFailure);
+    }
+  }
 
   @override
   Future<Either<Failure, Cart>> getCart(GetCartRequest request) async {

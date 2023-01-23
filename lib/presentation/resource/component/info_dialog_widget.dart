@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:localization/localization.dart';
+import 'package:store/core/navigation/app_navigator.dart';
+import 'package:store/presentation/resource/component/text_btn_widget.dart';
+
+import '../../../core/i18n/app_string.dart';
 
 class InfoDialogWidget extends StatelessWidget {
   final String message;
@@ -7,8 +12,15 @@ class InfoDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Text(message),
+    return AlertDialog(
+      actionsAlignment: MainAxisAlignment.center,
+      title: Text(message),
+      actions: [
+        TextBtnWidget(
+          action: () => AppNavigator.pop(context),
+          text: AppString.ok.i18n(),
+        ),
+      ],
     );
   }
 }

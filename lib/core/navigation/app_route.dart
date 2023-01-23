@@ -3,6 +3,8 @@ import 'package:store/core/service_locator/service_locator.dart';
 import 'package:store/presentation/account/view/account_screen.dart';
 import 'package:store/presentation/cart/view/cart_screen.dart';
 import 'package:store/presentation/home/view/home_screen.dart';
+import 'package:store/presentation/logout/view/logout_screen.dart';
+import 'package:store/presentation/product/view/product_screen.dart';
 
 import '../../presentation/category/view/category_screen.dart';
 import '../../presentation/deal/view/deal_screen.dart';
@@ -24,7 +26,7 @@ class AppRoute {
     /// verify if requested route require verifications like (login)
     /// if so then return new Route depends on required verifications
     routeSettings = Verifier.verify(routeSettings);
-      log(routeSettings.name);
+      log(routeSettings);
     switch (routeSettings.name) {
       case Routes.routeSplash:
         ServiceLocator.initSplashModule();
@@ -51,12 +53,14 @@ class AppRoute {
           builder: ((context) => CategoryScreen()),
         );
       case Routes.routeProduct:
-        ServiceLocator.initDealModule();
+        ServiceLocator.initCartModule();
+        ServiceLocator.initProductModule();
         return MaterialPageRoute(
           settings: routeSettings,
-          builder: ((context) => DealScreen()),
+          builder: ((context) => ProductScreen()),
         );
       case Routes.routeDeal:
+        ServiceLocator.initCartModule();
         ServiceLocator.initDealModule();
         return MaterialPageRoute(
           settings: routeSettings,
@@ -83,6 +87,12 @@ class AppRoute {
         return MaterialPageRoute(
           settings: routeSettings,
           builder: ((context) => const RegisterScreen()),
+        );
+      case Routes.routeLogout:
+        ServiceLocator.initLogoutModule();
+        return MaterialPageRoute(
+          settings: routeSettings,
+          builder: ((context) => const LogoutScreen()),
         );
       case Routes.routeCart:
         ServiceLocator.initCartModule();

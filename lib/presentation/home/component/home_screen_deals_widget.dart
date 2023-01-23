@@ -29,8 +29,8 @@ class HomeScreenDealsWidget extends StatelessWidget {
         right: AppSize.marginWidthExtraSmall,
       ),
       child: ListView.builder(
-        scrollDirection: Axis.horizontal,
         shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
         itemCount: deals.length,
         itemBuilder: (context, i) => _dealsCard(context, i),
       ),

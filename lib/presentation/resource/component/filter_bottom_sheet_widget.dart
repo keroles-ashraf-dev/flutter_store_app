@@ -57,6 +57,9 @@ class _FilterBottomSheetWidgetState extends State<FilterBottomSheetWidget> {
               itemCount: FilterSortByEnum.values.length,
               itemBuilder: (context, i) {
                 return RadioTaleWidget(
+                  margin: EdgeInsets.symmetric(
+                    vertical: AppSize.marginHeightTripleExtraSmall,
+                  ),
                   title: FilterSortByEnum.values[i].name.i18n(),
                   value: FilterSortByEnum.values[i],
                   groupValue: _sortBySelected,
@@ -77,7 +80,9 @@ class _FilterBottomSheetWidgetState extends State<FilterBottomSheetWidget> {
               itemCount: FilterOrderByEnum.values.length,
               itemBuilder: (context, i) {
                 return RadioTaleWidget(
-                  padding: EdgeInsets.symmetric(vertical: AppSize.height0_01),
+                  margin: EdgeInsets.symmetric(
+                    vertical: AppSize.marginHeightTripleExtraSmall,
+                  ),
                   title: FilterOrderByEnum.values[i].name.i18n(),
                   value: FilterOrderByEnum.values[i],
                   groupValue: _orderBySelected,

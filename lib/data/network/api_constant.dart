@@ -24,6 +24,7 @@ class ApiConstant {
   static const String resDataAddressesKey = 'addresses';
   static const String resDataCountryKey = 'country';
   static const String resDataProductsKey = 'products';
+  static const String resDataProductKey = 'product';
   static const String resDataCartKey = 'cart';
 
   /// base url
@@ -39,6 +40,7 @@ class ApiConstant {
 
   /// product uri
   static const String categoryProductsUri = '/api/v1/category-products';
+  static const String productUri = '/api/v1/product';
 
   /// deal uri
   static const String dealsUri = '/api/v1/deals';
@@ -56,6 +58,7 @@ class ApiConstant {
 
   /// cart uri
   static const String cartUri = '/api/v1/cart';
+  static const String addToCartUri = '/api/v1/cart/add';
   static const String increaseCartItemUri = '/api/v1/cart/increase';
   static const String decreaseCartItemUri = '/api/v1/cart/decrease';
 }

@@ -22,9 +22,9 @@ class IconBtnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () => action(),
+      padding: padding,
       style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all(
-            Size(width ?? AppSize.width0_01, height ?? AppSize.width0_01)),
+        fixedSize: MaterialStateProperty.all(Size(width ?? AppSize.width0_01, height ?? AppSize.width0_01)),
         padding: MaterialStateProperty.all(padding)
       ),
       icon: Icon(icon),

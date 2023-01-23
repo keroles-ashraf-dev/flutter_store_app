@@ -12,3 +12,13 @@ class DealScreenGetDealDataEvent extends DealScreenEvent {
   @override
   List<Object> get props => [getDealRequest];
 }
+
+
+class DealScreenAddToCartEvent extends DealScreenEvent {
+  final AddToCartRequest addToCartRequest;
+
+  const DealScreenAddToCartEvent(this.addToCartRequest);
+
+  @override
+  List<Object> get props => [addToCartRequest];
+}

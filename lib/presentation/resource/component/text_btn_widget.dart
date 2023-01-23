@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../size_manager.dart';
-
 class TextBtnWidget extends StatelessWidget {
   final String text;
   final Function action;
@@ -21,9 +19,14 @@ class TextBtnWidget extends StatelessWidget {
     return TextButton(
       onPressed: () => action(),
       style: ButtonStyle(
-        fixedSize: MaterialStateProperty.all(Size(width ?? AppSize.width5, height ?? AppSize.height0_06)),
+        fixedSize: _size(),
       ),
       child: Text(text),
     );
+  }
+
+  MaterialStateProperty<Size>? _size() {
+    if (width == null || height == null) return null;
+    return MaterialStateProperty.all(Size(width!, height!));
   }
 }

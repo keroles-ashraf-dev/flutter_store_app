@@ -6,6 +6,7 @@ import 'package:store/domain/entity/decrease_cart_item_request.dart';
 import 'package:store/domain/entity/increase_cart_item_request.dart';
 import 'package:store/presentation/cart/controller/cart_screen_bloc.dart';
 import 'package:store/presentation/resource/component/icon_btn_widget.dart';
+import 'package:store/presentation/resource/component/spacer_widget.dart';
 import 'package:store/presentation/resource/size_manager.dart';
 
 import '../../../core/service_locator/service_locator.dart';
@@ -22,8 +23,7 @@ class ItemQuantityWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-            color: AppColor.disabled, width: AppSize.borderWidthSmall),
+        border: Border.all(color: AppColor.white, width: AppSize.borderWidthSmall),
         borderRadius: BorderRadius.circular(AppSize.radiusSmall),
       ),
       child: Row(
@@ -36,7 +36,9 @@ class ItemQuantityWidget extends StatelessWidget {
             action: () => _increment(context, productId),
             padding: EdgeInsets.zero,
           ),
+          SpacerWidget(width: AppSize.width0_02,),
           Text(quantity.toString()),
+          SpacerWidget(width: AppSize.width0_02,),
           IconBtnWidget(
             icon: CupertinoIcons.minus,
             action: () => _decrement(context, productId),

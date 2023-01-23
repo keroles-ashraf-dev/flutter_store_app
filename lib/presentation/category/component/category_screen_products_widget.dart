@@ -121,6 +121,6 @@ class CategoryScreenProductsWidget extends StatelessWidget {
   }
 
   void _productClick(BuildContext context, int productId) {
-    AppNavigator.push(context, Routes.routeProduct, data: {'id', productId});
+    AppNavigator.push(context, Routes.routeProduct, data: {'id': productId});
   }
 }

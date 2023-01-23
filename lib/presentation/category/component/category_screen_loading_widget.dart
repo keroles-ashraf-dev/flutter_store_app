@@ -10,7 +10,6 @@ class CategoryScreenLoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      scrollDirection: Axis.horizontal,
       shrinkWrap: true,
       itemCount: UIConstant.categoryShimmerLoadingItemsCount,
       itemBuilder: (context, i) => _categoryCard(),
@@ -19,8 +18,12 @@ class CategoryScreenLoadingWidget extends StatelessWidget {
 
   Widget _categoryCard() {
     return ShimmerWidget(
-      child: SizedBox(
+      child: Container(
         width: AppSize.width,
+        height: AppSize.height2,
+        margin: EdgeInsets.symmetric(
+          vertical: AppSize.marginHeightTripleExtraSmall,
+        ),
         child: const Card(),
       ),
     );

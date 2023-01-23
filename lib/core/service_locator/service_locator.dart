@@ -4,6 +4,7 @@ import 'package:store/domain/repository/base_user_repository.dart';
 import 'package:store/domain/usecase/address/get_address_usecase.dart';
 import 'package:store/domain/usecase/auth/login_usecase.dart';
 import 'package:store/domain/usecase/auth/register_usecase.dart';
+import 'package:store/domain/usecase/cart/add_to_cart_usecase.dart';
 import 'package:store/domain/usecase/cart/decrease_cart_item_usecase.dart';
 import 'package:store/domain/usecase/cart/increase_cart_item_usecase.dart';
 import 'package:store/domain/usecase/category/get_main_categories_usecase.dart';
@@ -13,6 +14,7 @@ import 'package:store/presentation/cart/controller/cart_screen_bloc.dart';
 import 'package:store/presentation/category/controller/category_screen_bloc.dart';
 import 'package:store/presentation/home/controller/home_screen_bloc.dart';
 import 'package:store/presentation/login/controller/login_screen_bloc.dart';
+import 'package:store/presentation/logout/controller/logout_screen_bloc.dart';
 import 'package:store/presentation/register/controller/register_screen_bloc.dart';
 import 'package:store/presentation/splash/controller/splash_screen_bloc.dart';
 import 'package:store/presentation/theme/controller/theme_screen_bloc.dart';
@@ -51,9 +53,11 @@ import '../../domain/usecase/carousel/get_main_carousel_usecase.dart';
 import '../../domain/usecase/cart/get_cart_usecase.dart';
 import '../../domain/usecase/deal/get_deal_usecase.dart';
 import '../../domain/usecase/deal/get_deals_usecase.dart';
+import '../../domain/usecase/product/get_product_usecase.dart';
 import '../../presentation/deal/controller/deal_screen_bloc.dart';
 import '../../presentation/language/controller/language_screen_bloc.dart';
 import '../../presentation/main/controller/main_screen_bloc.dart';
+import '../../presentation/product/controller/product_screen_bloc.dart';
 import '../error/error_handling.dart';
 import '../session/session.dart';
 import '../util/app_prefs.dart';
@@ -314,18 +318,58 @@ class ServiceLocator {
     }
   }
 
+  /// initiate product module
+  static void initProductModule() {
+    /// bloc
+    if (!isRegistered<ProductScreenBloc>()) {
+      _sl.registerFactory<ProductScreenBloc>(
+          () => ProductScreenBloc(_sl<GetProductUsecase>(), _sl<AddToCartUsecase>()));
+    }
+
+    /// usecase
+    if (!isRegistered<GetProductUsecase>()) {
+      _sl.registerLazySingleton<GetProductUsecase>(
+          () => GetProductUsecase(_sl<BaseProductRepository>()));
+    }
+
+    /// repository
+    if (!isRegistered<BaseProductRepository>()) {
+      _sl.registerLazySingleton<BaseProductRepository>(() => ProductRepositoryImpl(
+          _sl<ErrorHandler>(),
+          _sl<NetworkInfo>(),
+          _sl<BaseProductLocalDatasource>(),
+          _sl<BaseProductRemoteDatasource>()));
+    }
+
+    /// local datasource
+    if (!isRegistered<BaseProductLocalDatasource>()) {
+      _sl.registerLazySingleton<BaseProductLocalDatasource>(
+        () => ProductLocalDatasourceImpl(
+          _sl<ErrorHandler>(),
+          _sl<CacheManager>(),
+        ),
+      );
+    }
+
+    /// remote datasource
+    if (!isRegistered<BaseProductRemoteDatasource>()) {
+      _sl.registerLazySingleton<BaseProductRemoteDatasource>(
+          () => ProductRemoteDatasourceImpl(_sl<ApiManager>()));
+    }
+  }
+
   /// initiate deal module
   static void initDealModule() {
     /// bloc
     if (!isRegistered<DealScreenBloc>()) {
       _sl.registerFactory<DealScreenBloc>(
-          () => DealScreenBloc(_sl<GetDealUsecase>()));
+              () => DealScreenBloc(_sl<GetDealUsecase>(), _sl<AddToCartUsecase>()));
     }
 
     /// usecase
     if (!isRegistered<GetDealUsecase>()) {
       _sl.registerLazySingleton<GetDealUsecase>(
-          () => GetDealUsecase(_sl<BaseDealRepository>()));
+              () => GetDealUsecase(_sl<BaseDealRepository>()));
     }
 
     /// repository
@@ -340,7 +384,7 @@ class ServiceLocator {
     /// local datasource
     if (!isRegistered<BaseDealLocalDatasource>()) {
       _sl.registerLazySingleton<BaseDealLocalDatasource>(
-        () => DealLocalDatasourceImpl(
+            () => DealLocalDatasourceImpl(
           _sl<ErrorHandler>(),
           _sl<CacheManager>(),
         ),
@@ -350,7 +394,7 @@ class ServiceLocator {
     /// remote datasource
     if (!isRegistered<BaseDealRemoteDatasource>()) {
       _sl.registerLazySingleton<BaseDealRemoteDatasource>(
-          () => DealRemoteDatasourceImpl(_sl<ApiManager>()));
+              () => DealRemoteDatasourceImpl(_sl<ApiManager>()));
     }
   }
 
@@ -364,6 +408,11 @@ class ServiceLocator {
     }
 
     /// usecase
+    if (!isRegistered<AddToCartUsecase>()) {
+      _sl.registerLazySingleton<AddToCartUsecase>(
+              () => AddToCartUsecase(_sl<BaseCartRepository>()));
+    }
+
     if (!isRegistered<GetCartUsecase>()) {
       _sl.registerLazySingleton<GetCartUsecase>(
           () => GetCartUsecase(_sl<BaseCartRepository>()));
@@ -471,6 +520,18 @@ class ServiceLocator {
     if (!isRegistered<BaseAuthRemoteDatasource>()) {
       _sl.registerLazySingleton<BaseAuthRemoteDatasource>(
           () => AuthRemoteDatasourceImpl(_sl<ApiManager>()));
+    }
+  }
+
+  /// initiate logout module
+  static void initLogoutModule() {
+    /// bloc
+    if (!isRegistered<LogoutScreenBloc>()) {
+      _sl.registerFactory<LogoutScreenBloc>(
+            () => LogoutScreenBloc(
+          _sl<Session>(),
+        ),
+      );
     }
   }
 

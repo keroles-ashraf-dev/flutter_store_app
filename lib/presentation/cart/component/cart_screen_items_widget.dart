@@ -24,6 +24,7 @@ class CartScreenItemsWidget extends StatelessWidget {
     return SizedBox(
       child: ListView.builder(
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: cart.items.length,
         itemBuilder: (context, i) {
           return _itemCard(context, cart.items[i]);
@@ -44,11 +45,11 @@ class CartScreenItemsWidget extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CachedNetworkImage(
-                width: AppSize.width2,
-                height: AppSize.width2,
+                width: AppSize.width3,
+                height: AppSize.width3,
                 imageUrl: i.images.first,
                 fit: BoxFit.contain,
               ),
@@ -120,6 +121,6 @@ class CartScreenItemsWidget extends StatelessWidget {
   }
 
   void _itemClick(BuildContext context, int productId) {
-    AppNavigator.push(context, Routes.routeProduct, data: {'id', productId});
+    AppNavigator.push(context, Routes.routeProduct, data: {'id': productId});
   }
 }
